@@ -1,0 +1,11 @@
+G:\githubstuff\Python\uno\bin\Debug\uno.exe.config
+G:\githubstuff\Python\uno\bin\Debug\uno.exe
+G:\githubstuff\Python\uno\bin\Debug\uno.pdb
+G:\githubstuff\Python\uno\obj\Debug\uno.csproj.AssemblyReference.cache
+G:\githubstuff\Python\uno\obj\Debug\uno.csproj.SuggestedBindingRedirects.cache
+G:\githubstuff\Python\uno\obj\Debug\uno.Form1.resources
+G:\githubstuff\Python\uno\obj\Debug\uno.Properties.Resources.resources
+G:\githubstuff\Python\uno\obj\Debug\uno.csproj.GenerateResource.cache
+G:\githubstuff\Python\uno\obj\Debug\uno.csproj.CoreCompileInputs.cache
+G:\githubstuff\Python\uno\obj\Debug\uno.exe
+G:\githubstuff\Python\uno\obj\Debug\uno.pdb
