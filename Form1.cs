@@ -59,7 +59,6 @@ namespace uno
         public bool aicontroled;
         public string name;
 
-
         public player(bool aicontroled, string name)
         {
             this.aicontroled = aicontroled;
@@ -74,6 +73,19 @@ namespace uno
             if (type == "points") { foreach (card c in deck) { word += $"({c.points[0]}), "; } }
 
             return word; 
+        }
+    }
+
+    class discardpile
+    {
+        
+        public List<card> discardpile = new List<card>();
+
+        public bool addcard(card c, bool isflipped, List<card> deck) 
+        {
+            List<card> eligablecards = cardvalues.eligablecards(card, isflipped)
+            if (eligablecards.Contains(c)) {discardpile.Remove(c); return true;} 
+            return false;
         }
     }
 
@@ -153,6 +165,7 @@ namespace uno
         int startingcardnumber = 4;
         public List<player> players = new List<player>() { new player(false, "noai") };
         public bool isflipped = false;
+        public bool drawtomatch = true;
 
         public gamelogic()
         {
@@ -162,20 +175,23 @@ namespace uno
             for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { card addcard = deck[RandomNumber.Between(0, deck.Count)]; players[i].deck.Add(addcard); deck.Remove(addcard); } } 
         }
 
-        
-        
-        private List<card>  drawtomatch(player pl, card topofdeck, bool isflipped) 
+        private List<card> drawtomatch(player pl, card topofdeck, bool isflipped) 
         {
-            Random rnd = new Random();
-            card newcard = new card();
+            card newcard = deck[rnd.Next(deck.Count)];
             List<card> addlist = new List<card>();
             int i = gamelogic.flipnumber(isflipped);
-            while (newcard.color[i] == "wild" || newcard.color[i] == topofdeck.color[i] || newcard.number[i] == topofdeck.number[i]) 
+            while (newcard.color[i] != "wild" || newcard.color[i] != topofdeck.color[i] || newcard.number[i] != topofdeck.number[i]) 
             {
                 addlist.Add(newcard);
                 newcard = deck[rnd.Next(deck.Count)];
             }
             return addlist;
+        }
+
+        public void drawcard(player pl, card topofdeck, bool isflipped) 
+        {
+            if (drawtomatch) {pl.deck = this.drawtomatch;}
+            else {pl.deck.Add(deck[rnd.Next(deck.Count)]);}
         }
     }
 
@@ -187,11 +203,7 @@ namespace uno
             byte[] randomNumber = new byte[1];
             _generator.GetBytes(randomNumber);
             double asciiValueOfRandomCharacter = Convert.ToDouble(randomNumber[0]);
-            // We are using Math.Max, and substracting 0.00000000001, 
-            // to ensure "multiplier" will always be between 0.0 and .99999999999
-            // Otherwise, it's possible for it to be "1", which causes problems in our rounding.
             double multiplier = Math.Max(0, (asciiValueOfRandomCharacter / 255d) - 0.00000000001d);
-            // We need to add one to the range, to allow for the rounding done with Math.Floor
             int range = maximumValue - minimumValue;
             double randomValueInRange = Math.Floor(multiplier * range);
             return (int)(minimumValue + randomValueInRange);
