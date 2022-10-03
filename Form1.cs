@@ -33,12 +33,12 @@ namespace uno
         public PictureBox picture = new PictureBox();
         public int[] ailevel = { -1, -1}
 
-        public card(string[] color, string[] number, int[] points, int[] ailevel)
+        public card(string[] color, string[] number, int[] points)
         {
             this.color = color;
             this.number = number;
             this.points = points;
-            this.ailevel = ailevel;
+            this.ailevel = points;
         }
 
         public string getname(bool isflipped)
@@ -75,9 +75,6 @@ namespace uno
 
             return word; 
         }
-        
-       
-      
     }
 
     class aicontroler
@@ -101,33 +98,52 @@ namespace uno
 
         public List<card> sort(string type, bool isflipped, List<card> deck) 
         {
-          if (type == "color") 
-          {
-              List<string> colors = new List<string>() {"red", "yellow", "green", "blue", "wild"};
-              List<List<card>> newlist = new List<List<card>>() {new List<card>(), new List<card>(), new List<card>(), new List<card>(), new List<card>()};
-              while (deck.Count > 0) { newlist[colors.IndexOf(deck[0].color[0])].Add(deck[0]); deck.RemoveAt(0);}
-              foreach (List<card> l in newlist) {foreach (card c in l) {deck.Add(c);}}
-          }
-          else if (type == "points") 
-          {
-              List<card> newlist = deck;
-              bool passed = false;
-              while (!passed) {passed = true; for (int i = 1; i < deck.Count; i++) {if (newlist[i - 1].points[0] < newlist[i].points[0]) {passed = false; card temp = newlist[i-1]; newlist[i-1] = newlist[i]; newlist[i] = temp;}}}
-          }
-          return deck;
+            int index = randomNumber.flipnumber(isflipped)
+            if (type == "color") 
+            {
+                List<List<card>> newlist = this.splitbycolor(index, deck);
+                foreach (List<card> l in newlist) {foreach (card c in l) {deck.Add(c);}}
+            }
+            else if (type == "points") 
+            {
+                deck = this.sortpoints(index, deck);
+            }
+            else if (type == "both") 
+            {
+                List<List<card>> newlist = this.splitbycolor(index, deck);
+                for (int i = 0; i < 4; i++) {newlist[i] = this.sortpoints(index, newlist[i])}
+                foreach (List<card> l in newlist) {foreach (card c in l) {deck.Add(c);}}
+            }
+            return deck;
+        }
+
+        private List<card> sortpoints(int i, List<card> deck) 
+        {
+            List<card> newlist = new;
+            bool passed = false;
+            while (!passed) {passed = true; for (int i = 1; i < deck.Count; i++) {if (newlist[i - 1].points[0] < newlist[i].points[0]) {passed = false; card temp = newlist[i-1]; newlist[i-1] = newlist[i]; newlist[i] = temp;}}}
+            return newlist;
+        }
+
+        private List<List<card>> splitbycolor(int index, List<card> deck) 
+        {
+            List<string> colors = new List<string>() {"red", "yellow", "green", "blue", "wild"};
+            List<List<card>> newlist = new List<List<card>>() {new List<card>(), new List<card>(), new List<card>(), new List<card>(), new List<card>()};
+            while (deck.Count > 0) { newlist[colors.IndexOf(deck[0].color[index])].Add(deck[0]); deck.RemoveAt(0);}
+            return newlist;
         }
 
         public List<card> eligablecards(card topofdeck, bool isflipped, List<card> deck) 
         {
-          List<card> eligablecards = new List<card>();
-          foreach (card c in deck) 
-          {
+            List<card> eligablecards = new List<card>();
+            foreach (card c in deck) 
+            {
             if (c.color[i] == "wild" || c.color[i] == topofdeck.color[i] || c.number[i] == topofdeck.number[i]) 
             {
-              eligablecards.Add(c);
+                eligablecards.Add(c);
             }         
-          }
-          return eligablecards;
+            }
+            return eligablecards;
         }
     }
 
@@ -136,6 +152,8 @@ namespace uno
         List<card> deck = new List<card>();
         int startingcardnumber = 4;
         public List<player> players = new List<player>() { new player(false, "noai") };
+        public bool isflipped = false;
+
         public gamelogic()
         {
             for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { string[] newcolors = new string[] { cardvalues.colors[0, i], "" }; string[] newnumbers = { cardvalues.numbers[0, x], "" }; int[] newpoints = {cardvalues.points[0, x], -1}; deck.Add(new card(newcolors, newnumbers, newpoints)); } } }
