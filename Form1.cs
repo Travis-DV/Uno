@@ -54,6 +54,25 @@ namespace uno
         }
     }
 
+    class discardpile
+    {
+        
+        public List<card> discardpile = new List<card>();
+
+        public int addcard(card c, bool isflipped, List<card> deck) 
+        {
+            List<card> eligablecards = cardvalues.eligablecards(card, isflipped)
+            if (eligablecards.Contains(c)) {discardpile.Remove(c); return true;} 
+            return false;
+        }
+
+        private int[] findaddcard(card topcard, int pastadd, bool isflipped) 
+        {
+            int[] ints = {-1, pastadd}
+            if (!isflpped && (topcard.number[0] == "+4" || topcard.number[0] == "+2")) {ints = {1, int.Parse(c.number[0]) + pastint}; }
+        }
+    }
+
     class player
     {
         public List<card> deck = new List<card>();
