@@ -33,7 +33,8 @@ namespace uno
         public int[] points = { -1, -1};
         public PictureBox picture = new PictureBox();
         public int[] ailevel = { -1, -1};
-        public int[] loctaion = {-1, -1}
+        //x, y, changed
+        public int[] loctaion = {-1, -1, -1};
 
         public card(string[] color, string[] number, int[] points)
         {
@@ -104,7 +105,7 @@ namespace uno
             {
                 if (i < deck.count/2) 
                 {
-                    -1
+                    deck[i].loctaion[deck[i].loctaion[2]]
                 }
             }
         }
@@ -206,7 +207,7 @@ namespace uno
         public gamelogic(int width, int height)
         {
             //Bottem Top Right Left
-            List<int[]> startinglocation = new List<int[]>() { new int[] { width/2, height }, new int[] { width/2, 0 }, new int[] { 0, height/2 }, new int[] { width, height/2 } };
+            List<int[]> startinglocation = new List<int[]>() { new int[] { width/2, height-100, 0 }, new int[] { width/2, 100, 0 }, new int[] { 100, height/2, 1 }, new int[] { width-100, height/2, 1 } };
             for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { string[] newcolors = new string[] { cardvalues.colors[0, i], "" }; string[] newnumbers = { cardvalues.numbers[0, x], "" }; int[] newpoints = {cardvalues.points[0, x], -1}; deck.Add(new card(newcolors, newnumbers, newpoints)); } } }
             for (int i = 0; i < 3; i++) {string[] color = {"wild", "wild"}; string[] number = {cardvalues.wilds[0,i], ""}; int[] points = { cardvalues.points[2, i], -1 };  deck.Add(new card(color, number, points));}
             players.Add(new player(false, "noai", startinglocation[0]));
