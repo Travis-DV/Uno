@@ -109,7 +109,10 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label player1LB;
+        public System.Windows.Forms.Label player2LB;
+        public System.Windows.Forms.Label player3LB;
+        public System.Windows.Forms.Label player4LB;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
