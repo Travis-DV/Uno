@@ -44,14 +44,41 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // player1LB
             // 
-            this.label1.AutoSize = true;
+            this.label1.AutoSize = false;
             this.label1.Location = new System.Drawing.Point(11, 257);
-            this.label1.Name = "label1";
+            this.label1.Name = "player1LB";
             this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.label1.Text = "";
+            // 
+            // player2LB
+            // 
+            this.label1.AutoSize = false;
+            this.label1.Location = new System.Drawing.Point(21, 257);
+            this.label1.Name = "player2LB";
+            this.label1.Size = new System.Drawing.Size(64, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "";
+            // 
+            // player3LB
+            // 
+            this.label1.AutoSize = false;
+            this.label1.Location = new System.Drawing.Point(31, 257);
+            this.label1.Name = "player3LB";
+            this.label1.Size = new System.Drawing.Size(64, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "";
+            // 
+            // player4LB
+            // 
+            this.label1.AutoSize = false;
+            this.label1.Location = new System.Drawing.Point(41, 257);
+            this.label1.Name = "player4LB";
+            this.label1.Size = new System.Drawing.Size(64, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "";
             // 
             // pictureBox1
             // 
