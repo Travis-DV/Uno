@@ -105,7 +105,13 @@ namespace uno
             {
                 if (i < deck.count/2) 
                 {
-                    deck[i].loctaion[deck[i].loctaion[2]]
+                    if ((deck[i].loctaion[deck[i].loctaion[2]] -= (deck.Count - i) * 100) < 0) { deck[i].loctaion[deck[i].loctaion[2]] -= (deck.Count - i) * 50;}
+                    else { deck[i].loctaion[deck[i].loctaion[2]] -= (deck.Count - i) * 100;}
+                }
+                else if (i > deck.count/2) 
+                {
+                    if ((deck[i].loctaion[deck[i].loctaion[2]] += (deck.Count - i) * 100) < 0) { deck[i].loctaion[deck[i].loctaion[2]] -= (deck.Count - i) * 50;}
+                    else { deck[i].loctaion[deck[i].loctaion[2]] += (deck.Count - i) * 100;}
                 }
             }
         }
