@@ -33,6 +33,7 @@ namespace uno
         public int[] points = { -1, -1};
         public PictureBox picture = new PictureBox();
         public int[] ailevel = { -1, -1};
+        public int[] loctaion = {-1, -1}
 
         public card(string[] color, string[] number, int[] points)
         {
@@ -94,6 +95,18 @@ namespace uno
             if (type == "points") { foreach (card c in deck) { word += $"({c.points[0]}), "; } }
 
             return word; 
+        }
+
+        // picture size 100, 132
+        public void makepicturearea()
+        {
+            for (int i = 0; i < deck.Count; i++) 
+            {
+                if (i < deck.count/2) 
+                {
+                    -1
+                }
+            }
         }
     }
 
