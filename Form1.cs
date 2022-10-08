@@ -59,19 +59,20 @@ namespace uno
     class discardpile
     {
         
-        public List<card> discardpile = new List<card>();
+        public List<card> discardpilelist = new List<card>();
 
-        public int addcard(card c, bool isflipped, List<card> deck) 
+        public bool playcard(card c, bool isflipped, List<card> deck) 
         {
-            List<card> eligablecards = cardvalues.eligablecards(card, isflipped)
-            if (eligablecards.Contains(c)) {discardpile.Remove(c); return true;} 
+            List<card> eligablecards = cardvalues.eligablecards(deck, c, isflipped);
+            if (eligablecards.Contains(c)) {discardpilelist.Remove(c); return true;} 
             return false;
         }
 
         private int[] findaddcard(card topcard, int pastadd, bool isflipped) 
         {
-            int[] ints = {-1, pastadd}
-            if (!isflpped && (topcard.number[0] == "+4" || topcard.number[0] == "+2")) {ints = {1, int.Parse(c.number[0]) + pastint}; }
+            int[] ints = { -1, pastadd };
+            if (!isflipped && (topcard.number[0] == "+4" || topcard.number[0] == "+2")) { ints = new int[] { 1, int.Parse(topcard.number[0]) + pastadd}; }
+            return ints;
         }
     }
 
@@ -103,30 +104,17 @@ namespace uno
         {
             for (int i = 0; i < deck.Count; i++) 
             {
-                if (i < deck.count/2) 
+                if (i < deck.Count/2) 
                 {
                     if ((deck[i].loctaion[deck[i].loctaion[2]] -= (deck.Count - i) * 100) < 0) { deck[i].loctaion[deck[i].loctaion[2]] -= (deck.Count - i) * 50;}
                     else { deck[i].loctaion[deck[i].loctaion[2]] -= (deck.Count - i) * 100;}
                 }
-                else if (i > deck.count/2) 
+                else if (i > deck.Count/2) 
                 {
                     if ((deck[i].loctaion[deck[i].loctaion[2]] += (deck.Count - i) * 100) < 0) { deck[i].loctaion[deck[i].loctaion[2]] -= (deck.Count - i) * 50;}
                     else { deck[i].loctaion[deck[i].loctaion[2]] += (deck.Count - i) * 100;}
                 }
             }
-        }
-    }
-
-    class discardpile
-    {
-        
-        public List<card> discardpilelist = new List<card>();
-
-        public bool addcard(card c, bool isflipped, List<card> deck) 
-        {
-            List<card> eligablecards = cardvalues.eligablecards(deck, c, isflipped);
-            if (eligablecards.Contains(c)) { discardpilelist.Remove(c); return true;} 
-            return false;
         }
     }
 
