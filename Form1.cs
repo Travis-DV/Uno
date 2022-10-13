@@ -82,12 +82,18 @@ namespace uno
         public bool aicontroled;
         public string name;
         public int[] startinglocation = { -1, -1 };
+        public Label LB = new System.Windows.Forms.Label();
+        
 
-        public player(bool aicontroled, string name, int[] startinglocation)
+        public player(bool aicontroled, string name, int[] startinglocation, int[] LBlocation)
         {
             this.aicontroled = aicontroled;
             this.name = name;
             this.startinglocation = startinglocation;
+            this.LB.AutoSize = false;
+            this.LB.Location = new System.Drawing.Point(LBlocation[0], LBlocation[1]);
+            this.LB.Name = "player1LB";
+            this.LB.Size = new System.Drawing.Size(64, 25);
         }
 
         public string readout(string type) 
@@ -115,6 +121,11 @@ namespace uno
                     else { deck[i].loctaion[deck[i].loctaion[2]] += (deck.Count - i) * 100;}
                 }
             }
+        }
+
+        public card play()
+        {
+            //add on click event
         }
     }
 
@@ -195,17 +206,17 @@ namespace uno
         int startingcardnumber = 4;
         public List<player> players = new List<player>() {};
         public bool isflipped = false;
-        public bool drawtomatchbool = true;
-        
+        public bool drawtomatchbool = true;        
 
         public gamelogic(int width, int height)
         {
             //Bottem Top Right Left
+            int[,] LBlocation = {{162, 622}, {1022, 622}, {1022, 118}, {162, 118}}
             List<int[]> startinglocation = new List<int[]>() { new int[] { width/2, height-100, 0 }, new int[] { width/2, 100, 0 }, new int[] { 100, height/2, 1 }, new int[] { width-100, height/2, 1 } };
             for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { string[] newcolors = new string[] { cardvalues.colors[0, i], "" }; string[] newnumbers = { cardvalues.numbers[0, x], "" }; int[] newpoints = {cardvalues.points[0, x], -1}; deck.Add(new card(newcolors, newnumbers, newpoints)); } } }
             for (int i = 0; i < 3; i++) {string[] color = {"wild", "wild"}; string[] number = {cardvalues.wilds[0,i], ""}; int[] points = { cardvalues.points[2, i], -1 };  deck.Add(new card(color, number, points));}
-            players.Add(new player(false, "noai", startinglocation[0]));
-            for (int i = 1; i < startingcardnumber; i++) { players.Add(new player(true, "yesai", startinglocation[i])); }
+            players.Add(new player(false, "noai", startinglocation[0], LBlocation[0]));
+            for (int i = 1; i < startingcardnumber; i++) { players.Add(new player(true, "yesai", startinglocation[i]), LBlocation[i]); }
             for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { card addcard = deck[RandomNumber.Between(0, deck.Count)]; players[i].deck.Add(addcard); deck.Remove(addcard); } } 
         }
 

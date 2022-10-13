@@ -49,49 +49,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // player4LB
-            // 
-            this.player4LB.Location = new System.Drawing.Point(0, 0);
-            this.player4LB.Name = "player4LB";
-            this.player4LB.Size = new System.Drawing.Size(100, 23);
-            this.player4LB.TabIndex = 9;
-            // 
-            // player1LB
-            // 
-            this.la.AutoSize = false;
-            this.la.Location = new System.Drawing.Point(162, 622);
-            this.la.Name = "player1LB";
-            this.la.Size = new System.Drawing.Size(64, 25);
-            this.la.TabIndex = 10;
-            this.la.Text = "1";
-            // 
-            // player2LB
-            // 
-            this.label2.AutoSize = false;
-            this.label2.Location = new System.Drawing.Point(1022, 622);
-            this.label2.Name = "player2LB";
-            this.label2.Size = new System.Drawing.Size(64, 25);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "2";
-            // 
-            // player3LB
-            // 
-            this.label3.AutoSize = false;
-            this.label3.Location = new System.Drawing.Point(1022, 118);
-            this.label3.Name = "player3LB";
-            this.label3.Size = new System.Drawing.Size(64, 25);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "2";
-            // 
-            // player4LB
-            // 
-            this.label4.AutoSize = false;
-            this.label4.Location = new System.Drawing.Point(162, 118);
-            this.label4.Name = "player4LB";
-            this.label4.Size = new System.Drawing.Size(64, 25);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "4";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
