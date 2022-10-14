@@ -82,7 +82,7 @@ namespace uno
         public bool aicontroled;
         public string name;
         public int[] startinglocation = { -1, -1 };
-        public Label LB = new System.Windows.Forms.Label();
+        public System.Windows.Forms.Label LB = new System.Windows.Forms.Label();
         
 
         public player(bool aicontroled, string name, int[] startinglocation, int[] LBlocation)
@@ -131,6 +131,7 @@ namespace uno
         public card play()
         {
             //add on click event
+            return deck[0];
         }
     }
 
@@ -222,12 +223,12 @@ namespace uno
         public gamelogic(int width, int height)
         {
             //Bottem Top Right Left
-            int[,] LBlocation = {{162, 622}, {1022, 622}, {1022, 118}, {162, 118}}
+            List<int[]> LBlocation = new List<int[]>() { new int[] { 162, 622 }, new int[] { 1022, 622 }, new int[] { 1022, 118 }, new int[] { 162, 118 } };
             List<int[]> startinglocation = new List<int[]>() { new int[] { width/2, height-100, 0 }, new int[] { width/2, 100, 0 }, new int[] { 100, height/2, 1 }, new int[] { width-100, height/2, 1 } };
             for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { string[] newcolors = new string[] { cardvalues.colors[0, i], "" }; string[] newnumbers = { cardvalues.numbers[0, x], "" }; int[] newpoints = {cardvalues.points[0, x], -1}; deck.Add(new card(newcolors, newnumbers, newpoints)); } } }
             for (int i = 0; i < 3; i++) {string[] color = {"wild", "wild"}; string[] number = {cardvalues.wilds[0,i], ""}; int[] points = { cardvalues.points[2, i], -1 };  deck.Add(new card(color, number, points));}
             players.Add(new player(false, "noai", startinglocation[0], LBlocation[0]));
-            for (int i = 1; i < amountofplayers; i++) { players.Add(new player(true, "yesai", startinglocation[i]), LBlocation[i]); }
+            for (int i = 1; i < amountofplayers; i++) { players.Add(new player(true, "yesai", startinglocation[i], LBlocation[i])); }
             for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { card addcard = deck[RandomNumber.Between(0, deck.Count)]; players[i].deck.Add(addcard); deck.Remove(addcard); } } 
         }
 
@@ -254,14 +255,14 @@ namespace uno
         {
             if (isreverced) 
             {
-                if (playerindex++ < players.Count) {playerindex++}
-                else if ()
+                if (playerindex++ < players.Count) { playerindex++; }
+                else if (playerindex++ == players.Count) { playerindex = 0; }
             }
         }
 
         public void playturn() 
         {
-            for (player p in players) {p.update();}
+            foreach (player p in players) {p.update();}
             
         }
     }
