@@ -20,9 +20,10 @@ namespace uno
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             gamelogic game = new gamelogic(this.Width, this.Height);
+            foreach (player p in game.players) { this.Controls.Add(p.LB); }
         }
     }
 
@@ -53,6 +54,16 @@ namespace uno
         public void setimage(bool isflipped)
         {
             picture.Image = Image.FromFile(Application.StartupPath + "\\" + this.getname(false));
+            picture.Location = new Point(280, 118);
+            picture.Name = "pictureBox1";
+            picture.Size = new Size(loctaion[0], loctaion[1]);
+            picture.TabStop = false;
+            picture.Click += new EventHandler(this.picture_Click);
+        }
+
+        private void picture_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -91,9 +102,10 @@ namespace uno
             this.name = name;
             this.startinglocation = startinglocation;
             this.LB.AutoSize = false;
-            this.LB.Location = new System.Drawing.Point(LBlocation[0], LBlocation[1]);
+            this.LB.Location = new Point(LBlocation[0], LBlocation[1]);
             this.LB.Name = "player1LB";
-            this.LB.Size = new System.Drawing.Size(64, 25);
+            this.LB.Size = new Size(64, 25);
+            this.LB.Text = "WEEEEEEEEEEEEEEEEEEEEEE";
         }
 
         public string readout(string type) 
@@ -121,6 +133,11 @@ namespace uno
                     else { deck[i].loctaion[deck[i].loctaion[2]] += (deck.Count - i) * 100;}
                 }
             }
+        }
+
+        public void renderpictures() 
+        {
+
         }
 
         public void update() 
@@ -216,7 +233,7 @@ namespace uno
         List<card> deck = new List<card>();
         public List<player> players = new List<player>();
         public bool isflipped = false;
-        private bool isreverced = false;
+        private bool isreversed = false;
         private int playerindex = 0;
 
 
@@ -247,23 +264,22 @@ namespace uno
 
         public void drawcard(player pl, card topofdeck, bool isflipped) 
         {
-            //if (drawtomatch) {pl.deck = this.drawtomatch;}
-            //else {pl.deck.Add(deck[rnd.Next(deck.Count)]);}
+            if (drawtomatchbool) {pl.deck = this.drawtomatch(pl, topofdeck, isflipped);}
+            else {pl.deck.Add(deck[RandomNumber.Between(0, deck.Count)]);}
         }
 
         private void nextplayer() 
         {
-            if (isreverced) 
-            {
-                if (playerindex++ < players.Count) { playerindex++; }
-                else if (playerindex++ == players.Count) { playerindex = 0; }
-            }
+            if (isreversed && playerindex++ < players.Count) { playerindex++; }
+            else if (isreversed && playerindex++ == players.Count) { playerindex = 0; }
+            else if (!isreversed && playerindex-- > 0) { playerindex--; }
+            else if (!isreversed && playerindex-- == 0) { playerindex = players.Count - 1; }
         }
 
         public void playturn() 
         {
             foreach (player p in players) {p.update();}
-            
+            this.nextplayer();
         }
     }
 
