@@ -1,0 +1,71 @@
+
+try
+{
+
+}
+
+catch (FormatException)
+{
+
+}
+
+private void centercontrol(Control centercontrol, int widthbuffer = 0, int heightbuffer = 0)
+{
+    //width height
+    int[] buffer = { widthbuffer, heightbuffer };    
+    int width = (this.Size.Width / 2) - (centercontrol.Width / 2) + buffer[0];
+    int height = (this.Size.Height / 2) - (centercontrol.Height / 2) + buffer[1];
+    centercontrol.Location = new Point(width, height);
+}
+
+private float Turnintoint(string inputstring, int biggerthen = 0)
+{
+    float inputnum;
+    bool passesdparse = float.TryParse(inputstring, out inputnum);
+    if (passesdparse && inputnum > biggerthen) { return inputnum; }
+    else if (!passesdparse && inputstring == "") { return biggerthen; }
+    else { return biggerthen - 1; }
+}        
+private void Isempty(string inputstr)
+{
+    if (inputstr == "")
+    {
+        outputLB.Text = "";
+    }
+    else
+    {
+        outputLB.Text = "Please input a number 1-10!";
+    }
+}
+        
+private int getsupperrand(int limit)
+{
+    int[] temp = { 0, 0, 0 };
+    Random rand = new Random();
+    temp[0] = rand.Next();
+    rand = new Random(temp[0]);
+    temp[1] = rand.Next();
+    rand = new Random(temp[1]);
+    temp[2] = rand.Next();
+    rand = new Random(temp[2]);
+    return rand.Next(limit);
+}
+        
+private int addcostCBL(int[] inputlist, CheckedListBox checkedCBL)
+{
+    for (int i = 0; i < costs.Length; i++)
+    {
+        if (checkedCBL.GetItemChecked(i))
+        {
+            outputint += inputlist[i];
+        }
+    }
+    return outputint;
+}
+
+        
+if (numoflines != -1)
+{
+
+}
+	
