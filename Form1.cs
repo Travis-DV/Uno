@@ -23,7 +23,7 @@ namespace uno
         private void button1_Click_1(object sender, EventArgs e)
         {
             gamelogic game = new gamelogic(this.Width, this.Height);
-            foreach (player p in game.players) { this.Controls.Add(p.LB); foreach (card c in p.deck) { c.setimage(false); this.Controls.Add(c.picture); } }
+            foreach (player p in game.players) { p.makepicturearea(); this.Controls.Add(p.LB); foreach (card c in p.deck) { c.setimage(false); this.Controls.Add(c.picture); } }
         }
     }
 
@@ -36,6 +36,7 @@ namespace uno
         public int[] ailevel = { -1, -1};
         //x, y, changed
         public int[] loctaion = {-1, -1, -1};
+        bool isflipped = false;
 
         public card(string[] color, string[] number, int[] points)
         {
@@ -45,13 +46,13 @@ namespace uno
             this.ailevel = points;
         }
 
-        public string getname(bool isflipped)
+        public string getname()
         {
             int i = Convert.ToInt32(isflipped);
             return $"small//{color[i]}_{number[i]}.png";
         }
 
-        public void setimage(bool isflipped)
+        public void setimage()
         {
             picture.Image = Image.FromFile(Application.StartupPath + "\\" + this.getname(false));
             picture.Location = new Point(loctaion[0], loctaion[1]);
@@ -60,6 +61,8 @@ namespace uno
             picture.TabStop = false;
             picture.Click += new EventHandler(this.picture_Click);
         }
+
+        public void update(bool isflipped) {this.isflipped = isflipped;}
 
         private void picture_Click(object sender, EventArgs e)
         {
@@ -72,14 +75,14 @@ namespace uno
         
         public List<card> discardpilelist = new List<card>();
 
-        public bool playcard(card c, bool isflipped, List<card> deck) 
+        public bool playcard(card c, List<card> deck) 
         {
             List<card> eligablecards = cardvalues.eligablecards(deck, c, isflipped);
             if (eligablecards.Contains(c)) {discardpilelist.Remove(c); return true;} 
             return false;
         }
 
-        private int[] findaddcard(card topcard, int pastadd, bool isflipped) 
+        private int[] findaddcard(card topcard, int pastadd) 
         {
             int[] ints = { -1, pastadd };
             if (!isflipped && (topcard.number[0] == "+4" || topcard.number[0] == "+2")) { ints = new int[] { 1, int.Parse(topcard.number[0]) + pastadd}; }
@@ -95,6 +98,7 @@ namespace uno
         public int[] startinglocation = { -1, -1 };
         public System.Windows.Forms.Label LB = new System.Windows.Forms.Label();
         private int[] LBlocation = new int[2];
+        private bool isflipped = false;
 
 
         public player(bool aicontroled, string name, int[] startinglocation, int LBindex)
@@ -141,9 +145,13 @@ namespace uno
 
         }
 
-        public void update() 
+        public bool update(bool isflipped) 
         {
+            if (deck.Count == 0) {return true;}
             LB.Text = deck.Count.ToString();
+            this.isflipped = isflipped;
+            foreach (card c in deck) {c.update(isflipped);}
+            return false;
         }
 
         public card play()
@@ -251,7 +259,7 @@ namespace uno
             for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { card addcard = deck[RandomNumber.Between(0, deck.Count)]; players[i].deck.Add(addcard); deck.Remove(addcard); } } 
         }
 
-        private List<card> drawtomatch(player pl, card topofdeck, bool isflipped) 
+        private List<card> drawtomatch(player pl, card topofdeck) 
         {
             card newcard = deck[RandomNumber.Between(0, deck.Count)];
             List<card> addlist = new List<card>();
@@ -264,7 +272,7 @@ namespace uno
             return addlist;
         }
 
-        public void drawcard(player pl, card topofdeck, bool isflipped) 
+        public void drawcard(player pl, card topofdeck) 
         {
             if (drawtomatchbool) {pl.deck = this.drawtomatch(pl, topofdeck, isflipped);}
             else {pl.deck.Add(deck[RandomNumber.Between(0, deck.Count)]);}
@@ -280,8 +288,14 @@ namespace uno
 
         public void playturn() 
         {
-            foreach (player p in players) {p.update();}
+            foreach (player p in players) {bool won = p.update(); if (won) {this.won(p); return;}}
             this.nextplayer();
+            
+        }
+
+        public void won(player p) 
+        {
+
         }
     }
 
