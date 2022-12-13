@@ -23,7 +23,7 @@ namespace uno
         private void button1_Click_1(object sender, EventArgs e)
         {
             gamelogic game = new gamelogic(this.Width, this.Height);
-            foreach (player p in game.players) { p.makepicturearea(); this.Controls.Add(p.LB); foreach (card c in p.deck) { c.setimage(false); this.Controls.Add(c.picture); } }
+            foreach (player p in game.players) { p.makepicturearea(); this.Controls.Add(p.LB); foreach (card c in p.deck) { c.setimage(); this.Controls.Add(c.picture); } }
         }
     }
 
@@ -54,7 +54,7 @@ namespace uno
 
         public void setimage()
         {
-            picture.Image = Image.FromFile(Application.StartupPath + "\\" + this.getname(false));
+            picture.Image = Image.FromFile(Application.StartupPath + "\\" + this.getname());
             picture.Location = new Point(loctaion[0], loctaion[1]);
             picture.Name = "pictureBox1";
             picture.Size = new Size(100, 100);
@@ -73,12 +73,16 @@ namespace uno
     class discardpile
     {
         
-        public List<card> discardpilelist = new List<card>();
+        public List<List<card>> discardpilelist = new List<List<card>>();
+        public bool isflipped = false;
 
-        public bool playcard(card c, List<card> deck) 
+        public bool playcard(card c, List<List<card>> deck, bool isflipped) 
         {
-            List<card> eligablecards = cardvalues.eligablecards(deck, c, isflipped);
-            if (eligablecards.Contains(c)) {discardpilelist.Remove(c); return true;} 
+
+            this.isflipped = isflipped;
+            int i = RandomNumber.flipnumber(isflipped);
+            List<card> eligablecards = cardvalues.eligablecards(deck[i], c, isflipped);
+            if (eligablecards.Contains(c)) {discardpilelist[i].Remove(c); return true;} 
             return false;
         }
 
@@ -87,6 +91,11 @@ namespace uno
             int[] ints = { -1, pastadd };
             if (!isflipped && (topcard.number[0] == "+4" || topcard.number[0] == "+2")) { ints = new int[] { 1, int.Parse(topcard.number[0]) + pastadd}; }
             return ints;
+        }
+
+        public void update(bool isflipped)
+        {
+            this.isflipped = isflipped;
         }
     }
 
@@ -241,33 +250,35 @@ namespace uno
         public bool drawtomatchbool = true; 
         int amountofplayers = 4; 
 
-        List<card> deck = new List<card>();
+        List<List<card>> deck = new List<List<card>>();
         public List<player> players = new List<player>();
         public bool isflipped = false;
         private bool isreversed = false;
         private int playerindex = 0;
+        private int flipnumber;
 
 
         public gamelogic(int width, int height)
         {
+            flipnumber = RandomNumber.flipnumber(isflipped);
             //Bottem Top Right Left
             List<int[]> startinglocation = new List<int[]>() { new int[] { width/2, height-100, 0 }, new int[] { width/2, 100, 0 }, new int[] { 100, height/2, 1 }, new int[] { width-100, height/2, 1 } };
             for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { string[] newcolors = new string[] { cardvalues.colors[0, i], "" }; string[] newnumbers = { cardvalues.numbers[0, x], "" }; int[] newpoints = {cardvalues.points[0, x], -1}; deck.Add(new card(newcolors, newnumbers, newpoints)); } } }
             for (int i = 0; i < 2; i++) {string[] color = {"wild", "wild"}; string[] number = {cardvalues.wilds[0,i], ""}; int[] points = { cardvalues.points[2, i], -1 };  deck.Add(new card(color, number, points));}
             players.Add(new player(false, "noai", startinglocation[0], 0));
             for (int i = 1; i < amountofplayers; i++) { players.Add(new player(true, "yesai", startinglocation[i], i)); }
-            for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { card addcard = deck[RandomNumber.Between(0, deck.Count)]; players[i].deck.Add(addcard); deck.Remove(addcard); } } 
+            for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { card addcard = deck[flipnumber][RandomNumber.Between(0, deck.Count)]; players[i].deck.Add(addcard); deck.Remove(addcard); } } 
         }
 
-        private List<card> drawtomatch(player pl, card topofdeck) 
+        private List<List<card>> drawtomatch(player pl, card topofdeck) 
         {
-            card newcard = deck[RandomNumber.Between(0, deck.Count)];
-            List<card> addlist = new List<card>();
+            card newcard = deck[flipnumber][RandomNumber.Between(0, deck.Count)];
+            List<List<card>> addlist = new List<List<card>>();
             int i = RandomNumber.flipnumber(isflipped);
             while (newcard.color[i] != "wild" || newcard.color[i] != topofdeck.color[i] || newcard.number[i] != topofdeck.number[i]) 
             {
                 addlist.Add(newcard);
-                newcard = deck[RandomNumber.Between(0, deck.Count)];
+                newcard = deck[flipnumber][RandomNumber.Between(0, deck.Count)];
             }
             return addlist;
         }
@@ -275,7 +286,7 @@ namespace uno
         public void drawcard(player pl, card topofdeck) 
         {
             if (drawtomatchbool) {pl.deck = this.drawtomatch(pl, topofdeck, isflipped);}
-            else {pl.deck.Add(deck[RandomNumber.Between(0, deck.Count)]);}
+            else {pl.deck.Add(deck[flipnumber][RandomNumber.Between(0, deck.Count)]);}
         }
 
         private void nextplayer() 
