@@ -27,7 +27,7 @@ namespace uno
 		{
 			if (do_DrawtoMatch != null && do_Flip != null && PlayerAmount > 1)
 			{
-				gamelogic game = new gamelogic(PlayerAmount, do_Flip, do_DrawtoMatch);
+				gamelogic game = new gamelogic(PlayerAmount, do_Flip.value, do_DrawtoMatch.value);
 			}
 		}
 
