@@ -19,11 +19,11 @@ namespace newuno
     //Add 2 more buttens {do_Flip} {do_DrawtoMatch}
     //When check if they are all done then pass through
 
-	public partial class Form1 : Form
+	public partial class ZForm1 : Form
 	{
 
-        private bool do_DrawtoMatch? = null;
-        private bool do_Flip? = null;
+        private bool? do_DrawtoMatch = null;
+        private bool? do_Flip = null;
         private int PlayerAmount = 0;
 
 		public Form1()
