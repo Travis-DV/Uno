@@ -28,3 +28,6 @@ C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.csproj.GenerateResource.cache
 C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.csproj.CoreCompileInputs.cache
 C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.exe
 C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.pdb
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\uno.exe.config
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\uno.exe
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\uno.pdb
