@@ -22,24 +22,66 @@ namespace uno
 
     class card
     {
-        public card(string color, string number, int points) { }
+        public string color = "";
+        public string number = "";
+        public int points = -1;
+        public PictureBox cardPB = new PictureBox();
 
+        public card(string color, string number, int points) 
+        {
+            this.color = color;
+            this.number = number;
+            this.points = points;
+            cardPB.SizeMode = PictureBoxSizeMode.AutoSize; 
+        }
+
+        public setPB_Location(int[] location) 
+        {
+            cardPB.Location = new Point(loaction[0], loaction[1]);
+        }
     }
 
     class player
     {
         public List<List<card>> cards = new List<List<card>>();
+        //x, y
+        public int[] StartPosition = {0, 0, 0};
+
+        public player(int StartingPositionIndex) 
+        {
+            StartPosition[3] = StartingPositionIndex;
+        }
+
+        public findimage(int index) 
+        { return $"{cards[index].color}_{cards[index].number}.png"; }
+
+        public setSartPosition(int[] StartPosition)  
+        { this.StartPosition = StartPosition; }
+
+        public findCardPosition() 
+        {
+            for (int card_index = 0; card_index < cards.Count; card_index++) 
+            {
+                if (card_index < cards.Count/2) 
+                {
+                    StartPosition[StartPosition[2]] - 
+                }
+            }
+        }
     }
 
     //add flip cards and change 
 
     internal class gamelogic
     {
+
+        #region Game Rules
         //game rules
         private bool do_DrawtoMatch = false;
         private bool do_Flip = false;
         private int PlayerAmount = -1;
         private bool Do_ChainAdds = false;
+        #endregion
 
         //setup
         public List<List<card>> deck = new List<List<card>>();
@@ -54,14 +96,16 @@ namespace uno
         public gamelogic(int PlayerAmount, bool do_Flip, bool do_DrawtoMatch, bool do_ChainAdds, int CardAmount = 7)
         {
 
+            #region Setting Game Rules
             //setting game rules
             this.PlayerAmount = PlayerAmount;
             this.do_DrawtoMatch = do_DrawtoMatch;
             this.do_Flip = do_Flip;
             this.Do_ChainAdds = do_ChainAdds;
+            #endregion
 
             //Setting up players
-            for (int i = 0; i < PlayerAmount; i++) { players.Add(new player()); }
+            for (int i = 0; i < PlayerAmount; i++) { players.Add(new player(i)); }
 
             //making deck
             if (!this.do_Flip) { deck = new List<List<card>>() { new List<card>() { new card("red", "0", 0), new card("red", "1", 1), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+2", 10), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "0", 0), new card("yellow", "1", 1), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+2", 10), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "0", 0), new card("green", "1", 1), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+2", 10), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "0", 0), new card("blue", "1", 1), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+2", 10), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("red", "1", 1), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+2", 10), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "1", 1), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+2", 10), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "1", 1), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+2", 10), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "1", 1), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+2", 10), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("Wild", "+2_wild", 50), new card("Wild", "+4_wild", 50), new card("Wild", "+4_wild", 50), new card("Wild", "+4_wild", 50), new card("Wild", "wild", 40), new card("Wild", "wild", 40), new card("Wild", "wild", 40), new card("Wild", "wild", 40) } }; }
@@ -71,18 +115,19 @@ namespace uno
             this.PlayerIndex = RandomNumber.Between(0, players.Count);
             for (int change = 0; change < players.Count; change++)
             {
-                this.deal(CardAmount);
+                this.deal(CardAmount,0);
+                if (do_Flip) { this.deal(CardAmount,1); }
                 this.nextplayer();
             }
         }
 
-        private void deal(int CardAmount)
+        private void deal(int CardAmount, int deck_index)
         {
             for (int cards = 0; cards < CardAmount; cards++)
             {
-                int index = RandomNumber.Between(0, deck.Count);
-                players[PlayerIndex].cards.Add(deck[index]);
-                deck.RemoveAt(index);
+                int card_index = RandomNumber.Between(0, deck.Count);
+                players[PlayerIndex].cards.Add(deck[deck_index][card_index]);
+                deck[deck_index].RemoveAt(card_index);
             }
         }
 
