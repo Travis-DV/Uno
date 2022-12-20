@@ -72,15 +72,25 @@ namespace uno
         public List<card> cards = new List<card>();
         //x, y
         public int[] StartPosition = {0, 0, 0};
+        public int team = -1;
 
-        public player(int StartingPositionIndex) 
+        public player(int[] StartingPosition, int team) 
         {
-            StartPosition[2] = StartingPositionIndex;
+            StartPosition = StartingPosition;
         }
 
-        public void setpicts(bool do_flip, Form3 from3)
+        public void setpicts(bool do_flip, Form3 from3, int[] startingPosition, int team)
         {
-            this.findCardPosition(do_flip);
+            this.findCardPosition(do_flip, startingPosition);
+            if (team != this.team)
+            {
+                for (int i = 0; i < cards.Count; i++)
+                {
+                    cards[i].cardPB.Image = Image.FromFile(Application.StartupPath + "\\" + "card_back_alt.png");
+                    from3.Controls.Add(cards[i].cardPB);
+                }
+                return;
+            }
             for (int i = 0; i < cards.Count; i++) 
             {
                 cards[i].cardPB.Image = Image.FromFile(Application.StartupPath + "\\" + this.n_findimage(i));
@@ -97,13 +107,15 @@ namespace uno
         public void setSartPosition(int[] StartPosition)  
         { this.StartPosition = StartPosition; }
 
-        public void findCardPosition(bool do_flip) 
+        public void findCardPosition(bool do_flip, int[] StartPosition) 
         {
-            if (cards.Count % 2 == 0) { cards[0].setPB_Location(new int[] { (cards.Count / 2) * 140, 0 });  }
-            if (cards.Count % 2 == 1) { cards[0].setPB_Location(new int[] { ((cards.Count / 2) - 1) * 140, 0}); }
+            if (cards.Count % 2 == 0) { StartPosition[StartPosition[2]] = ((cards.Count / 2) * 140) + ((cards.Count / 2) * 10);  }
+            if (cards.Count % 2 == 1) { StartPosition[StartPosition[2]] = (((cards.Count / 2) - 1) * 140) + (((cards.Count / 2) - 1) * 140); }
+            cards[0].setPB_Location(StartPosition);
             for (int card_index = 1; card_index < cards.Count; card_index++) 
             {
-                cards[card_index].setPB_Location(new int[] { cards[card_index - 1].location[0] + 140, 0 });
+                StartPosition[StartPosition[2]] = StartPosition[StartPosition[2]] += 150;
+                cards[card_index].setPB_Location(StartPosition);
             }
         }
     }
@@ -131,6 +143,7 @@ namespace uno
         public bool is_reverced = false;
         public int PlayerIndex = -1;
 
+        //form to act on
         private Form3 form3;
 
 
@@ -147,10 +160,31 @@ namespace uno
             this.do_2v2 = do_2v2;
             #endregion
 
+            //set the form
             this.form3 = form3;
 
+            //set the teams
+            int[] teams = { 1, 2, 3, 4 };
+            if (do_2v2) { teams = new int[] { 1, 2, 1, 2 }; }
+
+            #region starting locations
+            List<int[]> startingPositions = new List<int[]>();
+            if (this.PlayerAmount == 2)
+            {
+                startingPositions =  new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 10, 0 }, new int[] { form3.Width / 2, 10, 0 } };
+            }
+            else if (this.PlayerAmount == 3)
+            {
+                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 10, 0 }, new int[] { 10, form3.Height / 2, 1 }, new int[] { form3.Width / 2, 10, 0 } };
+            }
+            else if (this.PlayerAmount == 4)
+            {
+                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 10, 0 }, new int[] { 10, form3.Height / 2, 1 }, new int[] { form3.Width / 2, 10, 0 }, new int[] { form3.Width-10, form3.Height / 2, 1 } };
+            }
+            #endregion
+
             //Setting up players
-            for (int i = 0; i < PlayerAmount; i++) { players.Add(new player(i)); }
+            for (int i = 0; i < PlayerAmount; i++) { players.Add(new player(startingPositions[i], teams[i])); }
 
             //making deck
             this.makedeck();
@@ -163,7 +197,7 @@ namespace uno
                 this.nextplayer();
             }
 
-            players[0].setpicts(this.do_Flip, this.form3);
+            players[0].setpicts(this.do_Flip, this.form3, players[0].StartPosition, players[0].team);
         }
 
         private void makedeck()
