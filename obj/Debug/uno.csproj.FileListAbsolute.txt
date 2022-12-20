@@ -31,3 +31,4 @@ C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.pdb
 C:\Users\travis\Documents\GitHub\uno\bin\Debug\uno.exe.config
 C:\Users\travis\Documents\GitHub\uno\bin\Debug\uno.exe
 C:\Users\travis\Documents\GitHub\uno\bin\Debug\uno.pdb
+C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.Form3.resources
