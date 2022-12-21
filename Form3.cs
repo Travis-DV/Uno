@@ -84,29 +84,32 @@ namespace uno
         public void setpicts(bool do_flip, Form3 from3, int[] startingPosition, int team)
         {
             this.findCardPosition(do_flip, startingPosition);
-            if (team != this.team && !do_flip)
-            {
-                for (int i = 0; i < cards.Count; i++)
-                {
-                    cards[i].cardPB.Image = Image.FromFile(Application.StartupPath + "\\" + "card_back_alt.png");
-                    from3.Controls.Add(cards[i].cardPB);
-                }
-                return;
-            }
 
-            if (team != this.team && do_flip)
-            {
-                for (int i = 0; i < cards.Count; i++)
-                {
-                    cards[i].cardPB.Image = Image.FromFile(Application.StartupPath + "\\" + this.f_findimage(i));
-                    from3.Controls.Add(cards[i].cardPB);
-                }
-                return;
-            }
-            
+            Dictionary<string, Image> imageCache = new Dictionary<string, Image>();
+
             for (int i = 0; i < cards.Count; i++)
             {
-                cards[i].cardPB.Image = Image.FromFile(Application.StartupPath + "\\" + this.n_findimage(i));
+                string fileName;
+                if (team != this.team && !do_flip)
+                {
+                    fileName = "card_back_alt.png";
+                }
+                else if (team != this.team && do_flip)
+                {
+                    fileName = this.f_findimage(i);
+                }
+                else
+                {
+                    fileName = this.n_findimage(i);
+                }
+
+                if (!imageCache.TryGetValue(fileName, out Image image))
+                {
+                    image = Image.FromFile(Application.StartupPath + "\\" + fileName);
+                    imageCache.Add(fileName, image);
+                }
+
+                cards[i].cardPB.Image = image;
                 from3.Controls.Add(cards[i].cardPB);
             }
         }
@@ -122,8 +125,8 @@ namespace uno
 
         public void findCardPosition(bool do_flip, int[] StartPosition)
         {
-            if (cards.Count % 2 == 0) { StartPosition[StartPosition[2]] += ((cards.Count / 2) * 140) + ((cards.Count / 2) * 10); }
-            if (cards.Count % 2 == 1) { StartPosition[StartPosition[2]] += (((cards.Count / 2) - 1) * 140) + (((cards.Count / 2) - 1) * 10); }
+            if (cards.Count % 2 == 0) { StartPosition[StartPosition[2]] -= ((cards.Count / 2) * 140) + ((cards.Count / 2) * 10); }
+            if (cards.Count % 2 == 1) { StartPosition[StartPosition[2]] -= (((cards.Count / 2) - 1) * 140) + (((cards.Count / 2) - 1) * 10); }
             cards[0].setPB_Location(StartPosition);
             for (int card_index = 1; card_index < cards.Count; card_index++)
             {
@@ -149,6 +152,7 @@ namespace uno
 
         //setup
         public List<card> deck = new List<card>();
+        public List<card> discardPile = new List<card>();
         public List<player> players = new List<player>();
 
         //game states
@@ -223,7 +227,6 @@ namespace uno
                 deck[RandomNumber.Between(0, deck.Count)].setflip((string)f_deck[i][0], (string)f_deck[i][1], (int)f_deck[i][2]);
             }
 
-
         }
 
         private void deal(int CardAmount)
@@ -242,6 +245,51 @@ namespace uno
             else if (!is_reverced && PlayerIndex++ == players.Count) { PlayerIndex = 0; }
             else if (is_reverced && PlayerIndex-- > 0) { PlayerIndex--; }
             else if (is_reverced && PlayerIndex-- == 0) { PlayerIndex = players.Count - 1; }
+        }
+
+        public void cardplay(object sender, FormClosingEventArgs e) 
+        {
+            
+        }
+
+        public void displayDrawPile() 
+        {
+            if (deck.Count < 11) 
+            {
+                discardPileRemove()
+            }
+            for (int i = 50; i >= 0; i -= 5) 
+            {
+                addpictures(new int[] {form3.Width/2-i, form3.Height/2})
+            }
+        }
+
+        public void displayDiscardPile() 
+        {
+            for (int i = 0; i < discardPile.Count; i++) 
+            {
+                if (i > 9) {return;}
+                addpictures(new int[] {form3.Height/2 += RandomNumber.Between(-10,10), form3.Height/2 += RandomNumber.Between(-10,10)})
+            }
+        }
+
+        public void addpictures(int[] location) 
+        {
+            PictureBox tempPB = new PictureBox();
+            tempPB.Size = new System.Drawing.Size(100, 50);
+            tempPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            tempPB.Image = Image.FromFile(Application.StartupPath + "\\" + "card_back_alt.png");
+            tempPB.Location = new Point(location[0], location[1]);
+            from3.Controls.Add(tempPB);
+        }
+
+        public void discardPileRemove()
+        {
+            for (int i = 0; i < discardPile.Count - 1; i++) 
+            {
+                int j = RandomNumber.Between(0, discardPile-1);
+                deck.add(discardPile.Pop(j))
+            }
         }
     }
 
@@ -264,15 +312,9 @@ namespace uno
     {
         public static T pop<T>(this List<T> list, [DefaultParameterValue(-1)]int index)
         {
-            if (list.Count == 0)
-            {
-                throw new InvalidOperationException("Cannot pop from an empty list");
-            }
+            if (list.Count == 0) { throw new InvalidOperationException("Cannot pop from an empty list"); }
 
-            if (index == -1)
-            {
-                index = list.Count - 1;
-            }
+            if (index == -1) { index = list.Count - 1; }
 
             T temp = list[index];
             list.RemoveAt(index);
