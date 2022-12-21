@@ -79,6 +79,7 @@ namespace uno
         public player(int[] StartingPosition, int team)
         {
             StartPosition = StartingPosition;
+            this.team = team;
         }
 
         public void setpicts(bool do_flip, Form3 from3, int[] startingPosition, int team)
