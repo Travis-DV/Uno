@@ -1,4 +1,6 @@
-﻿namespace uno
+﻿using System.Windows.Forms;
+
+namespace uno
 {
     partial class Form3
     {
@@ -49,13 +51,16 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Label label1;
     }
 }

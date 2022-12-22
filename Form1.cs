@@ -98,7 +98,13 @@ namespace uno
 
         private void doneBT_Click(object sender, EventArgs e)
         {
-            if (PlayerAmount != 0) { Form3 form3 = new Form3(); gamelogic game = new gamelogic(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, form3, CardAmount); this.Hide(); form3.Show(); }
+            if (PlayerAmount != 0) 
+            { 
+                Form3 form3 = new Form3(); 
+                gamelogic game = new gamelogic(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, form3, CardAmount); 
+                this.Hide(); 
+                form3.Show(); 
+            }
         }
 
         private void twoPlayersBT_Click(object sender, EventArgs e)

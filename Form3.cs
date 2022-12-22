@@ -18,7 +18,6 @@ namespace uno
         public Form3()
         {
             InitializeComponent();
-            this.FormClosing += Form3_FormClosing;
         }
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
@@ -51,7 +50,7 @@ namespace uno
             this.n_color = color;
             this.n_number = number;
             this.n_points = points;
-            cardPB.Size = new System.Drawing.Size(100, 50);
+            cardPB.Size = new System.Drawing.Size(50, 100);
             cardPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
         }
 
@@ -126,12 +125,12 @@ namespace uno
 
         public void findCardPosition(bool do_flip, int[] StartPosition)
         {
-            if (cards.Count % 2 == 0) { StartPosition[StartPosition[2]] -= ((cards.Count / 2) * 140) + ((cards.Count / 2) * 10); }
-            if (cards.Count % 2 == 1) { StartPosition[StartPosition[2]] -= (((cards.Count / 2) - 1) * 140) + (((cards.Count / 2) - 1) * 10); }
+            if (cards.Count % 2 == 0) { StartPosition[StartPosition[2]] -= ((cards.Count / 2) * 25) + ((cards.Count / 2) * 30); }
+            if (cards.Count % 2 == 1) { StartPosition[StartPosition[2]] -= (((cards.Count / 2) - 1) * 25) + (((cards.Count / 2) - 1) * 30); }
             cards[0].setPB_Location(StartPosition);
             for (int card_index = 1; card_index < cards.Count; card_index++)
             {
-                StartPosition[StartPosition[2]] = StartPosition[StartPosition[2]] += 150;
+                StartPosition[StartPosition[2]] = StartPosition[StartPosition[2]] += 60;
                 cards[card_index].setPB_Location(StartPosition);
             }
         }
@@ -189,15 +188,15 @@ namespace uno
             List<int[]> startingPositions = new List<int[]>();
             if (this.PlayerAmount == 2)
             {
-                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 10, 0 }, new int[] { form3.Width / 2, 10, 0 } };
+                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 150, 0 }, new int[] { form3.Width / 2, 10, 0 } };
             }
             else if (this.PlayerAmount == 3)
             {
-                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 10, 0 }, new int[] { 10, form3.Height / 2, 1 }, new int[] { form3.Width / 2, 10, 0 } };
+                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 150, 0 }, new int[] { 10, form3.Height / 2, 1 }, new int[] { form3.Width / 2, 10, 0 } };
             }
             else if (this.PlayerAmount == 4)
             {
-                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 10, 0 }, new int[] { 10, form3.Height / 2, 1 }, new int[] { form3.Width / 2, 10, 0 }, new int[] { form3.Width - 10, form3.Height / 2, 1 } };
+                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 150, 0 }, new int[] { 10, form3.Height / 2, 1 }, new int[] { form3.Width / 2, 10, 0 }, new int[] { form3.Width - 150, form3.Height / 2, 1 } };
             }
             #endregion
 
@@ -208,7 +207,7 @@ namespace uno
             this.makedeck();
 
             //Deal
-            this.PlayerIndex = RandomNumber.Between(0, players.Count);
+            this.PlayerIndex = RandomNumber.Between(0, players.Count-1);
             for (int change = 0; change < players.Count; change++)
             {
                 this.deal(CardAmount);
@@ -235,15 +234,15 @@ namespace uno
             for (int cards = 0; cards < CardAmount; cards++)
             {
                 int card_index = RandomNumber.Between(0, deck.Count);
-                players[0].cards.Add(deck.pop(card_index));
+                players[PlayerIndex].cards.Add(deck.pop(card_index));
                 //players[PlayerIndex].cards.Add(deck[card_index]);
             }
         }
 
         private void nextplayer()
         {
-            if (!is_reverced && PlayerIndex++ < players.Count) { PlayerIndex++; }
-            else if (!is_reverced && PlayerIndex++ == players.Count) { PlayerIndex = 0; }
+            if (!is_reverced && PlayerIndex++ < players.Count-1) { PlayerIndex++; }
+            else if (!is_reverced && PlayerIndex++ == players.Count-1) { PlayerIndex = 0; }
             else if (is_reverced && PlayerIndex-- > 0) { PlayerIndex--; }
             else if (is_reverced && PlayerIndex-- == 0) { PlayerIndex = players.Count - 1; }
         }
@@ -257,11 +256,11 @@ namespace uno
         {
             if (deck.Count < 11) 
             {
-                discardPileRemove()
+                discardPileRemove();
             }
             for (int i = 50; i >= 0; i -= 5) 
             {
-                addpictures(new int[] {form3.Width/2-i, form3.Height/2})
+                addpictures(new int[] { form3.Width / 2 - i, form3.Height / 2 }, form3);
             }
         }
 
@@ -270,26 +269,26 @@ namespace uno
             for (int i = 0; i < discardPile.Count; i++) 
             {
                 if (i > 9) {return;}
-                addpictures(new int[] {form3.Height/2 += RandomNumber.Between(-10,10), form3.Height/2 += RandomNumber.Between(-10,10)})
+                addpictures(new int[] { form3.Height / 2 + RandomNumber.Between(-10, 10), form3.Height / 2 + RandomNumber.Between(-10, 10) }, form3);
             }
         }
 
-        public void addpictures(int[] location) 
+        public void addpictures(int[] location, Form3 form3) 
         {
             PictureBox tempPB = new PictureBox();
             tempPB.Size = new System.Drawing.Size(100, 50);
             tempPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             tempPB.Image = Image.FromFile(Application.StartupPath + "\\" + "card_back_alt.png");
             tempPB.Location = new Point(location[0], location[1]);
-            from3.Controls.Add(tempPB);
+            form3.Controls.Add(tempPB);
         }
 
         public void discardPileRemove()
         {
             for (int i = 0; i < discardPile.Count - 1; i++) 
             {
-                int j = RandomNumber.Between(0, discardPile-1);
-                deck.add(discardPile.Pop(j))
+                int j = RandomNumber.Between(0, discardPile.Count-1);
+                deck.Add(discardPile.pop(j));
             }
         }
     }
