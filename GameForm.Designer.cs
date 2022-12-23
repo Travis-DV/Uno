@@ -30,13 +30,24 @@ namespace uno
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1490, 344);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
             // 
             // gameFormClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(3816, 2026);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(6);
@@ -44,9 +55,12 @@ namespace uno
             this.Text = "gameFormClass";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private Label label1;
     }
 }

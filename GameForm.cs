@@ -25,6 +25,7 @@ namespace uno
             gamelogic game = new gamelogic(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, this, CardAmount);
             this.FormClosing += gameForm_FormClosing;
             this.KeyDown += openPauseMenu;
+            label1.Text = $"Width: {Screen.PrimaryScreen.Bounds.Width}, Height: {Screen.PrimaryScreen.Bounds.Height}, Size: {Screen.PrimaryScreen.Bounds.Size}";
         }
 
         private void gameForm_FormClosing(object sender, FormClosingEventArgs e)
