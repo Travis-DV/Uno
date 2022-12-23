@@ -10,26 +10,33 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace uno
 {
-    public partial class Form3 : Form
+    public partial class gameFormClass : Form
     {
-        public Form3()
+
+        private pauseMenuForm pause = new pauseMenuForm();
+
+        public gameFormClass(int PlayerAmount, bool do_Flip, bool do_DrawtoMatch, bool do_ChainAdds, bool do_2v2, int CardAmount = 7)
         {
             InitializeComponent();
+            gamelogic game = new gamelogic(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, this, CardAmount);
+            this.FormClosing += gameForm_FormClosing;
+            this.KeyDown += openPauseMenu;
         }
 
-        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        private void gameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to close the form?", "Confirm", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
+            e.Cancel = true;
+            pause.Show();
+        }
+        private void openPauseMenu(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
             {
-                e.Cancel = true;
-            }
-            else if (result == DialogResult.Yes)
-            {
-                Application.Exit();
+                pause.Show();
             }
         }
     }
@@ -81,7 +88,7 @@ namespace uno
             this.team = team;
         }
 
-        public void setpicts(bool do_flip, Form3 from3, int[] startingPosition, int team)
+        public void setpicts(bool do_flip, gameFormClass from3, int[] startingPosition, int team)
         {
             this.findCardPosition(do_flip, startingPosition);
 
@@ -125,12 +132,12 @@ namespace uno
 
         public void findCardPosition(bool do_flip, int[] StartPosition)
         {
-            if (cards.Count % 2 == 0) { StartPosition[StartPosition[2]] -= ((cards.Count / 2) * 25) + ((cards.Count / 2) * 30); }
-            if (cards.Count % 2 == 1) { StartPosition[StartPosition[2]] -= (((cards.Count / 2) - 1) * 25) + (((cards.Count / 2) - 1) * 30); }
+            if (cards.Count % 2 == 0) { StartPosition[StartPosition[2]] -= ((cards.Count / 2) * 50) + ((cards.Count / 2) * 5); }
+            if (cards.Count % 2 == 1) { StartPosition[StartPosition[2]] -= (25 + ((cards.Count-1) / 2) * 50) + (((cards.Count-1) / 2) * 5); }
             cards[0].setPB_Location(StartPosition);
             for (int card_index = 1; card_index < cards.Count; card_index++)
             {
-                StartPosition[StartPosition[2]] = StartPosition[StartPosition[2]] += 60;
+                StartPosition[StartPosition[2]] = StartPosition[StartPosition[2]] += 55;
                 cards[card_index].setPB_Location(StartPosition);
             }
         }
@@ -158,14 +165,14 @@ namespace uno
         //game states
         public bool is_Fliped = false;
         public bool is_reverced = false;
-        public int PlayerIndex = -1;
+        public int PlayerIndex = 0;
 
         //form to act on
-        private Form3 form3;
+        private gameFormClass gameForm;
 
 
         //On init
-        public gamelogic(int PlayerAmount, bool do_Flip, bool do_DrawtoMatch, bool do_ChainAdds, bool do_2v2, Form3 form3, int CardAmount = 7)
+        public gamelogic(int PlayerAmount, bool do_Flip, bool do_DrawtoMatch, bool do_ChainAdds, bool do_2v2, gameFormClass gameForm, int CardAmount = 7)
         {
 
             #region Setting Game Rules
@@ -178,7 +185,7 @@ namespace uno
             #endregion
 
             //set the form
-            this.form3 = form3;
+            this.gameForm = gameForm;
 
             //set the teams
             int[] teams = { 1, 2, 3, 4 };
@@ -188,15 +195,15 @@ namespace uno
             List<int[]> startingPositions = new List<int[]>();
             if (this.PlayerAmount == 2)
             {
-                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 150, 0 }, new int[] { form3.Width / 2, 10, 0 } };
+                startingPositions = new List<int[]>() { new int[] { gameForm.Width / 2, gameForm.Height - 105, 0 }, new int[] { gameForm.Width / 2, 5, 0 } };
             }
             else if (this.PlayerAmount == 3)
             {
-                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 150, 0 }, new int[] { 10, form3.Height / 2, 1 }, new int[] { form3.Width / 2, 10, 0 } };
+                startingPositions = new List<int[]>() { new int[] { gameForm.Width / 2, gameForm.Height - 105, 0 }, new int[] { 5, gameForm.Height / 2, 1 }, new int[] { gameForm.Width / 2, 5, 0 } };
             }
             else if (this.PlayerAmount == 4)
             {
-                startingPositions = new List<int[]>() { new int[] { form3.Width / 2, form3.Height - 150, 0 }, new int[] { 10, form3.Height / 2, 1 }, new int[] { form3.Width / 2, 10, 0 }, new int[] { form3.Width - 150, form3.Height / 2, 1 } };
+                startingPositions = new List<int[]>() { new int[] { gameForm.Width / 2, gameForm.Height - 105, 0 }, new int[] { 5, gameForm.Height / 2, 1 }, new int[] { gameForm.Width / 2, 5, 0 }, new int[] { gameForm.Width - 105, gameForm.Height / 2, 1 } };
             }
             #endregion
 
@@ -207,14 +214,14 @@ namespace uno
             this.makedeck();
 
             //Deal
-            this.PlayerIndex = RandomNumber.Between(0, players.Count-1);
-            for (int change = 0; change < players.Count; change++)
+            for (int player = 0; player < players.Count; player++)
             {
-                this.deal(CardAmount);
+                PlayerIndex = player;
+                this.deal(CardAmount, gameForm);
                 this.nextplayer();
             }
 
-            players[0].setpicts(this.do_Flip, this.form3, players[0].StartPosition, players[0].team);
+            players[0].setpicts(this.do_Flip, this.gameForm, players[0].StartPosition, players[0].team);
         }
 
         private void makedeck()
@@ -229,20 +236,20 @@ namespace uno
 
         }
 
-        private void deal(int CardAmount)
+        private void deal(int CardAmount, gameFormClass gameForm)
         {
             for (int cards = 0; cards < CardAmount; cards++)
             {
                 int card_index = RandomNumber.Between(0, deck.Count);
-                players[PlayerIndex].cards.Add(deck.pop(card_index));
-                //players[PlayerIndex].cards.Add(deck[card_index]);
+                //players[0].cards.Add(deck.pop(card_index));
+                players[PlayerIndex].cards.Add(deck[card_index]);
             }
         }
 
         private void nextplayer()
         {
-            if (!is_reverced && PlayerIndex++ < players.Count-1) { PlayerIndex++; }
-            else if (!is_reverced && PlayerIndex++ == players.Count-1) { PlayerIndex = 0; }
+            if (!is_reverced && PlayerIndex++ < players.Count-2) { PlayerIndex++; }
+            else if (!is_reverced && PlayerIndex++ == players.Count-2) { PlayerIndex = 0; }
             else if (is_reverced && PlayerIndex-- > 0) { PlayerIndex--; }
             else if (is_reverced && PlayerIndex-- == 0) { PlayerIndex = players.Count - 1; }
         }
@@ -260,7 +267,7 @@ namespace uno
             }
             for (int i = 50; i >= 0; i -= 5) 
             {
-                addpictures(new int[] { form3.Width / 2 - i, form3.Height / 2 }, form3);
+                addpictures(new int[] { gameForm.Width / 2 - i, gameForm.Height / 2 }, gameForm);
             }
         }
 
@@ -269,18 +276,18 @@ namespace uno
             for (int i = 0; i < discardPile.Count; i++) 
             {
                 if (i > 9) {return;}
-                addpictures(new int[] { form3.Height / 2 + RandomNumber.Between(-10, 10), form3.Height / 2 + RandomNumber.Between(-10, 10) }, form3);
+                addpictures(new int[] { gameForm.Height / 2 + RandomNumber.Between(-10, 10), gameForm.Height / 2 + RandomNumber.Between(-10, 10) }, gameForm);
             }
         }
 
-        public void addpictures(int[] location, Form3 form3) 
+        public void addpictures(int[] location, gameFormClass gameForm) 
         {
             PictureBox tempPB = new PictureBox();
             tempPB.Size = new System.Drawing.Size(100, 50);
             tempPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             tempPB.Image = Image.FromFile(Application.StartupPath + "\\" + "card_back_alt.png");
             tempPB.Location = new Point(location[0], location[1]);
-            form3.Controls.Add(tempPB);
+            gameForm.Controls.Add(tempPB);
         }
 
         public void discardPileRemove()

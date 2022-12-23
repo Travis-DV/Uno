@@ -1,8 +1,6 @@
-﻿using System.Windows.Forms;
-
-namespace uno
+﻿namespace uno
 {
-    partial class Form3
+    partial class pauseMenuForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,37 +28,36 @@ namespace uno
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.closeBT = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // closeBT
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(326, 105);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.closeBT.Location = new System.Drawing.Point(324, 188);
+            this.closeBT.Name = "closeBT";
+            this.closeBT.Size = new System.Drawing.Size(145, 83);
+            this.closeBT.TabIndex = 0;
+            this.closeBT.Text = "Close";
+            this.closeBT.UseVisualStyleBackColor = true;
+            this.closeBT.Click += new System.EventHandler(this.closeBT_Click);
             // 
-            // Form3
+            // pauseMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "Form3";
-            this.Text = "Form3";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Controls.Add(this.closeBT);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "pauseMenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "pauseMenuForm";
+            this.TopMost = true;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private Label label1;
+        private System.Windows.Forms.Button closeBT;
     }
 }

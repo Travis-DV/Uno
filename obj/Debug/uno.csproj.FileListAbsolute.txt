@@ -11,7 +11,6 @@ G:\githubstuff\Python\uno\obj\Debug\uno.exe
 G:\githubstuff\Python\uno\obj\Debug\uno.pdb
 G:\githubstuff\uno\obj\Debug\uno.csproj.AssemblyReference.cache
 G:\githubstuff\uno\obj\Debug\uno.csproj.SuggestedBindingRedirects.cache
-G:\githubstuff\uno\obj\Debug\uno.Form1.resources
 G:\githubstuff\uno\obj\Debug\uno.Properties.Resources.resources
 G:\githubstuff\uno\obj\Debug\uno.csproj.GenerateResource.cache
 G:\githubstuff\uno\obj\Debug\uno.csproj.CoreCompileInputs.cache
@@ -32,4 +31,6 @@ C:\Users\travis\Documents\GitHub\uno\bin\Debug\uno.exe.config
 C:\Users\travis\Documents\GitHub\uno\bin\Debug\uno.exe
 C:\Users\travis\Documents\GitHub\uno\bin\Debug\uno.pdb
 C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.Form3.resources
-G:\githubstuff\uno\obj\Debug\uno.Form3.resources
+G:\githubstuff\uno\obj\Debug\uno.gameFormClass.resources
+G:\githubstuff\uno\obj\Debug\uno.pauseMenuForm.resources
+G:\githubstuff\uno\obj\Debug\uno.SetupFormClass.resources

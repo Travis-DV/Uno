@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace uno
 {
-	public partial class Form1 : Form
+	public partial class SetupFormClass : Form
 	{
 
         #region Game Rules
@@ -25,7 +25,7 @@ namespace uno
         private bool do_2v2 = false;
         #endregion
 
-        public Form1()
+        public SetupFormClass()
 		{
 			InitializeComponent();
             normalGameBT.BackColor = Color.Red;
@@ -100,10 +100,9 @@ namespace uno
         {
             if (PlayerAmount != 0) 
             { 
-                Form3 form3 = new Form3(); 
-                gamelogic game = new gamelogic(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, form3, CardAmount); 
+                gameFormClass gameForm = new gameFormClass(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, CardAmount); 
                 this.Hide(); 
-                form3.Show(); 
+                gameForm.Show(); 
             }
         }
 
