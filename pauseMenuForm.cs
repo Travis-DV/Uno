@@ -15,6 +15,7 @@ namespace uno
         public pauseMenuForm()
         {
             InitializeComponent();
+            this.FormClosing += gameForm_FormClosing;
         }
 
         private void closeBT_Click(object sender, EventArgs e)
@@ -24,6 +25,12 @@ namespace uno
 
             // Close the main form.
             mainForm.Close();
+        }
+
+        private void gameForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

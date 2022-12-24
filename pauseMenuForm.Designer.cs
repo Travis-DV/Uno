@@ -49,6 +49,8 @@
             this.Controls.Add(this.closeBT);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "pauseMenuForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "pauseMenuForm";
             this.TopMost = true;
