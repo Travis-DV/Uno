@@ -30,6 +30,7 @@ namespace uno
         /// </summary>
         private void InitializeComponent()
         {
+            
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@ namespace uno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(3816, 2026);
+            this.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Size.Width, Screen.PrimaryScreen.WorkingArea.Size.Height);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
@@ -55,7 +56,10 @@ namespace uno
             this.Text = "gameFormClass";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.Width = Screen.PrimaryScreen.WorkingArea.Size.Width;
+            this.Height = Screen.PrimaryScreen.WorkingArea.Size.Height;
             this.PerformLayout();
+
 
         }
 

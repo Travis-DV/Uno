@@ -100,7 +100,7 @@ namespace uno
         {
             if (PlayerAmount != 0) 
             { 
-                gameFormClass gameForm = new gameFormClass(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, Screen.PrimaryScreen.Bounds.Size, CardAmount); 
+                gameFormClass gameForm = new gameFormClass(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, CardAmount); 
                 this.Hide(); 
                 gameForm.Show(); 
             }

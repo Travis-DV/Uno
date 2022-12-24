@@ -20,13 +20,14 @@ namespace uno
 
         private pauseMenuForm pause = new pauseMenuForm();
 
-        public gameFormClass(int PlayerAmount, bool do_Flip, bool do_DrawtoMatch, bool do_ChainAdds, bool do_2v2, Size screensize, int CardAmount = 7)
+        public gameFormClass(int PlayerAmount, bool do_Flip, bool do_DrawtoMatch, bool do_ChainAdds, bool do_2v2, int CardAmount = 7)
         {
             InitializeComponent();
-            gamelogic game = new gamelogic(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, this, CardAmount);
             this.FormClosing += gameForm_FormClosing;
             this.KeyDown += openPauseMenu;
-            label1.Text = $"Width: {screensize.Width}, Height: {screensize.Height}, Size: {screensize}";
+            label1.Text = $"Width: {this.Width}, Height: {this.Height}, Size: {this.Size}";
+            label1.Location = new Point(this.Width / 2, this.Height - 105);
+            gamelogic game = new gamelogic(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, this, CardAmount);
         }
 
         private void gameForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -84,6 +85,7 @@ namespace uno
         //x, y
         public int[] StartPosition = { 0, 0, 0 };
         public int team = -1;
+        public int points = 0;
 
         public player(int[] StartingPosition, int team)
         {
@@ -163,6 +165,18 @@ namespace uno
             {
                 StartPosition[StartPosition[2]] = StartPosition[StartPosition[2]] += 55;
                 cards[card_index].setPB_Location(StartPosition);
+            }
+        }
+
+        public void updatingpoints(bool is_Flipped)
+        {
+            foreach (card c in cards)
+            {
+                points += c.n_points;
+                if (is_Flipped)
+                {
+                    points += c.f_points;
+                }
             }
         }
     }
@@ -245,9 +259,10 @@ namespace uno
             {
                 PlayerIndex = player;
                 this.deal(CardAmount, gameForm);
-                PlayerIndex = nextplayer();
             }
             PlayerIndex = 0;
+
+            gameloop();
         }
 
         private void gameloop()
@@ -264,7 +279,6 @@ namespace uno
                 players[i].setpicts(this.gameForm, players[i].StartPosition, players[i].team, this.is_Flipped);
                 if (i == PlayerIndex) { players[i].activateclick(this); }
                 if (is_Flipped) { players[i].n_eligablecards(discardPile[discardPile.Count - 1]); }
-
             }
             displayDrawPile();
             displayDiscardPile();
@@ -278,8 +292,7 @@ namespace uno
 
         private bool n_checkadd()
         {
-            int i = nextplayer();
-            foreach (card c in players[i].e_cards)
+            foreach (card c in players[PlayerIndex].e_cards)
             {
                 if (c.n_number.Contains("+")) { return true; }
             }
@@ -290,7 +303,7 @@ namespace uno
         {
             for (int i = 0; i < PlusAmount; i++)
             {
-                
+                players[PlayerIndex].cards.Add(draw());
             }
         }
 
@@ -315,12 +328,12 @@ namespace uno
             }
         }
 
-        private int nextplayer()
+        private int nextplayer(int current, int max)
         {
-            if (!is_reverced && PlayerIndex++ < players.Count-2) { return PlayerIndex++; }
-            else if (!is_reverced && PlayerIndex++ == players.Count-2) { return 0; }
-            else if (is_reverced && PlayerIndex-- > 0) { return PlayerIndex--; }
-            else if (is_reverced && PlayerIndex-- == 0) {return PlayerIndex = players.Count - 1; }
+            if (!is_reverced && current+1 < max-1) { return current+1; }
+            else if (!is_reverced && current+1 == max-1) { return 0; }
+            else if (is_reverced && current-1 > -1) { return current-1; }
+            else if (is_reverced && current-1 == -1) {return max - 1; }
             return -1;
         }
 
@@ -351,9 +364,9 @@ namespace uno
         public void addpictures(int[] location, gameFormClass gameForm) 
         {
             PictureBox tempPB = new PictureBox();
-            tempPB.Size = new System.Drawing.Size(100, 50);
+            tempPB.Size = new System.Drawing.Size(50, 100);
             tempPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            tempPB.Image = Image.FromFile(Application.StartupPath + "\\" + "card_back_alt.png");
+            tempPB.Image = Image.FromFile(Application.StartupPath + "\\small\\" + "card_back_alt.png");
             tempPB.Location = new Point(location[0], location[1]);
             gameForm.Controls.Add(tempPB);
         }
@@ -370,13 +383,15 @@ namespace uno
         public void cardPB_Click(object sender, EventArgs e)
         {
             int cardindex = -1;
-            for (int i = 0; i < players[PlayerIndex].cards.Count; i++)
+            for (int i = 0; i < players[PlayerIndex].cards.Count - 1; i++)
             {
-                if (players[PlayerIndex].cards[i].cardPB == sender) { cardindex = i; MessageBox.Show(i.ToString()); break; }
-                if (!is_Flipped) { n_cardplay(players[PlayerIndex].cards[cardindex]); }
-                discardPile.Add(players[PlayerIndex].cards.pop(cardindex));
+                if (players[PlayerIndex].cards[i].cardPB == sender as PictureBox) { cardindex = i; break; }
             }
-            
+            if (!is_Flipped) { n_cardplay(players[PlayerIndex].cards[cardindex]); }
+            discardPile.Add(players[PlayerIndex].cards.pop(cardindex));
+            PlayerIndex = nextplayer(PlayerIndex, players.Count);
+            addlogic();
+            updatescreen();
         }
 
         private void n_cardplay(card c_card)
@@ -389,13 +404,9 @@ namespace uno
             {
                 this.adder(c_card.n_number);
             }
-            else if (players[PlayerIndex].cards[cardindex].n_color == "flip")
+            if ( c_card.n_color == "flip")
             {
-                this.flip(psender.Name);
-            }
-            else
-            {
-                this.normal(psender.Name);
+                is_Flipped = true;
             }
         }
 
@@ -412,15 +423,6 @@ namespace uno
         {
             PlusAmount += int.Parse(cardname[1].ToString());
             return;
-        }
-
-        private void flip(string cardname)
-        {
-
-        }
-        private void normal(string cardname)
-        {
-
         }
 
         private card draw()
