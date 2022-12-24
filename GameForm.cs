@@ -80,6 +80,7 @@ namespace uno
     class player
     {
         public List<card> cards = new List<card>();
+        public List<card> e_cards = new List<card>();
         //x, y
         public int[] StartPosition = { 0, 0, 0 };
         public int team = -1;
@@ -90,18 +91,29 @@ namespace uno
             this.team = team;
         }
 
-        public void setpicts(gameFormClass from3, int[] startingPosition, int team, gamelogic game)
+        public void n_eligablecards(card topdeck)
+        {
+            foreach (card c in cards)
+            {
+                if (c.n_color == topdeck.n_color || c.n_number == topdeck.n_number || c.n_color == "wild")
+                {
+                    e_cards.Add(c);
+                }
+            }
+        }
+
+        public void setpicts(gameFormClass from3, int[] startingPosition, int team, bool is_Flipped)
         {
             this.findCardPosition(startingPosition);
             for (int i = 0; i < cards.Count; i++)
             {
                 string fileName = "";
-                if (!game.is_Fliped)
+                if (!is_Flipped)
                 {
                     fileName = this.n_findimage(i);
                     cards[i].cardPB.Name = cards[i].n_number;
                 }
-                else if (game.is_Fliped)
+                else if (is_Flipped)
                 {
                     fileName = this.f_findimage(i);
                     cards[i].cardPB.Name = cards[i].f_number;
@@ -110,13 +122,28 @@ namespace uno
                 Image image = Image.FromFile(Application.StartupPath + "\\" + fileName);
 
                 cards[i].cardPB.Image = image;
-                cards[i].cardPB.Click += game.cardPB_Click;
                 from3.Controls.Add(cards[i].cardPB);
 
             }
         }
 
-        
+        public void activateclick(gamelogic game)
+        {
+            for (int i = 0; i < cards.Count; i++)
+            {
+                cards[i].cardPB.Click += game.cardPB_Click;
+            }
+
+        }
+
+        public void deactivateclick(gamelogic game)
+        {
+            for (int i = 0; i < cards.Count; i++)
+            {
+                cards[i].cardPB.Click -= game.cardPB_Click;
+            }
+
+        }
 
         public string n_findimage(int index)
         { return $"small\\{cards[index].n_color}_{cards[index].n_number}.png"; }
@@ -161,7 +188,7 @@ namespace uno
         public List<player> players = new List<player>();
 
         //game states
-        public bool is_Fliped = false;
+        public bool is_Flipped = false;
         public bool is_reverced = false;
         public int PlayerIndex = 0;
         public int PlusAmount = 0;
@@ -218,22 +245,52 @@ namespace uno
             {
                 PlayerIndex = player;
                 this.deal(CardAmount, gameForm);
-                this.nextplayer();
+                PlayerIndex = nextplayer();
             }
             PlayerIndex = 0;
         }
 
         private void gameloop()
         {
-
+            updatescreen();
         }
 
         private void updatescreen()
         {
-            for ( int i = 0; i < players.Count; i++ )
+            for (int i = 0; i < players.Count; i++)
             {
-                while (players[i].cards.Count < CardAmount) { }
-                players[i].setpicts(this.gameForm, players[i].StartPosition, players[i].team, this)
+                players[i].deactivateclick(this);
+                while (players[i].cards.Count < CardAmount) { players[i].cards.Add(draw()); }
+                players[i].setpicts(this.gameForm, players[i].StartPosition, players[i].team, this.is_Flipped);
+                if (i == PlayerIndex) { players[i].activateclick(this); }
+                if (is_Flipped) { players[i].n_eligablecards(discardPile[discardPile.Count - 1]); }
+
+            }
+            displayDrawPile();
+            displayDiscardPile();
+        }
+
+        private void addlogic()
+        {
+            if (!do_ChainAdds && PlusAmount > 0) { addcards(); }
+            if (do_ChainAdds && !is_Flipped && n_checkadd()) { addcards(); }
+        }
+
+        private bool n_checkadd()
+        {
+            int i = nextplayer();
+            foreach (card c in players[i].e_cards)
+            {
+                if (c.n_number.Contains("+")) { return true; }
+            }
+            return false;
+        }
+        
+        private void addcards()
+        {
+            for (int i = 0; i < PlusAmount; i++)
+            {
+                
             }
         }
 
@@ -246,7 +303,7 @@ namespace uno
             {
                 deck[RandomNumber.Between(0, deck.Count)].setflip((string)f_deck[i][0], (string)f_deck[i][1], (int)f_deck[i][2]);
             }
-
+            deck.Shuffle();
         }
 
         private void deal(int CardAmount, gameFormClass gameForm)
@@ -258,12 +315,13 @@ namespace uno
             }
         }
 
-        private void nextplayer()
+        private int nextplayer()
         {
-            if (!is_reverced && PlayerIndex++ < players.Count-2) { PlayerIndex++; }
-            else if (!is_reverced && PlayerIndex++ == players.Count-2) { PlayerIndex = 0; }
-            else if (is_reverced && PlayerIndex-- > 0) { PlayerIndex--; }
-            else if (is_reverced && PlayerIndex-- == 0) { PlayerIndex = players.Count - 1; }
+            if (!is_reverced && PlayerIndex++ < players.Count-2) { return PlayerIndex++; }
+            else if (!is_reverced && PlayerIndex++ == players.Count-2) { return 0; }
+            else if (is_reverced && PlayerIndex-- > 0) { return PlayerIndex--; }
+            else if (is_reverced && PlayerIndex-- == 0) {return PlayerIndex = players.Count - 1; }
+            return -1;
         }
 
         public void displayDrawPile() 
@@ -279,6 +337,8 @@ namespace uno
             }
         }
 
+
+        //FIX TO SHOW THE ACTUAL CARDS 
         public void displayDiscardPile() 
         {
             for (int i = 0; i < discardPile.Count; i++) 
@@ -313,7 +373,7 @@ namespace uno
             for (int i = 0; i < players[PlayerIndex].cards.Count; i++)
             {
                 if (players[PlayerIndex].cards[i].cardPB == sender) { cardindex = i; MessageBox.Show(i.ToString()); break; }
-                if (!is_Fliped) { n_cardplay(players[PlayerIndex].cards[cardindex]); }
+                if (!is_Flipped) { n_cardplay(players[PlayerIndex].cards[cardindex]); }
                 discardPile.Add(players[PlayerIndex].cards.pop(cardindex));
             }
             
@@ -363,12 +423,9 @@ namespace uno
 
         }
 
-        private void draw()
+        private card draw()
         {
-            if (do_DrawtoMatch)
-            {
-
-            }
+            return deck.pop();
         }
 
         private void drawtomatch(string color)
@@ -404,6 +461,19 @@ namespace uno
             T temp = list[index];
             list.RemoveAt(index);
             return temp;
+        }
+
+        private static Random rng = new Random();
+
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            for (int n = list.Count; n > 1; n--)
+            {
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
         }
     }
 }
