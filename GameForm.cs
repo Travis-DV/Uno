@@ -83,13 +83,11 @@ namespace uno
         public List<card> cards = new List<card>();
         public List<card> e_cards = new List<card>();
         //x, y
-        public int[] StartPosition = { 0, 0, 0 };
         public int team = -1;
         public int points = 0;
 
-        public player(int[] StartingPosition, int team)
+        public player(int team)
         {
-            StartPosition = StartingPosition;
             this.team = team;
         }
 
@@ -104,21 +102,18 @@ namespace uno
             }
         }
 
-        public void setpicts(gameFormClass from3, int[] startingPosition, int team, bool is_Flipped)
+        public void setpicts(gameFormClass from3, int team, bool is_Flipped)
         {
-            this.findCardPosition(startingPosition);
             for (int i = 0; i < cards.Count; i++)
             {
                 string fileName = "";
                 if (!is_Flipped)
                 {
-                    fileName = this.n_findimage(i);
-                    cards[i].cardPB.Name = cards[i].n_number;
+                    fileName = player.n_findimage(cards[i]);
                 }
                 else if (is_Flipped)
                 {
-                    fileName = this.f_findimage(i);
-                    cards[i].cardPB.Name = cards[i].f_number;
+                    fileName = player.f_findimage(cards[i]);
                 }
 
                 Image image = Image.FromFile(Application.StartupPath + "\\" + fileName);
@@ -147,24 +142,22 @@ namespace uno
 
         }
 
-        public string n_findimage(int index)
-        { return $"small\\{cards[index].n_color}_{cards[index].n_number}.png"; }
+        public static string n_findimage(card c)
+        { return $"small\\{c.n_color}_{c.n_number}.png"; }
 
-        public string f_findimage(int index)
-        { return $"small\\{cards[index].f_color}_{cards[index].f_number}.png"; }
+        public static string f_findimage(card c)
+        { return $"small\\{c.f_color}_{c.f_number}.png"; }
 
-        public void setSartPosition(int[] StartPosition)
-        { this.StartPosition = StartPosition; }
-
-        public void findCardPosition(int[] StartPosition)
+        public void findCardPosition(int x, int y, int order)
         {
-            if (cards.Count % 2 == 0) { StartPosition[StartPosition[2]] -= ((cards.Count / 2) * 50) + ((cards.Count / 2) * 5); }
-            if (cards.Count % 2 == 1) { StartPosition[StartPosition[2]] -= (25 + ((cards.Count-1) / 2) * 50) + (((cards.Count-1) / 2) * 5); }
-            cards[0].setPB_Location(StartPosition);
+            int[] Positions = { x, y };
+            if (cards.Count % 2 == 0) { Positions[order] -= ((cards.Count / 2) * 50) + ((cards.Count / 2) * 5); }
+            if (cards.Count % 2 == 1) { Positions[order] -= (25 + ((cards.Count - 1) / 2) * 50) + (((cards.Count - 1) / 2) * 5); }
+            cards[0].setPB_Location(Positions);
             for (int card_index = 1; card_index < cards.Count; card_index++)
             {
-                StartPosition[StartPosition[2]] = StartPosition[StartPosition[2]] += 55;
-                cards[card_index].setPB_Location(StartPosition);
+                Positions[order] += 55;
+                cards[card_index].setPB_Location(Positions);
             }
         }
 
@@ -206,6 +199,7 @@ namespace uno
         public bool is_reverced = false;
         public int PlayerIndex = 0;
         public int PlusAmount = 0;
+        public List<int[]> startingPositions = new List<int[]>();
 
         //form to act on
         private gameFormClass gameForm;
@@ -233,7 +227,6 @@ namespace uno
             if (do_2v2) { teams = new int[] { 1, 2, 1, 2 }; }
 
             #region starting locations
-            List<int[]> startingPositions = new List<int[]>();
             if (this.PlayerAmount == 2)
             {
                 startingPositions = new List<int[]>() { new int[] { gameForm.Width / 2, gameForm.Height - 105, 0 }, new int[] { gameForm.Width / 2, 5, 0 } };
@@ -249,7 +242,7 @@ namespace uno
             #endregion
 
             //Setting up players
-            for (int i = 0; i < PlayerAmount; i++) { players.Add(new player(startingPositions[i], teams[i])); }
+            for (int i = 0; i < PlayerAmount; i++) { players.Add(new player(teams[i])); }
 
             //making deck
             this.makedeck();
@@ -274,9 +267,10 @@ namespace uno
         {
             for (int i = 0; i < players.Count; i++)
             {
+                if (players[i].cards.Count == 0) { WinConditonForm wn = new WinConditonForm(); wn.Show(); gameForm.Hide(); }
                 players[i].deactivateclick(this);
-                while (players[i].cards.Count < CardAmount) { players[i].cards.Add(draw()); }
-                players[i].setpicts(this.gameForm, players[i].StartPosition, players[i].team, this.is_Flipped);
+                players[i].findCardPosition(startingPositions[i][0], startingPositions[i][1], startingPositions[i][2]);
+                players[i].setpicts(this.gameForm, players[i].team, this.is_Flipped);
                 if (i == PlayerIndex) { players[i].activateclick(this); }
                 if (is_Flipped) { players[i].n_eligablecards(discardPile[discardPile.Count - 1]); }
             }
@@ -284,38 +278,40 @@ namespace uno
             displayDiscardPile();
         }
 
-        private void addlogic()
+        private void addlogic(int index)
         {
-            if (!do_ChainAdds && PlusAmount > 0) { addcards(); }
-            if (do_ChainAdds && !is_Flipped && n_checkadd()) { addcards(); }
+            if (!do_ChainAdds && PlusAmount > 0) { addcards(index); }
+            if (do_ChainAdds && !is_Flipped && n_checkadd(index)) { addcards(index); }
         }
 
-        private bool n_checkadd()
+        private bool n_checkadd(int index)
         {
-            foreach (card c in players[PlayerIndex].e_cards)
+            foreach (card c in players[index].e_cards)
             {
                 if (c.n_number.Contains("+")) { return true; }
             }
             return false;
         }
-        
-        private void addcards()
+
+        private void addcards(int index)
         {
             for (int i = 0; i < PlusAmount; i++)
             {
-                players[PlayerIndex].cards.Add(draw());
+                players[index].cards.Add(draw());
             }
+            PlusAmount = 0;
         }
 
         private void makedeck()
         {
-            if (!this.do_Flip) { deck = new List<card>() { new card("red", "0", 0), new card("red", "1", 1), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+2", 10), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "0", 0), new card("yellow", "1", 1), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+2", 10), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "0", 0), new card("green", "1", 1), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+2", 10), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "0", 0), new card("blue", "1", 1), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+2", 10), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("red", "1", 1), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+2", 10), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "1", 1), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+2", 10), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "1", 1), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+2", 10), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "1", 1), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+2", 10), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("wild", "+4_wild", 50), new card("wild", "+4_wild", 50), new card("wild", "+4_wild", 50), new card("wild", "+4_wild", 50), new card("wild", "wild", 40), new card("wild", "wild", 40), new card("wild", "wild", 40), new card("wild", "wild", 40) }; return; }
-            deck = new List<card>() { new card("red", "1", 1), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+1", 10), new card("red", "flip", 20), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "1", 1), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+1", 10), new card("yellow", "flip", 20), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "1", 1), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+1", 10), new card("green", "flip", 20), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "1", 1), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+1", 10), new card("blue", "flip", 20), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+1", 10), new card("red", "flip", 20), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+1", 10), new card("yellow", "flip", 20), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+1", 10), new card("green", "flip", 20), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+1", 10), new card("blue", "flip", 20), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("wild", "+2_wild", 50), new card("wild", "+2_wild", 50), new card("wild", "+2_wild", 50), new card("wild", "+2_wild", 50), new card("wild", "wild", 40), new card("wild", "wild", 40), new card("wild", "wild", 40), new card("wild", "wild", 40) };
+            if (!this.do_Flip) { this.deck = new List<card>() { new card("red", "0", 0), new card("red", "1", 1), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+2", 10), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "0", 0), new card("yellow", "1", 1), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+2", 10), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "0", 0), new card("green", "1", 1), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+2", 10), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "0", 0), new card("blue", "1", 1), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+2", 10), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("red", "1", 1), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+2", 10), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "1", 1), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+2", 10), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "1", 1), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+2", 10), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "1", 1), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+2", 10), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("wild", "+4_wild", 50), new card("wild", "+4_wild", 50), new card("wild", "+4_wild", 50), new card("wild", "+4_wild", 50), new card("wild", "wild", 40), new card("wild", "wild", 40), new card("wild", "wild", 40), new card("wild", "wild", 40) }; return; }
+            this.deck = new List<card>() { new card("red", "1", 1), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+1", 10), new card("red", "flip", 20), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "1", 1), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+1", 10), new card("yellow", "flip", 20), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "1", 1), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+1", 10), new card("green", "flip", 20), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "1", 1), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+1", 10), new card("blue", "flip", 20), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("red", "2", 2), new card("red", "3", 3), new card("red", "4", 4), new card("red", "5", 5), new card("red", "6", 6), new card("red", "7", 7), new card("red", "8", 8), new card("red", "9", 9), new card("red", "+1", 10), new card("red", "flip", 20), new card("red", "reverse", 20), new card("red", "skip", 20), new card("yellow", "2", 2), new card("yellow", "3", 3), new card("yellow", "4", 4), new card("yellow", "5", 5), new card("yellow", "6", 6), new card("yellow", "7", 7), new card("yellow", "8", 8), new card("yellow", "9", 9), new card("yellow", "+1", 10), new card("yellow", "flip", 20), new card("yellow", "reverse", 20), new card("yellow", "skip", 20), new card("green", "2", 2), new card("green", "3", 3), new card("green", "4", 4), new card("green", "5", 5), new card("green", "6", 6), new card("green", "7", 7), new card("green", "8", 8), new card("green", "9", 9), new card("green", "+1", 10), new card("green", "flip", 20), new card("green", "reverse", 20), new card("green", "skip", 20), new card("blue", "2", 2), new card("blue", "3", 3), new card("blue", "4", 4), new card("blue", "5", 5), new card("blue", "6", 6), new card("blue", "7", 7), new card("blue", "8", 8), new card("blue", "9", 9), new card("blue", "+1", 10), new card("blue", "flip", 20), new card("blue", "reverse", 20), new card("blue", "skip", 20), new card("wild", "+2_wild", 50), new card("wild", "+2_wild", 50), new card("wild", "+2_wild", 50), new card("wild", "+2_wild", 50), new card("wild", "wild", 40), new card("wild", "wild", 40), new card("wild", "wild", 40), new card("wild", "wild", 40) };
             List<List<object>> f_deck = new List<List<object>>() { new List<object> { "purple", "1", 1 }, new List<object> { "purple", "2", 2 }, new List<object> { "purple", "3", 3 }, new List<object> { "purple", "4", 4 }, new List<object> { "purple", "5", 5 }, new List<object> { "purple", "6", 6 }, new List<object> { "purple", "7", 7 }, new List<object> { "purple", "8", 8 }, new List<object> { "purple", "9", 9 }, new List<object> { "purple", "+5", 20 }, new List<object> { "purple", "flip", 20 }, new List<object> { "purple", "reverse", 20 }, new List<object> { "purple", "skip_all", 30 }, new List<object> { "teal", "1", 1 }, new List<object> { "teal", "2", 2 }, new List<object> { "teal", "3", 3 }, new List<object> { "teal", "4", 4 }, new List<object> { "teal", "5", 5 }, new List<object> { "teal", "6", 6 }, new List<object> { "teal", "7", 7 }, new List<object> { "teal", "8", 8 }, new List<object> { "teal", "9", 9 }, new List<object> { "teal", "+5", 20 }, new List<object> { "teal", "flip", 20 }, new List<object> { "teal", "reverse", 20 }, new List<object> { "teal", "skip_all", 30 }, new List<object> { "orange", "1", 1 }, new List<object> { "orange", "2", 2 }, new List<object> { "orange", "3", 3 }, new List<object> { "orange", "4", 4 }, new List<object> { "orange", "5", 5 }, new List<object> { "orange", "6", 6 }, new List<object> { "orange", "7", 7 }, new List<object> { "orange", "8", 8 }, new List<object> { "orange", "9", 9 }, new List<object> { "orange", "+5", 20 }, new List<object> { "orange", "flip", 20 }, new List<object> { "orange", "reverse", 20 }, new List<object> { "orange", "skip_all", 30 }, new List<object> { "pink", "1", 1 }, new List<object> { "pink", "2", 2 }, new List<object> { "pink", "3", 3 }, new List<object> { "pink", "4", 4 }, new List<object> { "pink", "5", 5 }, new List<object> { "pink", "6", 6 }, new List<object> { "pink", "7", 7 }, new List<object> { "pink", "8", 8 }, new List<object> { "pink", "9", 9 }, new List<object> { "pink", "+5", 20 }, new List<object> { "pink", "flip", 20 }, new List<object> { "pink", "reverse", 20 }, new List<object> { "pink", "skip_all", 30 }, new List<object> { "purple", "2", 2 }, new List<object> { "purple", "3", 3 }, new List<object> { "purple", "4", 4 }, new List<object> { "purple", "5", 5 }, new List<object> { "purple", "6", 6 }, new List<object> { "purple", "7", 7 }, new List<object> { "purple", "8", 8 }, new List<object> { "purple", "9", 9 }, new List<object> { "purple", "+5", 20 }, new List<object> { "purple", "flip", 20 }, new List<object> { "purple", "reverse", 20 }, new List<object> { "purple", "skip_all", 30 }, new List<object> { "teal", "2", 2 }, new List<object> { "teal", "3", 3 }, new List<object> { "teal", "4", 4 }, new List<object> { "teal", "5", 5 }, new List<object> { "teal", "6", 6 }, new List<object> { "teal", "7", 7 }, new List<object> { "teal", "8", 8 }, new List<object> { "teal", "9", 9 }, new List<object> { "teal", "+5", 20 }, new List<object> { "teal", "flip", 20 }, new List<object> { "teal", "reverse", 20 }, new List<object> { "teal", "skip_all", 30 }, new List<object> { "orange", "2", 2 }, new List<object> { "orange", "3", 3 }, new List<object> { "orange", "4", 4 }, new List<object> { "orange", "5", 5 }, new List<object> { "orange", "6", 6 }, new List<object> { "orange", "7", 7 }, new List<object> { "orange", "8", 8 }, new List<object> { "orange", "9", 9 }, new List<object> { "orange", "+5", 20 }, new List<object> { "orange", "flip", 20 }, new List<object> { "orange", "reverse", 20 }, new List<object> { "orange", "skip_all", 30 }, new List<object> { "pink", "2", 2 }, new List<object> { "pink", "3", 3 }, new List<object> { "pink", "4", 4 }, new List<object> { "pink", "5", 5 }, new List<object> { "pink", "6", 6 }, new List<object> { "pink", "7", 7 }, new List<object> { "pink", "8", 8 }, new List<object> { "pink", "9", 9 }, new List<object> { "pink", "+5", 20 }, new List<object> { "pink", "flip", 20 }, new List<object> { "pink", "reverse", 20 }, new List<object> { "pink", "skip_all", 30 }, new List<object> { "wild", "draw_match", 60 }, new List<object> { "wild", "draw_match", 60 }, new List<object> { "wild", "draw_match", 60 }, new List<object> { "wild", "draw_match", 60 }, new List<object> { "wild", "wild", 40 }, new List<object> { "wild", "wild", 40 }, new List<object> { "wild", "wild", 40 }, new List<object> { "wild", "wild", 40 } };
             for (int i = 0; i < f_deck.Count; i++)
             {
-                deck[RandomNumber.Between(0, deck.Count)].setflip((string)f_deck[i][0], (string)f_deck[i][1], (int)f_deck[i][2]);
+                this.deck[RandomNumber.Between(0, deck.Count)].setflip((string)f_deck[i][0], (string)f_deck[i][1], (int)f_deck[i][2]);
             }
+            this.discardPile.Add(deck.pop(RandomNumber.Between(0, deck.Count - 1)));
             deck.Shuffle();
         }
 
@@ -330,67 +326,75 @@ namespace uno
 
         private int nextplayer(int current, int max)
         {
-            if (!is_reverced && current+1 < max-1) { return current+1; }
-            else if (!is_reverced && current+1 == max-1) { return 0; }
-            else if (is_reverced && current-1 > -1) { return current-1; }
-            else if (is_reverced && current-1 == -1) {return max - 1; }
+            if (!is_reverced && current + 1 < max - 1) { return current + 1; }
+            else if (!is_reverced && current + 1 == max - 1) { return 0; }
+            else if (is_reverced && current - 1 > -1) { return current - 1; }
+            else if (is_reverced && current - 1 == -1) { return max - 1; }
             return -1;
         }
 
-        public void displayDrawPile() 
+        public void displayDrawPile()
         {
-            if (deck.Count < 11) 
+            if (deck.Count < 11)
             {
                 discardPileRemove();
             }
-            for (int i = 55; i >= 5; i -= 5) 
+            for (int i = deck.Count - 10; i < deck.Count; i++)
             {
-                addpictures(new int[] { gameForm.Width / 2 - i, gameForm.Height / 2 }, gameForm);
-
+                int[] location = { gameForm.Width / 2 - i, gameForm.Height / 2 };
+                deck[i].cardPB.Location = new Point(location[0], location[1]);
+                deck[i].cardPB.Image = Image.FromFile(Application.StartupPath + "\\small\\" + "card_back_alt.png");
+                gameForm.Controls.Add(deck[i].cardPB);
+                deck[i].cardPB.BringToFront();
             }
+            deck[deck.Count - 1].cardPB.Click += topofDrawpile_Clicked;
         }
 
+        public void topofDrawpile_Clicked(object sender, EventArgs e)
+        {
+            players[PlayerIndex].cards.Add(draw());
+        }
 
         //FIX TO SHOW THE ACTUAL CARDS 
-        public void displayDiscardPile() 
+        public void displayDiscardPile()
         {
-            for (int i = 0; i < discardPile.Count; i++) 
+            for (int i = discardPile.Count - 10; i < discardPile.Count; i++)
             {
-                if (i > 9) {return;}
-                addpictures(new int[] { gameForm.Height / 2 + RandomNumber.Between(-10, 10), gameForm.Height / 2 + RandomNumber.Between(-10, 10) }, gameForm);
+                if (i < 0) { continue; }
+                MessageBox.Show(i.ToString());
+                int[] location = { gameForm.Width / 2 + RandomNumber.Between(-10, 10), gameForm.Height / 2 + RandomNumber.Between(-10, 10) };
+                discardPile[i].cardPB.Location = new Point(location[0], location[1]);
+                gameForm.Controls.Add(discardPile[i].cardPB);
+                discardPile[i].cardPB.BringToFront();
             }
         }
 
-        public void addpictures(int[] location, gameFormClass gameForm) 
+        public void addpictures(int[] location, gameFormClass gameForm)
         {
-            PictureBox tempPB = new PictureBox();
-            tempPB.Size = new System.Drawing.Size(50, 100);
-            tempPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            tempPB.Image = Image.FromFile(Application.StartupPath + "\\small\\" + "card_back_alt.png");
-            tempPB.Location = new Point(location[0], location[1]);
-            gameForm.Controls.Add(tempPB);
+            
         }
 
         public void discardPileRemove()
         {
-            for (int i = 0; i < discardPile.Count - 1; i++) 
+            for (int i = 0; i < discardPile.Count - 1; i++)
             {
-                int j = RandomNumber.Between(0, discardPile.Count-1);
+                int j = RandomNumber.Between(0, discardPile.Count - 1);
                 deck.Add(discardPile.pop(j));
             }
         }
 
         public void cardPB_Click(object sender, EventArgs e)
         {
+            this.gameForm.Controls.Remove(sender as PictureBox);
             int cardindex = -1;
-            for (int i = 0; i < players[PlayerIndex].cards.Count - 1; i++)
+            for (int i = 0; i < players[PlayerIndex].cards.Count; i++)
             {
                 if (players[PlayerIndex].cards[i].cardPB == sender as PictureBox) { cardindex = i; break; }
             }
             if (!is_Flipped) { n_cardplay(players[PlayerIndex].cards[cardindex]); }
             discardPile.Add(players[PlayerIndex].cards.pop(cardindex));
             PlayerIndex = nextplayer(PlayerIndex, players.Count);
-            addlogic();
+            addlogic(PlayerIndex + 1);
             updatescreen();
         }
 
@@ -404,13 +408,13 @@ namespace uno
             {
                 this.adder(c_card.n_number);
             }
-            if ( c_card.n_color == "flip")
+            if (c_card.n_color == "flip")
             {
                 is_Flipped = true;
             }
         }
 
-        private void n_wild(card c_card) 
+        private void n_wild(card c_card)
         {
             wildFormClass wildform = new wildFormClass();
             if (wildform.ShowDialog() == DialogResult.OK)
@@ -427,7 +431,7 @@ namespace uno
 
         private card draw()
         {
-            return deck.pop();
+            return deck.pop(RandomNumber.Between(0, deck.Count-1));
         }
 
         private void drawtomatch(string color)
