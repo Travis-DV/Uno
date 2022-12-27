@@ -47,7 +47,7 @@
             this.pickacolorGB.Size = new System.Drawing.Size(207, 133);
             this.pickacolorGB.TabIndex = 0;
             this.pickacolorGB.TabStop = false;
-            this.pickacolorGB.Text = "Pick A color";
+            this.pickacolorGB.Text = "Pick A Colors";
             // 
             // redBT
             // 

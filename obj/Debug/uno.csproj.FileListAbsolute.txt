@@ -33,7 +33,7 @@ G:\githubstuff\uno\obj\Debug\uno.gameFormClass.resources
 G:\githubstuff\uno\obj\Debug\uno.pauseMenuForm.resources
 G:\githubstuff\uno\obj\Debug\uno.SetupFormClass.resources
 G:\githubstuff\uno\obj\Debug\uno.wildFormClass.resources
-C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.pauseMenuForm.resources
 C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.SetupFormClass.resources
-C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.gameFormClass.resources
 C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.wildFormClass.resources
+C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.Form_PauseMenu.resources
+C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.GameForm.resources

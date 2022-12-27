@@ -47,54 +47,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WinCondition.cs">
+    <Compile Include="Class_Player.cs" />
+    <Compile Include="Class_Card.cs" />
+    <Compile Include="Class_GameLogic.cs" />
+    <Compile Include="Form_WinCondition.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinCondition.Designer.cs">
-      <DependentUpon>WinCondition.cs</DependentUpon>
+    <Compile Include="Form_WinCondition.Designer.cs">
+      <DependentUpon>Form_WinCondition.cs</DependentUpon>
     </Compile>
-    <Compile Include="pauseMenuForm.cs">
+    <Compile Include="Form_PauseMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pauseMenuForm.Designer.cs">
-      <DependentUpon>pauseMenuForm.cs</DependentUpon>
+    <Compile Include="Form_PauseMenu.Designer.cs">
+      <DependentUpon>Form_PauseMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="SetupForm.cs">
+    <Compile Include="Form_Setup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SetupForm.Designer.cs">
-      <DependentUpon>SetupForm.cs</DependentUpon>
+    <Compile Include="Form_Setup.Designer.cs">
+      <DependentUpon>Form_Setup.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameForm.cs">
+    <Compile Include="Form_Game.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GameForm.Designer.cs">
-      <DependentUpon>GameForm.cs</DependentUpon>
+    <Compile Include="Form_Game.Designer.cs">
+      <DependentUpon>Form_Game.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="wildForm.cs">
+    <Compile Include="Form_Wild.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wildForm.Designer.cs">
-      <DependentUpon>wildForm.cs</DependentUpon>
+    <Compile Include="Form_Wild.Designer.cs">
+      <DependentUpon>Form_Wild.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="pauseMenuForm.resx">
-      <DependentUpon>pauseMenuForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form_PauseMenu.resx">
+      <DependentUpon>Form_PauseMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SetupForm.resx">
-      <DependentUpon>SetupForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Setup.resx">
+      <DependentUpon>Form_Setup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameForm.resx">
-      <DependentUpon>GameForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Game.resx">
+      <DependentUpon>Form_Game.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="wildForm.resx">
-      <DependentUpon>wildForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Wild.resx">
+      <DependentUpon>Form_Wild.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

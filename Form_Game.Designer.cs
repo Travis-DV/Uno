@@ -1,6 +1,8 @@
-﻿namespace uno
+﻿using System.Windows.Forms;
+
+namespace uno
 {
-    partial class pauseMenuForm
+    partial class GameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +30,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.closeBT = new System.Windows.Forms.Button();
+            
             this.SuspendLayout();
             // 
-            // closeBT
-            // 
-            this.closeBT.Location = new System.Drawing.Point(324, 188);
-            this.closeBT.Name = "closeBT";
-            this.closeBT.Size = new System.Drawing.Size(145, 83);
-            this.closeBT.TabIndex = 0;
-            this.closeBT.Text = "Close";
-            this.closeBT.UseVisualStyleBackColor = true;
-            this.closeBT.Click += new System.EventHandler(this.closeBT_Click);
-            // 
-            // pauseMenuForm
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.closeBT);
+            this.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Size.Width, Screen.PrimaryScreen.WorkingArea.Size.Height);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "pauseMenuForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "pauseMenuForm";
-            this.TopMost = true;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Name = "GameForm";
+            this.Text = "GameForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.Width = Screen.PrimaryScreen.WorkingArea.Size.Width;
+            this.Height = Screen.PrimaryScreen.WorkingArea.Size.Height;
+            this.PerformLayout();
+
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button closeBT;
     }
 }

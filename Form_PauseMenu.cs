@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace uno
 {
-    public partial class pauseMenuForm : Form
+    public partial class Form_PauseMenu : Form
     {
-        public pauseMenuForm()
+        public Form_PauseMenu()
         {
             InitializeComponent();
             this.FormClosing += gameForm_FormClosing;

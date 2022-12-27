@@ -106,7 +106,7 @@
             this.AmountOfCardsLB.Name = "AmountOfCardsLB";
             this.AmountOfCardsLB.Size = new System.Drawing.Size(159, 25);
             this.AmountOfCardsLB.TabIndex = 2;
-            this.AmountOfCardsLB.Text = "Amount of Cards";
+            this.AmountOfCardsLB.Text = "Amount of Hand";
             // 
             // ChainAddsLB
             // 

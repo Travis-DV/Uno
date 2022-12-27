@@ -17,12 +17,15 @@ namespace uno
 	{
 
         #region Game Rules
-        private bool do_DrawtoMatch = false;
-		private bool do_Flip = false;
-		private int PlayerAmount = 0;
-		private bool do_ChainAdds = false;
+        private Dictionary<string, bool> GameRules = new Dictionary<string, bool>
+        {
+            { "do_DrawtoMatch", false},
+            { "do_Flip", false},
+            { "do_ChainAdds", false},
+            { "do_2v2", false }
+        };
 		private int CardAmount = 7;
-        private bool do_2v2 = false;
+        private int PlayerAmount = 0;
         #endregion
 
         public SetupFormClass()
@@ -35,47 +38,47 @@ namespace uno
             fourPlayersBT.BackColor = Color.LightGray;
             twoVtwoBT.BackColor = Color.LightGray;
         }
-        //gamelogic game = new gamelogic(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, CardAmount);
+        //GameLogicClass game = new GameLogicClass(PlayerAmount, GameRules["do_Flip"], GameRules["do_DrawtoMatch"], GameRules["do_ChainAdds"], CardAmount);
 
         private void normalGameBT_Click(object sender, EventArgs e)
         {
-			do_Flip = false;
+			GameRules["do_Flip"] = false;
 			normalGameBT.BackColor = Color.Red;
 			flipGameBT.BackColor = Color.LightGray;
         }
 
         private void flipGameBT_Click(object sender, EventArgs e)
         {
-			do_Flip = true;
+			GameRules["do_Flip"] = true;
 			flipGameBT.BackColor = Color.Purple;
 			normalGameBT.BackColor = Color.LightGray;
         }
 
         private void DrawToMatchBT_Click(object sender, EventArgs e)
         {
-			if (!do_DrawtoMatch)
+			if (!GameRules["do_DrawtoMatch"])
 			{
 				DrawToMatchBT.Text = "True";
-				do_DrawtoMatch = true;
+				GameRules["do_DrawtoMatch"] = true;
 			}
-            else if (do_DrawtoMatch)
+            else if (GameRules["do_DrawtoMatch"])
             {
                 DrawToMatchBT.Text = "False";
-                do_DrawtoMatch = false;
+                GameRules["do_DrawtoMatch"] = false;
             }
         }
 
         private void ChainAddsBT_Click(object sender, EventArgs e)
         {
-            if (!do_ChainAdds)
+            if (!GameRules["do_ChainAdds"])
             {
                 ChainAddsBT.Text = "True";
-                do_ChainAdds = true;
+                GameRules["do_ChainAdds"] = true;
             }
-            else if (do_ChainAdds)
+            else if (GameRules["do_ChainAdds"])
             {
                 ChainAddsBT.Text = "False";
-                do_ChainAdds = false;
+                GameRules["do_ChainAdds"] = false;
             }
         }
 
@@ -100,7 +103,7 @@ namespace uno
         {
             if (PlayerAmount != 0) 
             { 
-                gameFormClass gameForm = new gameFormClass(PlayerAmount, do_Flip, do_DrawtoMatch, do_ChainAdds, do_2v2, CardAmount); 
+                GameForm gameForm = new GameForm(GameRules, PlayerAmount, CardAmount); 
                 this.Hide(); 
                 gameForm.Show(); 
             }
@@ -113,7 +116,7 @@ namespace uno
             fourPlayersBT.BackColor = Color.LightGray;
             twoVtwoBT.BackColor = Color.LightGray;
             PlayerAmount = 2;
-            do_2v2 = false;
+            GameRules["do_2v2"] = false;
         }
 
         private void threePlayersBT_Click(object sender, EventArgs e)
@@ -123,7 +126,7 @@ namespace uno
             fourPlayersBT.BackColor = Color.LightGray;
             twoVtwoBT.BackColor = Color.LightGray;
             PlayerAmount = 4;
-            do_2v2 = false;
+            GameRules["do_2v2"] = false;
         }
 
         private void fourPlayersBT_Click(object sender, EventArgs e)
@@ -133,7 +136,7 @@ namespace uno
             fourPlayersBT.BackColor = Color.Gray;
             twoVtwoBT.BackColor = Color.LightGray;
             PlayerAmount = 4;
-            do_2v2 = false;
+            GameRules["do_2v2"] = false;
         }
 
         private void twoVtwoBT_Click(object sender, EventArgs e)
@@ -143,7 +146,7 @@ namespace uno
             fourPlayersBT.BackColor = Color.LightGray;
             twoVtwoBT.BackColor = Color.Gray;
             PlayerAmount = 4;
-            do_2v2 = true;
+            GameRules["do_2v2"] = true;
         }
     }
 }
