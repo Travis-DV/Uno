@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -164,8 +165,10 @@ namespace uno
         //runs everytime the current PlayerClass clicks a CardClass
         public void cardPB_Click(object sender, EventArgs e)
         {
+
             //for every CardClass in that PlayerList DrawPile find the CardClass object with the picture box that matches the one clicked
             int card_index = FindPictureInList(this.PlayerList[this.PlayerIndex].Hand, sender as PictureBox);
+            MessageBox.Show(PlayerIndex.ToString() + ", " + card_index.ToString());
 
             //If the CardClass clicked is not in the eligable Hand then stop doing logic
             if (!this.PlayerList[this.PlayerIndex].e_Cards.Contains(this.PlayerList[this.PlayerIndex].Hand[card_index])) { return; }
@@ -248,6 +251,7 @@ namespace uno
         //Runs whenver the CardClass ontop of the Draw pile is clicked
         public void DrawPile_Clicked(object sender, EventArgs e)
         {
+            
             if (GameRules["do_Flip"])
             {
                 int card_index = FindPictureInList(this.DrawPile, sender as PictureBox);
@@ -257,6 +261,8 @@ namespace uno
             if (!this.GameRules["do_DrawtoMatch"]) { this.PlayerList[this.PlayerIndex].Hand.Add(Draw()); }
             //run Draw to match if needed
             if (this.GameRules["do_DrawtoMatch"]) { DrawToMatch(this.DiscardPile[this.DiscardPile.Count - 1]); }
+            this.PlayerList[this.PlayerIndex].DeactivateClick(this);
+            this.PlayerList[this.PlayerIndex].ActivateClick(this);
             UpdateScreen();
         }
 
@@ -275,7 +281,7 @@ namespace uno
         {
             if (!this.GameRules["do_Flip"] && !start) { return; }
             //Draw 10 Hand
-            for (int i = DrawPile.Count - 1; i < DrawPile.Count - 10 && i > -1; i--)
+            for (int i = DrawPile.Count - 1; i > DrawPile.Count - 10 && i > -1; i--)
             {
                 PictureBox tempPB = new PictureBox();
                 // - i so that the Hand move over and you can see the amount of Hand
@@ -284,6 +290,8 @@ namespace uno
                 if (!this.GameRules["do_Flip"]) { tempPB.Image = Image.FromFile(Application.StartupPath + "\\small\\" + "card_back_alt.png"); }
                 //Draw the image if doing flip and it is not flipped; ;FIX WITH is_Flipped
                 else if (!is_Flipped) { tempPB.Image = DrawPile[RandomNumber.Between(0, DrawPile.Count - 1)].cardPB[this.is_Flipped.ToInt()].Image; }
+                tempPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                tempPB.Size = new System.Drawing.Size(50, 100);
                 //add it to the form
                 this.GameForm.Controls.Add(tempPB);
                 //make it so that if it is clicked then something happens
@@ -295,7 +303,7 @@ namespace uno
         public void DisplayDiscardPile()
         {
             //for the last 10 images
-            for (int i = this.DiscardPile.Count; i < this.DiscardPile.Count - 10 && i > -1; i--)
+            for (int i = this.DiscardPile.Count-1; i > this.DiscardPile.Count - 10 && i > -1; i--)
             {
                 //get a location that is +-10 from the center
                 this.DiscardPile[i].cardPB[this.is_Flipped.ToInt()].Location = new Point((this.GameForm.Width / 2 + RandomNumber.Between(-10, 10)), (this.GameForm.Height / 2 + RandomNumber.Between(-10, 10)));
