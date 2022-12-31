@@ -62,7 +62,7 @@ namespace uno
         }
     }
 
-    public static class ListExtensions
+    public static class Extensions
     {
         public static T pop<T>(this List<T> list, int index = -1)
         {

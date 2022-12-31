@@ -12,15 +12,20 @@ namespace uno
     {
         //Set Lists
         public List<CardClass> Hand = new List<CardClass>();
-        public List<CardClass> e_Cards = new List<CardClass>();
+        public List<CardClass> e_Hand = new List<CardClass>();
         public int Team = -1;
         public int Points = 0;
+        public AIClass AI;
 
         //run on init
-        public PlayerClass(int Team)
+        public PlayerClass(int Team, bool AI, int PlayerAmount)
         {
             //set the Team
             this.Team = Team;
+            if (AI)
+            {
+                this.AI = new AIClass(PlayerAmount);
+            }
         }
 
         public void DrawCards(GameLogicClass Game, PlayerClass Player)
@@ -56,7 +61,7 @@ namespace uno
                 //If the colors match or their numbers or the color is wild then it gets added
                 if (c.Colors[INTis_Flipped] == TopOfDrawPile.Colors[INTis_Flipped] || c.Numbers[INTis_Flipped] == TopOfDrawPile.Numbers[INTis_Flipped] || c.Colors[INTis_Flipped] == "wild")
                 {
-                    this.e_Cards.Add(c);
+                    this.e_Hand.Add(c);
                 }
             }
         }

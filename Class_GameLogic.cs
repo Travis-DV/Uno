@@ -69,7 +69,7 @@ namespace uno
             #endregion
 
             //Setting up PlayerList
-            for (int i = 0; i < this.PlayerAmount; i++) { PlayerList.Add(new PlayerClass(teams[i])); }
+            for (int i = 0; i < this.PlayerAmount; i++) { PlayerList.Add(new PlayerClass(teams[i], !(i == 0), this.PlayerAmount)); }
 
             //making DrawPile
             this.MakeDrawPile();
@@ -126,12 +126,14 @@ namespace uno
             for (int i = 0; i < this.PlayerList.Count; i++)
             {
                 //Check if they have no Hand left, if they have do win screen and condition
-                if (this.PlayerList[i].Hand.Count == 0) 
-                { 
+                if (this.PlayerList[i].Hand.Count == 0)
+                {
                     WinConditonForm win_condition = new WinConditonForm();
-                    win_condition.Show(); 
-                    this.GameForm.Hide(); 
+                    win_condition.Show();
+                    this.GameForm.Hide();
                 }
+
+                this.PlayerList[i].DeactivateClick(this);
 
                 //set the lcoations of the Hand; kinda busted becuase of copying problems
                 this.PlayerList[i].FindCardPosition(this.StartingPositions[i][0], this.StartingPositions[i][1], this.StartingPositions[i][2]);
@@ -144,6 +146,8 @@ namespace uno
 
                 //Find the eligable Hand using the topcard; ;CHANGE AFTER is_Flipped CHANGE
                 if (!this.is_Flipped) { this.PlayerList[i].EligableCards(this.DiscardPile[this.DiscardPile.Count - 1], this.is_Flipped.ToInt()); }
+
+                if (this.PlayerList[this.PlayerIndex].AI != null) { MessageBox.Show("AI");  CardClickLogic(this.PlayerList[this.PlayerIndex].AI.Play(this.PlayerList[this.PlayerIndex].e_Hand, this.is_Flipped)); }
             }
 
             //If there are to few Hand in the DrawPile then reshuffle the discard pile into the DrawPile
@@ -152,8 +156,6 @@ namespace uno
                 DiscardPileRemove();
             }
 
-            //Find the next PlayerClass
-            this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
             //Reactivate the click event for the next PlayerClass
             PlayerList[this.PlayerIndex].ActivateClick(this);
 
@@ -165,13 +167,16 @@ namespace uno
         //runs everytime the current PlayerClass clicks a CardClass
         public void cardPB_Click(object sender, EventArgs e)
         {
+            CardClickLogic(sender as PictureBox);
+        }
 
+        public void CardClickLogic(PictureBox sender)
+        {
             //for every CardClass in that PlayerList DrawPile find the CardClass object with the picture box that matches the one clicked
-            int card_index = FindPictureInList(this.PlayerList[this.PlayerIndex].Hand, sender as PictureBox);
-            MessageBox.Show(PlayerIndex.ToString() + ", " + card_index.ToString());
+            int card_index = FindPictureInList(this.PlayerList[this.PlayerIndex].Hand, sender);
 
             //If the CardClass clicked is not in the eligable Hand then stop doing logic
-            if (!this.PlayerList[this.PlayerIndex].e_Cards.Contains(this.PlayerList[this.PlayerIndex].Hand[card_index])) { return; }
+            if (!this.PlayerList[this.PlayerIndex].e_Hand.Contains(this.PlayerList[this.PlayerIndex].Hand[card_index])) { return; }
 
             //Do the logic to see if the CardClass was "special" in any way and needs logic for it; ;CHANGE WITH is_Flipped
             if (!this.is_Flipped) { CardPlay(this.PlayerList[this.PlayerIndex].Hand[card_index]); }
@@ -181,13 +186,16 @@ namespace uno
 
             //Check if the next PlayerClass needs Hand added to their hand and if so add them
             AddLogic(this.PlayerIndex + 1);
-            
+
             //Remove this click event from the picture box in the CardClass so that you can't click a non existent CardClass
             this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()].Click -= cardPB_Click;
-            //deactivate everything for the PlayerClass that just played
-            this.PlayerList[this.PlayerIndex].DeactivateClick(this);
             //remove the picture off of the screen
-            this.GameForm.Controls.Remove(sender as PictureBox);
+            this.GameForm.Controls.Remove(sender);
+
+            MessageBox.Show(this.PlayerIndex.ToString() + ", " + NextPlayer(this.PlayerIndex, this.PlayerList.Count).ToString());
+            //Find the next PlayerClass
+            this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
+            MessageBox.Show(this.PlayerIndex.ToString());
 
             //update the screen
             UpdateScreen();
@@ -231,7 +239,7 @@ namespace uno
         private bool CheckAdd(int index)
         {
             //Check every CardClass to see if it is an addition CardClass if it is return true if not return false
-            foreach (CardClass c in this.PlayerList[index].e_Cards)
+            foreach (CardClass c in this.PlayerList[index].e_Hand)
             {
                 if (c.Numbers[this.is_Flipped.ToInt()].Contains("+")) { return true; }
             }
@@ -261,18 +269,21 @@ namespace uno
             if (!this.GameRules["do_DrawtoMatch"]) { this.PlayerList[this.PlayerIndex].Hand.Add(Draw()); }
             //run Draw to match if needed
             if (this.GameRules["do_DrawtoMatch"]) { DrawToMatch(this.DiscardPile[this.DiscardPile.Count - 1]); }
-            this.PlayerList[this.PlayerIndex].DeactivateClick(this);
-            this.PlayerList[this.PlayerIndex].ActivateClick(this);
+            MessageBox.Show(this.PlayerIndex.ToString() + ", " + NextPlayer(this.PlayerIndex, this.PlayerList.Count).ToString());
+            //Find the next PlayerClass
+            this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
+            MessageBox.Show(this.PlayerIndex.ToString());
             UpdateScreen();
         }
 
         //Find the next PlayerClass
         private int NextPlayer(int current, int max)
         {
-            if (!this.is_Reverced && current + 1 < max - 1) { return current + 1; }
-            else if (!this.is_Reverced && current + 1 == max - 1) { return 0; }
-            else if (this.is_Reverced && current - 1 > -1) { return current - 1; }
-            else if (this.is_Reverced && current - 1 == -1) { return max - 1; }
+            MessageBox.Show(current.ToString() + ", " + max.ToString());
+            if (!this.is_Reverced && current + 1 < max) { MessageBox.Show("+1"); return current + 1; }
+            else if (!this.is_Reverced && current + 1 == max - 1) { MessageBox.Show("0"); return 0;  }
+            else if (this.is_Reverced && current - 1 > -1) { MessageBox.Show("-1"); return current - 1; }
+            else if (this.is_Reverced && current - 1 == -1) { MessageBox.Show("max-1"); return max - 1; }
             return -1;
         }
 
@@ -339,7 +350,7 @@ namespace uno
                 //find eligable Hand with new CardClass
                 PlayerList[PlayerIndex].EligableCards(topdeck, this.is_Flipped.ToInt());
                 //if the last CardClass in the players deck and eligable Hand is the same then the last CardClass was eligable and then stop drawing
-                if (this.PlayerList[this.PlayerIndex].Hand[this.PlayerList[this.PlayerIndex].Hand.Count - 1] == this.PlayerList[this.PlayerIndex].e_Cards[this.PlayerList[this.PlayerIndex].e_Cards.Count - 1]) { return; }
+                if (this.PlayerList[this.PlayerIndex].Hand[this.PlayerList[this.PlayerIndex].Hand.Count - 1] == this.PlayerList[this.PlayerIndex].e_Hand[this.PlayerList[this.PlayerIndex].e_Hand.Count - 1]) { return; }
             }
         }
 
