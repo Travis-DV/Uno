@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="uno.exe" version="1.0.0.2" publicKeyToken="038ce762e7c46455" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="uno" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="uno.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="uno.exe" size="40424">
+      <assemblyIdentity name="uno" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>X0plIqP7P7RENx0z8s6AgrZgOzIYLW6+WwihA6HSIBw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="uno.exe.config" size="184">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>nxJ/Lo79mxoPYSZ8U/K6/s0rkBEHk+cM7lxPpMRjp2M=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-3LKB6VM\travis" issuerKeyHash="e682faae1f55bd6f391d2553dc9af289ce374190" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>7cugcWjCEnyb+LGi3a6Ilb9KG2KV0WiUpjAASYKaK8k=</DigestValue></Reference></SignedInfo><SignatureValue>O+qLRNeNjwvPUtLd5V9ZRNfbKhnS0d17MLNHPceQpiiD8yibK+up5XHqB+653KJnI1WX6oG/lGa/ZXg7wNlmLffHyQMvKPjCiGy+mc9v3Fsx8tCGIu4WQde3rln+DSkTcHVoud/eSnT1rOG6QbB+q2E8hvvo3A/xJuo4AKRd0oc=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>oNfHBMoCYjTRu7cQoEaK5cz5CIOV7NjHXRcNwuNj2BQy9iaEwvByvrUqVHAI1a0dacbQgZZQNbhAwbkgCHrWGgR7LmrC6AXVt5qxbgONuX9xGH+MkNhO5CenXGvArAx13uHA4HolHES4BOSE65X36lP0HOTxLog+8kWW+I/1cu0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="c92b9a82490030a69468d195621b4abf9588aedda2b1f89b7c12c26871a0cbed" Description="" Url=""><as:assemblyIdentity name="uno.exe" version="1.0.0.2" publicKeyToken="038ce762e7c46455" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-3LKB6VM\travis</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>whlz63Q58ILMGJao16t+fGPy45qbxuoxyvC/pNbvkPo=</DigestValue></Reference></SignedInfo><SignatureValue>TR20i0PyrT2i4F4fHNTzASV+6HoYlsmYELw29Or+maGTTjSr66ZXMSnZOqCi1XhuHktil+aHRFnqzIbykr1WVAZzK0m1BXetUHsDmHC7vDSuYQC8fKMLt2m7hY3L5w69bytjGAP6KhhhR7lk8VlH17ouDyAhT0JH4tPef0gFUgY=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>oNfHBMoCYjTRu7cQoEaK5cz5CIOV7NjHXRcNwuNj2BQy9iaEwvByvrUqVHAI1a0dacbQgZZQNbhAwbkgCHrWGgR7LmrC6AXVt5qxbgONuX9xGH+MkNhO5CenXGvArAx13uHA4HolHES4BOSE65X36lP0HOTxLog+8kWW+I/1cu0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB8TCCAVqgAwIBAgIQf1tNqbqukYRHODLq4C8ivzANBgkqhkiG9w0BAQsFADA3MTUwMwYDVQQDHiwARABFAFMASwBUAE8AUAAtADMATABLAEIANgBWAE0AXAB0AHIAYQB2AGkAczAeFw0yMzAxMDMyMDM5NDFaFw0yNDAxMDQwMjM5NDFaMDcxNTAzBgNVBAMeLABEAEUAUwBLAFQATwBQAC0AMwBMAEsAQgA2AFYATQBcAHQAcgBhAHYAaQBzMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCg18cEygJiNNG7txCgRorlzPkIg5Xs2MddFw3C42PYFDL2JoTC8HK+tSpUcAjVrR1pxtCBllA1uEDBuSAIetYaBHsuasLoBdW3mrFuA425f3EYf4yQ2E7kJ6dca8CsDHXe4cDgeiUcRLgE5ITrlffqU/Qc5PEuiD7yRZb4j/Vy7QIDAQABMA0GCSqGSIb3DQEBCwUAA4GBACR7ws8UM1a9P9oDZtYs/W01kuBFdWP+RSKmk0brE5GpRQP68PpzmYKWZOofMk2Y7dVBrNVczJWEpCiU6oplwPF3QuGrcfkIMi3zaTsDVZOlxhX/MK2mI2HT6U95Pay64fP2NanktWVRoZeMHjrOd6x9z4fPure7QZiDJ2AC2tqK</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
