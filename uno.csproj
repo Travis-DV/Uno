@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class_AI.cs" />
+    <Compile Include="Class_GitHubChecker.cs" />
     <Compile Include="Class_Player.cs" />
     <Compile Include="Class_Card.cs" />
     <Compile Include="Class_GameLogic.cs" />
