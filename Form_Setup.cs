@@ -30,6 +30,7 @@ namespace uno
 
         public SetupFormClass()
 		{
+            GitHubCheckerClass.StartUp();
 			InitializeComponent();
             normalGameBT.BackColor = Color.Red;
             flipGameBT.BackColor = Color.LightGray;
