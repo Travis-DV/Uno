@@ -7,6 +7,7 @@ using System.Net;
 using System.Windows.Forms;
 using System.IO;
 using System.Net.Http.Headers;
+using AutoUpdaterDotNET;
 
 namespace uno
 {
