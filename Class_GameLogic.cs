@@ -82,9 +82,6 @@ namespace uno
             }
             this.PlayerIndex = 0;
 
-            //add to the top of the DrawPile
-            this.DiscardPile.Add(Draw());
-
             //Draw the Draw pile
             DisplayDrawPile(true);
 
@@ -314,6 +311,16 @@ namespace uno
         //Draw the discard pile with the actual images
         public void DisplayDiscardPile()
         {
+            while (this.DiscardPile.Count == 0) 
+            {
+                //add to the top of the DrawPile
+                this.DiscardPile.Add(Draw());
+                if (this.DiscardPile[this.DiscardPile.Count-1].Numbers[this.is_Flipped.ToInt()].Contains("+") || this.DiscardPile[this.DiscardPile.Count-1].Numbers[this.is_Flipped.ToInt()].Contains("reverce") || this.DiscardPile[this.DiscardPile.Count-1].Numbers[this.is_Flipped.ToInt()].Contains("flip") || this.DiscardPile[this.DiscardPile.Count-1].Colors[this.is_Flipped.ToInt()].Contains("wild")) 
+                {
+                    this.DrawPile.Add(this.DiscardPile.Pop());
+                    this.DiscardPile.Add(Draw());
+                }
+            }
             //for the last 10 images
             for (int i = this.DiscardPile.Count-1; i > this.DiscardPile.Count - 10 && i > -1; i--)
             {
