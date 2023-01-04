@@ -146,8 +146,6 @@ namespace uno
 
                 //Find the eligable Hand using the topcard; ;CHANGE AFTER is_Flipped CHANGE
                 if (!this.is_Flipped) { this.PlayerList[i].EligableCards(this.DiscardPile[this.DiscardPile.Count - 1], this.is_Flipped.ToInt()); }
-
-                if (this.PlayerList[this.PlayerIndex].AI != null) { MessageBox.Show("AI plays");  this.PlayerList[this.PlayerIndex].AI.Play(this.PlayerList[this.PlayerIndex].e_Hand, this); }
             }
 
             //If there are to few Hand in the DrawPile then reshuffle the discard pile into the DrawPile
@@ -162,6 +160,9 @@ namespace uno
             //redraw discard pile and Draw pile
             DisplayDiscardPile();
             DisplayDrawPile(false);
+
+            MessageBox.Show("e_Hand count " + this.PlayerList[this.PlayerIndex].e_Hand.Count);
+            if (this.PlayerList[this.PlayerIndex].AI != null) { this.PlayerList[this.PlayerIndex].AI.Play(this.PlayerList[this.PlayerIndex].e_Hand, this); }
         }
 
         //runs everytime the current PlayerClass clicks a CardClass
@@ -175,6 +176,7 @@ namespace uno
             //for every CardClass in that PlayerList DrawPile find the CardClass object with the picture box that matches the one clicked
             int card_index = FindPictureInList(this.PlayerList[this.PlayerIndex].Hand, sender);
 
+            MessageBox.Show("Card Index: " + card_index.ToString() + ", Player Index: " + PlayerIndex.ToString());
             //If the CardClass clicked is not in the eligable Hand then stop doing logic
             if (!this.PlayerList[this.PlayerIndex].e_Hand.Contains(this.PlayerList[this.PlayerIndex].Hand[card_index])) { return; }
 
@@ -192,10 +194,8 @@ namespace uno
             //remove the picture off of the screen
             this.GameForm.Controls.Remove(sender);
 
-            MessageBox.Show("Player Index: " + this.PlayerIndex.ToString() + ", Next Player: " + NextPlayer(this.PlayerIndex, this.PlayerList.Count).ToString());
             //Find the next PlayerClass
             this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
-            MessageBox.Show("Player Index: " + this.PlayerIndex.ToString());
 
             //update the screen
             UpdateScreen();
@@ -273,17 +273,14 @@ namespace uno
             if (!this.GameRules["do_DrawtoMatch"]) { this.PlayerList[this.PlayerIndex].Hand.Add(Draw()); }
             //run Draw to match if needed
             if (this.GameRules["do_DrawtoMatch"]) { DrawToMatch(this.DiscardPile[this.DiscardPile.Count - 1]); }
-            MessageBox.Show("Player Index: " + this.PlayerIndex.ToString() + ", Next Player: " + NextPlayer(this.PlayerIndex, this.PlayerList.Count).ToString());
             //Find the next PlayerClass
             this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
-            MessageBox.Show("Player Index: " + this.PlayerIndex.ToString());
             UpdateScreen();
         }
 
         //Find the next PlayerClass
         private int NextPlayer(int current, int max)
         {
-            MessageBox.Show("Current: " + current.ToString() + ", Max: " + max.ToString());
             if (!this.is_Reverced && current + 1 < max) { MessageBox.Show("next player +1"); return current + 1; }
             else if (!this.is_Reverced && current == max - 1) { MessageBox.Show("next player 0"); return 0;  }
             else if (this.is_Reverced && current - 1 > -1) { MessageBox.Show("next player -1" + (current - 1).ToString()); return current - 1; }
