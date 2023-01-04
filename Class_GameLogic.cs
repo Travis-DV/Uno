@@ -147,7 +147,7 @@ namespace uno
                 //Find the eligable Hand using the topcard; ;CHANGE AFTER is_Flipped CHANGE
                 if (!this.is_Flipped) { this.PlayerList[i].EligableCards(this.DiscardPile[this.DiscardPile.Count - 1], this.is_Flipped.ToInt()); }
 
-                if (this.PlayerList[this.PlayerIndex].AI != null) { MessageBox.Show("AI");  CardClickLogic(this.PlayerList[this.PlayerIndex].AI.Play(this.PlayerList[this.PlayerIndex].e_Hand, this.is_Flipped)); }
+                if (this.PlayerList[this.PlayerIndex].AI != null) { MessageBox.Show("AI plays");  this.PlayerList[this.PlayerIndex].AI.Play(this.PlayerList[this.PlayerIndex].e_Hand, this); }
             }
 
             //If there are to few Hand in the DrawPile then reshuffle the discard pile into the DrawPile
@@ -192,10 +192,10 @@ namespace uno
             //remove the picture off of the screen
             this.GameForm.Controls.Remove(sender);
 
-            MessageBox.Show(this.PlayerIndex.ToString() + ", " + NextPlayer(this.PlayerIndex, this.PlayerList.Count).ToString());
+            MessageBox.Show("Player Index: " + this.PlayerIndex.ToString() + ", Next Player: " + NextPlayer(this.PlayerIndex, this.PlayerList.Count).ToString());
             //Find the next PlayerClass
             this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
-            MessageBox.Show(this.PlayerIndex.ToString());
+            MessageBox.Show("Player Index: " + this.PlayerIndex.ToString());
 
             //update the screen
             UpdateScreen();
@@ -259,31 +259,35 @@ namespace uno
         //Runs whenver the CardClass ontop of the Draw pile is clicked
         public void DrawPile_Clicked(object sender, EventArgs e)
         {
-            
             if (GameRules["do_Flip"])
             {
                 int card_index = FindPictureInList(this.DrawPile, sender as PictureBox);
                 this.PlayerList[this.PlayerIndex].Hand.Add(DrawPile.pop(card_index));
             }
+            DrawPileClickLogic();
+        }
+
+        public void DrawPileClickLogic()
+        {
             //If doing Draw to match add a random CardClass to the PlayerList DrawPile and remove it from the DrawPile at the same time
             if (!this.GameRules["do_DrawtoMatch"]) { this.PlayerList[this.PlayerIndex].Hand.Add(Draw()); }
             //run Draw to match if needed
             if (this.GameRules["do_DrawtoMatch"]) { DrawToMatch(this.DiscardPile[this.DiscardPile.Count - 1]); }
-            MessageBox.Show(this.PlayerIndex.ToString() + ", " + NextPlayer(this.PlayerIndex, this.PlayerList.Count).ToString());
+            MessageBox.Show("Player Index: " + this.PlayerIndex.ToString() + ", Next Player: " + NextPlayer(this.PlayerIndex, this.PlayerList.Count).ToString());
             //Find the next PlayerClass
             this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
-            MessageBox.Show(this.PlayerIndex.ToString());
+            MessageBox.Show("Player Index: " + this.PlayerIndex.ToString());
             UpdateScreen();
         }
 
         //Find the next PlayerClass
         private int NextPlayer(int current, int max)
         {
-            MessageBox.Show(current.ToString() + ", " + max.ToString());
-            if (!this.is_Reverced && current + 1 < max) { MessageBox.Show("+1"); return current + 1; }
-            else if (!this.is_Reverced && current + 1 == max - 1) { MessageBox.Show("0"); return 0;  }
-            else if (this.is_Reverced && current - 1 > -1) { MessageBox.Show("-1"); return current - 1; }
-            else if (this.is_Reverced && current - 1 == -1) { MessageBox.Show("max-1"); return max - 1; }
+            MessageBox.Show("Current: " + current.ToString() + ", Max: " + max.ToString());
+            if (!this.is_Reverced && current + 1 < max) { MessageBox.Show("next player +1"); return current + 1; }
+            else if (!this.is_Reverced && current == max - 1) { MessageBox.Show("next player 0"); return 0;  }
+            else if (this.is_Reverced && current - 1 > -1) { MessageBox.Show("next player -1" + (current - 1).ToString()); return current - 1; }
+            else if (this.is_Reverced && current - 1 == -1) { MessageBox.Show("next player max-1"); return max - 1; }
             return -1;
         }
 

@@ -17,9 +17,10 @@ namespace uno
             this.Anger = new int[PlayerAmount];
         }
 
-        public PictureBox Play(List<CardClass> p_e_Hand, bool is_Flipped)
+        public void Play(List<CardClass> p_e_Hand, GameLogicClass game)
         {
-            return p_e_Hand[RandomNumber.Between(0, p_e_Hand.Count - 1)].cardPB[is_Flipped.ToInt()];
+            if (p_e_Hand.Count == 0) { game.DrawPileClickLogic(); return;  }
+            game.CardClickLogic(p_e_Hand[RandomNumber.Between(0, p_e_Hand.Count - 1)].cardPB[game.is_Flipped.ToInt()]);
         }
     }
 }
