@@ -14,14 +14,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="uno.exe.manifest" size="3426">
+    <dependentAssembly dependencyType="install" codebase="uno.exe.manifest" size="7514">
       <assemblyIdentity name="uno.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>00Y9O7lJxBdWxQt5RmznUrK1vE4jttkTFJfSUIxfv3U=</dsig:DigestValue>
+        <dsig:DigestValue>PqQFG5aQcpJVX4hNCK9uLYO1jFiCP2Q7EIfkPkrnyrw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

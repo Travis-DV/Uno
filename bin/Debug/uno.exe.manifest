@@ -42,6 +42,54 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AutoUpdater.NET.dll" size="443904">
+      <assemblyIdentity name="AutoUpdater.NET" version="1.7.6.0" publicKeyToken="501435C91B35F4BC" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>XqwlUXSPxyPOBixbmaOH/dEzIsj9GTWlz6KcyGYbkyk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Web.WebView2.Core.dll" size="401848">
+      <assemblyIdentity name="Microsoft.Web.WebView2.Core" version="1.0.1462.37" publicKeyToken="2A8AB48044D2601E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>XeS6ths68chHMPv6ItoHIlP8CTcF3X7ySTvivQ9772c=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Web.WebView2.WinForms.dll" size="37352">
+      <assemblyIdentity name="Microsoft.Web.WebView2.WinForms" version="1.0.1462.37" publicKeyToken="2A8AB48044D2601E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>S+1VabDSwOn5we0IXiVddnFhTC8DQBnJz/1qy2oAQYw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Web.WebView2.Wpf.dll" size="44008">
+      <assemblyIdentity name="Microsoft.Web.WebView2.Wpf" version="1.0.1462.37" publicKeyToken="2A8AB48044D2601E" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>G58Ywe1dZTdP0ahcHSpDT793QjsiM3uVa2j9+sbpoxs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="uno.exe" size="40424">
       <assemblyIdentity name="uno" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -49,17 +97,44 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>X0plIqP7P7RENx0z8s6AgrZgOzIYLW6+WwihA6HSIBw=</dsig:DigestValue>
+        <dsig:DigestValue>GCS0Lk/y9H5jDUtPiKJ98STsI0rizU+4/ziAsB7RyC4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="uno.exe.config" size="184">
+  <file name="runtimes\win-arm64\native\WebView2Loader.dll" size="132024">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>nxJ/Lo79mxoPYSZ8U/K6/s0rkBEHk+cM7lxPpMRjp2M=</dsig:DigestValue>
+      <dsig:DigestValue>9YHFbUBmGhfyjJZliVb6q64axA9V7e4JvMHkxTeEico=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="runtimes\win-x64\native\WebView2Loader.dll" size="158648">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>cSfyDaoKCnThIKt0I90bMMRZCPjukp8MbNIxK0HFvd8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="runtimes\win-x86\native\WebView2Loader.dll" size="115128">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>V6vvBiLRzWRuue/hzVjI5ZGSpR+8S7oKb559s+maw8E=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="uno.exe.config" size="825">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>YYgVv52g6OA/yBWdKIfHyjb3bDg6Jn+awyrJZr2yaaI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

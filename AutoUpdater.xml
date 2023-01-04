@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
-  <version>0.0.0.1</version>
-  <url>https://github.com/Travis-Findley/uno/releases/download/PreRelease/Source.code.zip</url>
+  <version>0.0.0.0</version>
+  <url>https://github.com/Travis-Findley/uno/archive/refs/tags/PreRelease.zip</url>
   <!-- <changelog>https://github.com/ravibpatel/AutoUpdater.NET/releases</changelog> -->
   <mandatory mode="1">false</mandatory>
 </item>

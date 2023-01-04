@@ -59,3 +59,16 @@ C:\Users\travis\Documents\GitHub\uno\unoGame\obj\Debug\uno.exe.manifest
 C:\Users\travis\Documents\GitHub\uno\unoGame\obj\Debug\uno.application
 C:\Users\travis\Documents\GitHub\uno\unoGame\obj\Debug\uno.exe
 C:\Users\travis\Documents\GitHub\uno\unoGame\obj\Debug\uno.pdb
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\AutoUpdater.NET.dll
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\AutoUpdater.NET.pdb
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\AutoUpdater.NET.xml
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\Microsoft.Web.WebView2.Core.xml
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\travis\Documents\GitHub\uno\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\travis\Documents\GitHub\uno\obj\Debug\uno.csproj.CopyComplete

@@ -15,7 +15,7 @@ namespace uno
     {
         public static void StartUp()
         {
-            string apiUrl = "https://api.github.com/Travis-Findley/uno/main";
+            //string apiUrl = "https://api.github.com/Travis-Findley/uno/main";
             /*
             using (WebClient client = new WebClient())
             {
@@ -25,6 +25,8 @@ namespace uno
                 }
             }
             */
+            AutoUpdater.InstalledVersion = new Version("0.0.0.0");
+            AutoUpdater.Start("https://raw.githubusercontent.com/Travis-Findley/uno/main/AutoUpdater.xml");
         }
     }
 }
