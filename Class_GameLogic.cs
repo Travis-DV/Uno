@@ -47,7 +47,7 @@ namespace uno
             this.GameForm = GameForm;
 
             //set the teams
-            int[] teams = { 1, 2, 3, 4 };
+            int[] teams = { 1, 1, 3, 4 };
             if (this.GameRules["do_2v2"]) { teams = new int[] { 1, 2, 1, 2 }; }
 
             #region starting locations
@@ -181,6 +181,7 @@ namespace uno
         {
             MessageBox.Show(Card_Index.ToString());
             //for every CardClass in that PlayerList DrawPile find the CardClass object with the picture box that matches the one clicked
+            CardClass c_card = this.PlayerList[this.PlayerIndex].Hand[Card_Index];
 
             //If the CardClass clicked is not in the eligable Hand then stop doing logic
             if (!this.PlayerList[this.PlayerIndex].e_Hand.Contains(c_card)) { return; }
@@ -230,6 +231,11 @@ namespace uno
             if (c_card.Numbers[this.is_Flipped.ToInt()].Contains("+"))
             {
                 PlusAmount += int.Parse(c_card.Numbers[this.is_Flipped.ToInt()][1].ToString());
+            }
+            //If the CardClass is an addition CardClass then add to the plus amount for add logic
+            if (c_card.Numbers[this.is_Flipped.ToInt()].Contains("reverse"))
+            {
+                this.is_Reverced = this.is_Reverced ? true : false;
             }
             //if it is a flip CardClass then flip it
             if (c_card.Colors[this.is_Flipped.ToInt()] == "flip")
@@ -369,7 +375,7 @@ namespace uno
         }
 
         //find the picture from the list and then return its index
-        private int FindPictureInList(List<CardClass> list, PictureBox find)
+        public int FindPictureInList(List<CardClass> list, PictureBox find)
         {
             int card_index = -1;
             //search through the whole list

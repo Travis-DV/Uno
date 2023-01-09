@@ -56,6 +56,7 @@ namespace uno
         //Find and add the eligable cards to the corasponding list
         public void EligableCards(CardClass TopOfDrawPile, int INTis_Flipped)
         {
+            this.e_Hand = new List<CardClass>();
             //for all the cards in their hand
             foreach (CardClass c in this.Hand)
             {
