@@ -21,7 +21,7 @@ namespace uno
         {
             // Set the DialogResult property to OK and the Tag property to "Red".
             this.DialogResult = DialogResult.OK;
-            this.Tag = "Red";
+            this.Tag = "red";
             this.Close();
         }
 
@@ -29,7 +29,7 @@ namespace uno
         {
             // Set the DialogResult property to OK and the Tag property to "Blue".
             this.DialogResult = DialogResult.OK;
-            this.Tag = "Blue";
+            this.Tag = "blue";
             this.Close();
         }
 
@@ -37,7 +37,7 @@ namespace uno
         {
             // Set the DialogResult property to OK and the Tag property to "Green".
             this.DialogResult = DialogResult.OK;
-            this.Tag = "Green";
+            this.Tag = "green";
             this.Close();
         }
 
@@ -45,7 +45,7 @@ namespace uno
         {
             // Set the DialogResult property to OK and the Tag property to "Yellow".
             this.DialogResult = DialogResult.OK;
-            this.Tag = "Yellow";
+            this.Tag = "yellow";
             this.Close();
         }
     }

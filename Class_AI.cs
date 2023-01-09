@@ -17,11 +17,15 @@ namespace uno
             this.Anger = new int[PlayerAmount];
         }
 
-        public void Play(List<CardClass> p_e_Hand, GameLogicClass game)
+        public void Play(PlayerClass player, GameLogicClass game)
         {
             MessageBox.Show("AI Play");
-            if (p_e_Hand.Count == 0) { game.DrawPileClickLogic(); return;  }
-            game.CardClickLogic(p_e_Hand[RandomNumber.Between(0, p_e_Hand.Count - 1)].cardPB[game.is_Flipped.ToInt()]);
+            player.EligableCards(game.DrawPile[game.DrawPile.Count-1], game.is_Flipped.ToInt());
+            MessageBox.Show("AI e_Hand count " + player.e_Hand.Count);
+            if (player.e_Hand.Count == 0) { game.DrawPileClickLogic(); return;  }
+            int rand = RandomNumber.Between(0, player.e_Hand.Count - 1);
+            MessageBox.Show("AI Rand: " + rand.ToString());
+            game.CardClickLogic(rand);
         }
     }
 }

@@ -32,6 +32,7 @@ namespace uno
         {
             foreach (CardClass c in Hand)
             {
+                Game.GameForm.Controls.Remove(c.cardPB[Game.is_Flipped.ToInt()]);
                 if (Player.Team == 1 || Game.is_Flipped)
                 {
                     Game.GameForm.Controls.Add(c.cardPB[Game.is_Flipped.ToInt()]);

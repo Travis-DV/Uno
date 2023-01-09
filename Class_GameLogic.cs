@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace uno
@@ -81,6 +78,18 @@ namespace uno
                 this.Deal();
             }
             this.PlayerIndex = 0;
+
+            while (this.DiscardPile.Count == 0)
+            {
+                MessageBox.Show($"Discard Pile Count: {DiscardPile.Count}");
+                //add to the top of the DrawPile
+                this.DiscardPile.Add(Draw());
+                if (this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()].Contains("+") || this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()].Contains("reverce") || this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()].Contains("flip") || this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()].Contains("wild"))
+                {
+                    this.DrawPile.Add(this.DiscardPile.pop());
+                    this.DiscardPile.Add(Draw());
+                }
+            }
 
             //Draw the Draw pile
             DisplayDrawPile(true);
@@ -159,37 +168,43 @@ namespace uno
             DisplayDrawPile(false);
 
             MessageBox.Show("e_Hand count " + this.PlayerList[this.PlayerIndex].e_Hand.Count);
-            if (this.PlayerList[this.PlayerIndex].AI != null) { this.PlayerList[this.PlayerIndex].AI.Play(this.PlayerList[this.PlayerIndex].e_Hand, this); }
+            if (this.PlayerList[this.PlayerIndex].AI != null) { this.PlayerList[this.PlayerIndex].AI.Play(this.PlayerList[this.PlayerIndex], this); }
         }
 
         //runs everytime the current PlayerClass clicks a CardClass
         public void cardPB_Click(object sender, EventArgs e)
         {
-            CardClickLogic(sender as PictureBox);
+            CardClickLogic(FindPictureInList(this.PlayerList[this.PlayerIndex].Hand, sender as PictureBox));
         }
 
-        public void CardClickLogic(PictureBox sender)
+        public void CardClickLogic(int Card_Index)
         {
+            MessageBox.Show(Card_Index.ToString());
             //for every CardClass in that PlayerList DrawPile find the CardClass object with the picture box that matches the one clicked
-            int card_index = FindPictureInList(this.PlayerList[this.PlayerIndex].Hand, sender);
 
-            MessageBox.Show("Card Index: " + card_index.ToString() + ", Player Index: " + PlayerIndex.ToString());
             //If the CardClass clicked is not in the eligable Hand then stop doing logic
-            if (!this.PlayerList[this.PlayerIndex].e_Hand.Contains(this.PlayerList[this.PlayerIndex].Hand[card_index])) { return; }
+            if (!this.PlayerList[this.PlayerIndex].e_Hand.Contains(c_card)) { return; }
 
             //Do the logic to see if the CardClass was "special" in any way and needs logic for it; ;CHANGE WITH is_Flipped
-            if (!this.is_Flipped) { CardPlay(this.PlayerList[this.PlayerIndex].Hand[card_index]); }
+            if (!this.is_Flipped) { CardPlay(c_card); }
 
             //Add this CardClass to the dicard pile and remove it from the PlayerList hand
-            this.DiscardPile.Add(this.PlayerList[this.PlayerIndex].Hand.pop(card_index));
+            this.DiscardPile.Add(this.PlayerList[this.PlayerIndex].Hand.pop(Card_Index));
 
             //Check if the next PlayerClass needs Hand added to their hand and if so add them
-            AddLogic(this.PlayerIndex + 1);
+            AddLogic(this.NextPlayer(this.PlayerIndex, this.PlayerList.Count));
 
             //Remove this click event from the picture box in the CardClass so that you can't click a non existent CardClass
             this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()].Click -= cardPB_Click;
             //remove the picture off of the screen
-            this.GameForm.Controls.Remove(sender);
+            this.GameForm.Controls.Remove(c_card.cardPB[this.is_Flipped.ToInt()]);
+
+            //skip
+            if (c_card.Numbers.Contains("skip"))
+            {
+                MessageBox.Show("In skip");
+                this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
+            }
 
             //Find the next PlayerClass
             this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
@@ -248,6 +263,7 @@ namespace uno
         {
             for (int i = 0; i < this.PlusAmount; i++)
             {
+                MessageBox.Show("AddCards Index: " + index);
                 this.PlayerList[index].Hand.Add(Draw());
             }
             this.PlusAmount = 0;
@@ -311,16 +327,6 @@ namespace uno
         //Draw the discard pile with the actual images
         public void DisplayDiscardPile()
         {
-            while (this.DiscardPile.Count == 0) 
-            {
-                //add to the top of the DrawPile
-                this.DiscardPile.Add(Draw());
-                if (this.DiscardPile[this.DiscardPile.Count-1].Numbers[this.is_Flipped.ToInt()].Contains("+") || this.DiscardPile[this.DiscardPile.Count-1].Numbers[this.is_Flipped.ToInt()].Contains("reverce") || this.DiscardPile[this.DiscardPile.Count-1].Numbers[this.is_Flipped.ToInt()].Contains("flip") || this.DiscardPile[this.DiscardPile.Count-1].Colors[this.is_Flipped.ToInt()].Contains("wild")) 
-                {
-                    this.DrawPile.Add(this.DiscardPile.Pop());
-                    this.DiscardPile.Add(Draw());
-                }
-            }
             //for the last 10 images
             for (int i = this.DiscardPile.Count-1; i > this.DiscardPile.Count - 10 && i > -1; i--)
             {
