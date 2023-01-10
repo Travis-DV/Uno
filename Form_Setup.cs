@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoUpdaterDotNET;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +10,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace uno
 {
@@ -30,8 +30,9 @@ namespace uno
 
         public SetupFormClass()
 		{
-            GitHubCheckerClass.StartUp();
-			InitializeComponent();
+            AutoUpdater.InstalledVersion = new Version("0.0.0.0");
+            AutoUpdater.Start("https://raw.githubusercontent.com/Travis-Findley/uno/main/AutoUpdater.xml");
+            InitializeComponent();
             normalGameBT.BackColor = Color.Red;
             flipGameBT.BackColor = Color.LightGray;
             twoPlayersBT.BackColor = Color.LightGray;
