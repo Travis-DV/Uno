@@ -150,8 +150,8 @@ namespace uno
                 //draw cards
                 this.PlayerList[i].DrawCards(this, this.PlayerList[i]);
 
-                //Find the eligable Hand using the topcard; ;CHANGE AFTER is_Flipped CHANGE
-                if (!this.is_Flipped) { this.PlayerList[i].EligableCards(this.DiscardPile[this.DiscardPile.Count - 1], this.is_Flipped.ToInt()); }
+                //Find the eligable Hand using the topcard;
+                this.PlayerList[i].EligableCards(this.DiscardPile[this.DiscardPile.Count - 1], this.is_Flipped.ToInt());
             }
 
             //If there are to few Hand in the DrawPile then reshuffle the discard pile into the DrawPile
@@ -186,7 +186,7 @@ namespace uno
             //If the CardClass clicked is not in the eligable Hand then stop doing logic
             if (!this.PlayerList[this.PlayerIndex].e_Hand.Contains(c_card)) { return; }
 
-            //Do the logic to see if the CardClass was "special" in any way and needs logic for it; ;CHANGE WITH is_Flipped
+            //Do the logic to see if the CardClass was "special" in any way and needs logic for it
             if (!this.is_Flipped) { CardPlay(c_card); }
 
             //Add this CardClass to the dicard pile and remove it from the PlayerList hand
@@ -235,7 +235,7 @@ namespace uno
             //If the CardClass is an addition CardClass then add to the plus amount for add logic
             if (c_card.Numbers[this.is_Flipped.ToInt()].Contains("reverse"))
             {
-                this.is_Reverced = this.is_Reverced ? true : false;
+                this.is_Reverced = this.is_Reverced ? false : true;
             }
             //if it is a flip CardClass then flip it
             if (c_card.Colors[this.is_Flipped.ToInt()] == "flip")
@@ -249,8 +249,8 @@ namespace uno
         {
             //If not doing chain adds and plus amount is more then zero then add stuff
             if (!this.GameRules["do_ChainAdds"] && this.PlusAmount > 0) { AddCards(index); }
-            //If doing chain adds and it is not flipped and if the next PlayerClass does not have a addidion CardClass; ;CHANGE WITH is_Flipped
-            if (this.GameRules["do_ChainAdds"] && !this.is_Flipped && CheckAdd(index)) { AddCards(index); }
+            //If doing chain adds and it is not flipped and if the next PlayerClass does not have a addidion CardClass
+            if (this.GameRules["do_ChainAdds"] && CheckAdd(index)) { AddCards(index); }
         }
 
         //CHANGE WITH is_Flipped
@@ -319,7 +319,7 @@ namespace uno
                 tempPB.Location = new Point((this.GameForm.Width / 2 - i), (this.GameForm.Height / 2));
                 //if not doing flip show the back of Hand
                 if (!this.GameRules["do_Flip"]) { tempPB.Image = Image.FromFile(Application.StartupPath + "\\small\\" + "card_back_alt.png"); }
-                //Draw the image if doing flip and it is not flipped; ;FIX WITH is_Flipped
+                //Draw the image if doing flip and it is not flipped
                 else if (!is_Flipped) { tempPB.Image = DrawPile[RandomNumber.Between(0, DrawPile.Count - 1)].cardPB[this.is_Flipped.ToInt()].Image; }
                 tempPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                 tempPB.Size = new System.Drawing.Size(50, 100);
