@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Web.WebView2.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -11,6 +13,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Shapes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace uno
@@ -78,6 +82,47 @@ namespace uno
         public static int ToInt(this bool value)
         {
             return value ? 1 : 0;
+        }
+    }
+
+    public static class console
+    {
+
+        private static string FilePath = $"{System.Windows.Forms.Application.StartupPath}\\logs/logs.txt";
+        //"G:\githubstuff\uno\bin\Debug\logs\logs.txt"
+
+        public static void Log(string message)
+        {
+            if (!File.Exists(FilePath))
+            {
+                File.Create(FilePath);
+            }
+            File.AppendAllLines(FilePath, new string[] { $"{message}, ({DateTime.Now})\n" });
+        }
+
+        public static void CleanUp(int daysold = 30)
+        {
+            if (!File.Exists(FilePath))
+            {
+                File.Create(FilePath);
+                return;
+            }
+            using (StreamReader reader = new StreamReader(FilePath))
+            {
+                string lines = "";
+                while (reader.ReadLine() != null)
+                {
+                    string line = reader.ReadLine();
+                    MessageBox.Show(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
+                    DateTime date = DateTime.Parse(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
+                    TimeSpan difference = DateTime.Now - date;
+                    MessageBox.Show(((int)difference.TotalDays < daysold).ToString());
+                    if ((int)difference.TotalDays < daysold)
+                    {
+                        lines += line + "\n";
+                    }
+                }
+            }
         }
     }
 }

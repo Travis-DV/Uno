@@ -30,6 +30,8 @@ namespace uno
 
         public SetupFormClass()
 		{
+            console.Log("himm2");
+            console.CleanUp();
             AutoUpdater.InstalledVersion = new Version("0.0.0.0");
             AutoUpdater.Start("https://raw.githubusercontent.com/Travis-Findley/uno/main/AutoUpdater.xml");
             InitializeComponent();
