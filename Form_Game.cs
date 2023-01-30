@@ -97,7 +97,20 @@ namespace uno
             {
                 File.Create(FilePath);
             }
-            File.AppendAllLines(FilePath, new string[] { $"{message}, ({DateTime.Now})\n" });
+            string[] contents = File.ReadAllText(FilePath).Split('\n');
+            string addback = "";
+            for (int i = 0; i < contents.Length; i++)
+            {
+                if (contents[i] != Environment.NewLine && contents[i] != "")
+                {
+                    addback += contents[i] + "\n";
+                }
+            }
+            addback += $"{message}, ({DateTime.Now}){Environment.NewLine}";
+            using (StreamWriter sw = File.AppendText(FilePath)) 
+            {
+                sw.WriteLine(addback);
+            }
         }
 
         public static void CleanUp(int daysold = 30)
@@ -112,6 +125,10 @@ namespace uno
                 string lines = "";
                 while (reader.ReadLine() != null)
                 {
+                    if (reader.ReadLine() == Environment.NewLine)
+                    {
+                        continue; 
+                    }
                     string line = reader.ReadLine();
                     MessageBox.Show(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
                     DateTime date = DateTime.Parse(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
