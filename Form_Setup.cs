@@ -30,10 +30,11 @@ namespace uno
 
         public SetupFormClass()
 		{
-            console.Log("himm2");
             console.CleanUp();
+            console.Log("----------------------------------------------");
+            console.Log("Method; (StartUp)");
             AutoUpdater.InstalledVersion = new Version("0.0.0.0");
-            AutoUpdater.Start("https://raw.githubusercontent.com/Travis-Findley/uno/main/AutoUpdater.xml");
+            AutoUpdater.Start("https://raw.githubusercontent.com/Travis-Findley/Uno/main/AutoUpdater.xml");
             InitializeComponent();
             normalGameBT.BackColor = Color.Red;
             flipGameBT.BackColor = Color.LightGray;
@@ -46,44 +47,32 @@ namespace uno
 
         private void normalGameBT_Click(object sender, EventArgs e)
         {
-			GameRules["do_Flip"] = false;
+            console.Log("Method; (normalGameBT_Click)");
+            GameRules["do_Flip"] = false;
 			normalGameBT.BackColor = Color.Red;
 			flipGameBT.BackColor = Color.LightGray;
         }
 
         private void flipGameBT_Click(object sender, EventArgs e)
         {
-			GameRules["do_Flip"] = true;
+            console.Log("Method; (flipGameBT_Click)");
+            GameRules["do_Flip"] = true;
 			flipGameBT.BackColor = Color.Purple;
 			normalGameBT.BackColor = Color.LightGray;
         }
 
         private void DrawToMatchBT_Click(object sender, EventArgs e)
         {
-			if (!GameRules["do_DrawtoMatch"])
-			{
-				DrawToMatchBT.Text = "True";
-				GameRules["do_DrawtoMatch"] = true;
-			}
-            else if (GameRules["do_DrawtoMatch"])
-            {
-                DrawToMatchBT.Text = "False";
-                GameRules["do_DrawtoMatch"] = false;
-            }
+            GameRules["do_DrawtoMatch"] = !GameRules["do_DrawtoMatch"];
+            DrawToMatchBT.Text = GameRules["do_DrawtoMatch"] ? "True" : "False";
+            console.Log($"Method; (DrawToMatchBT_Click), Changed from {!GameRules["do_DrawtoMatch"]}, to {GameRules["do_DrawtoMatch"]}");
         }
 
         private void ChainAddsBT_Click(object sender, EventArgs e)
         {
-            if (!GameRules["do_ChainAdds"])
-            {
-                ChainAddsBT.Text = "True";
-                GameRules["do_ChainAdds"] = true;
-            }
-            else if (GameRules["do_ChainAdds"])
-            {
-                ChainAddsBT.Text = "False";
-                GameRules["do_ChainAdds"] = false;
-            }
+            GameRules["do_ChainAdds"] = !GameRules["do_ChainAdds"];
+            ChainAddsBT.Text = GameRules["do_ChainAdds"] ? "True" : "False";
+            console.Log($"Method; (ChainAddsBT_Click), Changed from {!GameRules["do_ChainAdds"]}, to {GameRules["do_ChainAdds"]}");
         }
 
         private void AmountOfCardsTB_TextChanged(object sender, EventArgs e)

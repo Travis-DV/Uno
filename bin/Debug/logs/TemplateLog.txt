@@ -1,0 +1,12 @@
+console.Log($"Method; (), Current Game Rules;\n\t{GameRules["do_Flip"]}\n\t{GameRules["do_DrawtoMatch"]}\n\t{GameRules["do_Chain"]}\n\t")
+Method in
+game rules
+game states
+player
+next player
+ai or not
+card played
+available cards
+hand size
+top of deck
+top of draw
