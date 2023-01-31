@@ -97,19 +97,9 @@ namespace uno
             {
                 File.Create(FilePath);
             }
-            string[] contents = File.ReadAllText(FilePath).Split('\n');
-            string addback = "";
-            for (int i = 0; i < contents.Length; i++)
-            {
-                if (contents[i] != Environment.NewLine && contents[i] != "")
-                {
-                    addback += contents[i] + "\n";
-                }
-            }
-            addback += $"{message}, ({DateTime.Now}){Environment.NewLine}";
-            using (StreamWriter sw = File.AppendText(FilePath)) 
-            {
-                sw.WriteLine(addback);
+            using (StreamWriter sw = new StreamWriter(FilePath, true)) 
+            { 
+                sw.WriteLine($"{message}, ({DateTime.Now})");
             }
         }
 
@@ -125,7 +115,7 @@ namespace uno
                 string lines = "";
                 while (reader.ReadLine() != null)
                 {
-                    if (reader.ReadLine() == Environment.NewLine)
+                    if (reader.ReadLine()[0] == 13)
                     {
                         continue; 
                     }
