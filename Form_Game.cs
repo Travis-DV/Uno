@@ -110,24 +110,38 @@ namespace uno
                 File.Create(FilePath);
                 return;
             }
+            List<string> lines = new List<string>();
+            string line;
+            TimeSpan difference;
             using (StreamReader reader = new StreamReader(FilePath))
             {
-                string lines = "";
-                while (reader.ReadLine() != null)
+
+                while ((line = reader.ReadLine()) != null)
                 {
-                    if (reader.ReadLine()[0] == 13)
+                    try
                     {
-                        continue; 
+                        MessageBox.Show(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
+                        DateTime date = DateTime.Parse(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
+                        difference = DateTime.Now - date;
+                        MessageBox.Show(((int)difference.TotalDays < daysold).ToString());
                     }
-                    string line = reader.ReadLine();
-                    MessageBox.Show(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
-                    DateTime date = DateTime.Parse(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
-                    TimeSpan difference = DateTime.Now - date;
-                    MessageBox.Show(((int)difference.TotalDays < daysold).ToString());
+                    catch
+                    {
+                        continue;
+                    }
                     if ((int)difference.TotalDays < daysold)
                     {
-                        lines += line + "\n";
+                        lines.Add(line);
                     }
+                }
+            }
+            line = string.Join(Environment.NewLine, lines);
+            MessageBox.Show(line);
+            for (int i = 0; i < lines.Count; i++)
+            {
+                using (StreamWriter sw = new StreamWriter(FilePath, false))
+                {
+                    sw.WriteLine(line);
                 }
             }
         }
