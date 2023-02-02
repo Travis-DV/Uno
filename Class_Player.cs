@@ -20,6 +20,7 @@ namespace uno
         //run on init
         public PlayerClass(int Team, bool AI, int PlayerAmount)
         {
+            console.Log($"method; (PlayerClass.PlayerClass) [Player init], is AI ({AI})");
             //set the Team
             this.Team = Team;
             if (AI)
@@ -30,6 +31,7 @@ namespace uno
 
         public void DrawCards(GameLogicClass Game, PlayerClass Player)
         {
+            console.Log("method; (PlayerClass.DrawCards)")
             foreach (CardClass c in Hand)
             {
                 Game.GameForm.Controls.Remove(c.cardPB[Game.is_Flipped.ToInt()]);
@@ -66,6 +68,8 @@ namespace uno
                     this.e_Hand.Add(c);
                 }
             }
+
+            console.Log("method; (PlayerClass.EligableCards) [find e_Hand]; Top deck ({TopOfDrawPile.Colors[INTis_Flipped]} {TopOfDrawPile.Numbers[INTis_Flipped]})");
         }
 
         //Make it so that if the person clicks on one of their cards it does something
@@ -77,7 +81,7 @@ namespace uno
                 //ad an on click event
                 this.Hand[i].cardPB[Game.is_Flipped.ToInt()].Click += Game.cardPB_Click;
             }
-
+            console.Log("method; (PlayerClass.ActivateClick)");
         }
 
         //deactivate them so that the clicking cards does nothing if it is not their tern
@@ -88,7 +92,7 @@ namespace uno
             {
                 this.Hand[i].cardPB[Game.is_Flipped.ToInt()].Click -= Game.cardPB_Click;
             }
-
+            console.Log("method; (PlayerClass.DeactivateClick)");     
         }
 
         //Do the math to find where to place the images
@@ -111,6 +115,7 @@ namespace uno
                 //set their pos
                 this.Hand[card_index].SetPBLocation(Positions);
             }
+            console.Log($"method; (PlayerClass.FindCardPosition), Positions x,y ({Positions[0]}, {Positions[0])"); 
         }
 
         //Update the points for the Player
@@ -127,6 +132,7 @@ namespace uno
                     Points += c.Points[1];
                 }
             }
+            console.Log($"method; (PlayerClass.UpdatePoints)");
         }
     }
 }
