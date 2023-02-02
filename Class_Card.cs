@@ -18,6 +18,7 @@ namespace uno
 
         public CardClass(string Colors, string Numbers, int points)
         {
+            console.Log("method; (CardClass.CardClass) [Card INIT]");
             //Set the normal Colors Numberss points suze and sizemodes
             this.Colors[0] = Colors;
             this.Numbers[0] = Numbers;
@@ -31,6 +32,7 @@ namespace uno
         //set the up the flip stuff
         public void SetFlip(string Colors, string Numbers, int points)
         {
+            console.Log("method; (CardClass.SetFlip) [Card Flip INIT]");
             this.Colors[1] = Colors;
             this.Numbers[1] = Numbers;
             this.Points[1] = points;
@@ -42,6 +44,7 @@ namespace uno
         //Set thhe locations
         public void SetPBLocation(int[] location)
         {
+            console.Log($"method; (CardClass.SetPBLocation), x, y; ({location[0]}, {location[1]})");
             this.cardPB[0].Location = new Point(location[0], location[1]);
             this.cardPB[1].Location = new Point(location[0], location[1]);
         }

@@ -56,6 +56,7 @@ namespace uno
         private static readonly RNGCryptoServiceProvider _generator = new RNGCryptoServiceProvider();
         public static int Between(int minimumValue, int maximumValue)
         {
+            if (minimumValue == 0 && maximumValue == 0) {return 0;}
             byte[] randomNumbers = new byte[1];
             _generator.GetBytes(randomNumbers);
             double asciiValueOfRandomCharacter = Convert.ToDouble(randomNumbers[0]);
@@ -99,7 +100,7 @@ namespace uno
             }
             using (StreamWriter sw = new StreamWriter(FilePath, true)) 
             { 
-                sw.WriteLine($"{message}, ({DateTime.Now})");
+                sw.WriteLine($"{message} |> ({DateTime.Now})");
             }
         }
 
@@ -120,7 +121,7 @@ namespace uno
                 {
                     try
                     {
-                        MessageBox.Show(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
+                        MessageBox.Show(line.Split('>')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
                         DateTime date = DateTime.Parse(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
                         difference = DateTime.Now - date;
                         MessageBox.Show(((int)difference.TotalDays < daysold).ToString());
