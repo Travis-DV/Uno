@@ -96,16 +96,17 @@ namespace uno
             DisplayDrawPile(true);
 
             console.Log(
-                @$"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
+                $@"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
                 \n\tdo_DrawtoMatch ({this.GameRules["do_DrawtoMatch"]}),
                 \n\tdo_Flip ({this.GameRules["do_Flip"]}),
                 \n\tdo_ChianAdds ({this.GameRules["do_ChainAdds"]}),
-                \n\tdo_2v2 ({this.GameRules["do_2v2"]}, teams ({this.teams[0]}, {this.teams[1]}, {this.teams[2]}, {this.teams[3]})
+                \n\tdo_2v2 ({this.GameRules["do_2v2"]}, teams ({teams[0]}, {teams[1]}, {teams[2]}, {teams[3]})
                 \n\tPlayer Amount ({this.PlayerAmount})
                 \n\tCard Amount ({this.CardAmount})
-                \nCard draw location; ({consolemsg}), Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count-1]})"
+                \nPlayer Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count-1]})"
             );
-            
+            //Card draw location; ({consolemsg}), brok idk why dont think it was improtant 
+
             UpdateScreen();
         }
 
@@ -184,12 +185,12 @@ namespace uno
             if (this.PlayerList[this.PlayerIndex].AI != null) { this.PlayerList[this.PlayerIndex].AI.Play(this.PlayerList[this.PlayerIndex], this); }
 
             console.Log(
-                $"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;\
-                \n\tis_Flipped ({is_Flipped}),\
-                \n\tis_Reverced ({is_Reverced}),\
-                \n\tPlayerIndex ({PlayerIndex}, card amount {Players[PlayerIndex].Hand.Count}),\
-                \n\tPlusAmount ({PlusAmount})\
-                \nDiscard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.DiscardPile.Count - 1].Color}, {this.DiscardPile[this.DiscardPile.Count - 1].Nsumber})"
+                $@"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
+                \n\tis_Flipped ({is_Flipped}),
+                \n\tis_Reverced ({is_Reverced}),
+                \n\tPlayerIndex ({PlayerIndex}, card amount {PlayerList[PlayerIndex].Hand.Count}),
+                \n\tPlusAmount ({PlusAmount})
+                \nDiscard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]})"
             );
 
         }
@@ -197,9 +198,9 @@ namespace uno
         //runs everytime the current PlayerClass clicks a CardClass
         public void cardPB_Click(object sender, EventArgs e)
         {
-            int index = FindPictureInList(this.PlayerList[this.PlayerIndex].Hand, sender as PictureBox)
-            console.Log($"method; (GameLogicClass.cardPB_Click), Card Index ({index})")
-            CardClickLogic();
+            int index = FindPictureInList(this.PlayerList[this.PlayerIndex].Hand, sender as PictureBox);
+            console.Log($"method; (GameLogicClass.cardPB_Click), Card Index ({index})");
+            CardClickLogic(index);
         }
 
         public void CardClickLogic(int Card_Index)
@@ -234,7 +235,7 @@ namespace uno
             //Find the next PlayerClass
             this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
 
-            console.Log($"method; (GameLogicClass.CardClickLogic), Card Index; ({Card_Index}), Top Deck ({this.DiscardPile[this.DiscardPile.Count - 1].Color}, {this.DiscardPile[this.DiscardPile.Count - 1].Nsumber}), Player Index ({this.PlayerIndex})");
+            console.Log($"method; (GameLogicClass.CardClickLogic), Card Index; ({Card_Index}), Top Deck ({this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]}), Player Index ({this.PlayerIndex})");
 
             //update the screen
             UpdateScreen();
@@ -272,10 +273,10 @@ namespace uno
             if (c_card.Colors[this.is_Flipped.ToInt()] == "flip")
             {
                 is_Flipped = !is_Flipped;
-                log = $"flip, {is_Flipped}"
+                log = $"flip, {is_Flipped}";
             }
 
-            console.Log($"method; (GameLogicClass.CardPlay), c_card; ({c_card.Colorsthis[is_Flipped.ToInt()]}) ({c_card.Numbers[this.is_Flipped.ToInt()]}), {log}");
+            console.Log($"method; (GameLogicClass.CardPlay), c_card; ({c_card.Colors[is_Flipped.ToInt()]}) ({c_card.Numbers[this.is_Flipped.ToInt()]}), {log}");
 
         }
 
@@ -334,7 +335,7 @@ namespace uno
         public void DrawPileClickLogic()
         {
 
-            string log;
+            string log = "ERROR";
 
             //If doing Draw to match add a random CardClass to the PlayerList DrawPile and remove it from the DrawPile at the same time
             if (!this.GameRules["do_DrawtoMatch"]) { log = "add one"; this.PlayerList[this.PlayerIndex].Hand.Add(Draw()); }
@@ -343,7 +344,7 @@ namespace uno
             //Find the next PlayerClass
             this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
 
-            console.Log($"method; (GameLogicClass.DrawPileClickLogic), Player index; ({thos.PlayerIndex}), {log}");
+            console.Log($"method; (GameLogicClass.DrawPileClickLogic), Player index; ({this.PlayerIndex}), {log}");
             
             UpdateScreen();
         }

@@ -31,7 +31,7 @@ namespace uno
 
         public void DrawCards(GameLogicClass Game, PlayerClass Player)
         {
-            console.Log("method; (PlayerClass.DrawCards)")
+            console.Log("method; (PlayerClass.DrawCards)");
             foreach (CardClass c in Hand)
             {
                 Game.GameForm.Controls.Remove(c.cardPB[Game.is_Flipped.ToInt()]);
@@ -115,7 +115,7 @@ namespace uno
                 //set their pos
                 this.Hand[card_index].SetPBLocation(Positions);
             }
-            console.Log($"method; (PlayerClass.FindCardPosition), Positions x,y ({Positions[0]}, {Positions[0])"); 
+            console.Log($"method; (PlayerClass.FindCardPosition), Positions x,y ({Positions[0]}, {Positions[0]})"); 
         }
 
         //Update the points for the Player
