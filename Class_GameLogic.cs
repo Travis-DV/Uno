@@ -97,13 +97,13 @@ namespace uno
 
             console.Log(
                 $@"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
-                \n\tdo_DrawtoMatch ({this.GameRules["do_DrawtoMatch"]}),
-                \n\tdo_Flip ({this.GameRules["do_Flip"]}),
-                \n\tdo_ChianAdds ({this.GameRules["do_ChainAdds"]}),
-                \n\tdo_2v2 ({this.GameRules["do_2v2"]}, teams ({teams[0]}, {teams[1]}, {teams[2]}, {teams[3]})
-                \n\tPlayer Amount ({this.PlayerAmount})
-                \n\tCard Amount ({this.CardAmount})
-                \nPlayer Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count-1]})"
+                do_DrawtoMatch ({this.GameRules["do_DrawtoMatch"]}),
+                do_Flip ({this.GameRules["do_Flip"]}),
+                do_ChianAdds ({this.GameRules["do_ChainAdds"]}),
+                do_2v2 ({this.GameRules["do_2v2"]}, teams ({teams[0]}, {teams[1]}, {teams[2]}, {teams[3]})
+                Player Amount ({this.PlayerAmount})
+                Card Amount ({this.CardAmount})
+            Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count-1]})"
             );
             //Card draw location; ({consolemsg}), brok idk why dont think it was improtant 
 
