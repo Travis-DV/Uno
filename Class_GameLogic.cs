@@ -96,13 +96,13 @@ namespace uno
             DisplayDrawPile(true);
 
             console.Log(
-                $"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;\
-                \n\tdo_DrawtoMatch ({this.GameRules["do_DrawtoMatch"]}),\
-                \n\tdo_Flip ({this.GameRules["do_Flip"]}),\
-                \n\tdo_ChianAdds ({this.GameRules["do_ChainAdds"]}),\
-                \n\tdo_2v2 ({this.GameRules["do_2v2"]}, teams ({this.teams[0]}, {this.teams[1]}, {this.teams[2]}, {this.teams[3]})\
-                \n\tPlayer Amount ({this.PlayerAmount})\
-                \n\tCard Amount ({this.CardAmount})\
+                @$"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
+                \n\tdo_DrawtoMatch ({this.GameRules["do_DrawtoMatch"]}),
+                \n\tdo_Flip ({this.GameRules["do_Flip"]}),
+                \n\tdo_ChianAdds ({this.GameRules["do_ChainAdds"]}),
+                \n\tdo_2v2 ({this.GameRules["do_2v2"]}, teams ({this.teams[0]}, {this.teams[1]}, {this.teams[2]}, {this.teams[3]})
+                \n\tPlayer Amount ({this.PlayerAmount})
+                \n\tCard Amount ({this.CardAmount})
                 \nCard draw location; ({consolemsg}), Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count-1]})"
             );
             
