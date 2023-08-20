@@ -97,13 +97,13 @@ namespace uno
 
             console.Log(
                 $@"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
-                do_DrawtoMatch ({this.GameRules["do_DrawtoMatch"]}),
-                do_Flip ({this.GameRules["do_Flip"]}),
-                do_ChianAdds ({this.GameRules["do_ChainAdds"]}),
-                do_2v2 ({this.GameRules["do_2v2"]}, teams ({teams[0]}, {teams[1]}, {teams[2]}, {teams[3]})
-                Player Amount ({this.PlayerAmount})
-                Card Amount ({this.CardAmount})
-            Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count-1]})"
+    do_DrawtoMatch ({this.GameRules["do_DrawtoMatch"]}),
+    do_Flip ({this.GameRules["do_Flip"]}),
+    do_ChianAdds ({this.GameRules["do_ChainAdds"]}),
+    do_2v2 ({this.GameRules["do_2v2"]}, teams ({teams[0]}, {teams[1]}, {teams[2]}, {teams[3]})
+    Player Amount ({this.PlayerAmount})
+    Card Amount ({this.CardAmount})
+Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count-1]})"
             );
             //Card draw location; ({consolemsg}), brok idk why dont think it was improtant 
 
@@ -186,11 +186,11 @@ namespace uno
 
             console.Log(
                 $@"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
-                \n\tis_Flipped ({is_Flipped}),
-                \n\tis_Reverced ({is_Reverced}),
-                \n\tPlayerIndex ({PlayerIndex}, card amount {PlayerList[PlayerIndex].Hand.Count}),
-                \n\tPlusAmount ({PlusAmount})
-                \nDiscard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]})"
+    is_Flipped ({is_Flipped}),
+    is_Reverced ({is_Reverced}),
+    PlayerIndex ({PlayerIndex}, card amount {PlayerList[PlayerIndex].Hand.Count}),
+    PlusAmount ({PlusAmount})
+Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]})"
             );
 
         }
