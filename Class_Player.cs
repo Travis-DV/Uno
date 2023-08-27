@@ -20,28 +20,30 @@ namespace uno
         //run on init
         public PlayerClass(int Team, bool AI, int PlayerAmount)
         {
-            console.Log($"method; (PlayerClass.PlayerClass) [Player init], is AI ({AI})");
             //set the Team
             this.Team = Team;
             if (AI)
             {
                 this.AI = new AIClass(PlayerAmount);
             }
+            console.Log($"method; (PlayerClass.PlayerClass) [Player init], is AI ({AI}), Team; ({this.Team})");
         }
 
         public void DrawCards(GameLogicClass Game, PlayerClass Player)
         {
-            console.Log("method; (PlayerClass.DrawCards)");
+            string log = "";
             foreach (CardClass c in Hand)
             {
                 Game.GameForm.Controls.Remove(c.cardPB[Game.is_Flipped.ToInt()]);
                 if (Player.Team == 1 || Game.is_Flipped)
                 {
                     Game.GameForm.Controls.Add(c.cardPB[Game.is_Flipped.ToInt()]);
+                    log = "Player.Team == 1 || Game.is_Flipped";
                 }
                 else if (Player.Team != 1 && !Game.is_Flipped && Game.GameRules["do_Flip"])
                 {
                     Game.GameForm.Controls.Add(c.cardPB[1]);
+                    log = $"Player.Team ({Player.Team}) != 1 && !Game.is_Flipped && Game.GameRules[\"do_Flip\"]; Draw Flip ";
                 }
                 else if (Player.Team != 1 && !Game.GameRules["do_Flip"])
                 {
@@ -51,14 +53,17 @@ namespace uno
                     tempPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                     tempPB.Size = new System.Drawing.Size(50, 100);
                     Game.GameForm.Controls.Add(tempPB);
+                    log = $"Player.Team  ({Player.Team}) != 1 && !Game.GameRules[\"do_Flip\"]; Draw blank back";
                 }
             }
+            console.Log($"method; (PlayerClass.DrawCards) [{log}]");
         }
 
         //Find and add the eligable cards to the corasponding list
         public void EligableCards(CardClass TopOfDrawPile, int INTis_Flipped)
         {
             this.e_Hand = new List<CardClass>();
+            string log = "";
             //for all the cards in their hand
             foreach (CardClass c in this.Hand)
             {
@@ -66,10 +71,11 @@ namespace uno
                 if (c.Colors[INTis_Flipped] == TopOfDrawPile.Colors[INTis_Flipped] || c.Numbers[INTis_Flipped] == TopOfDrawPile.Numbers[INTis_Flipped] || c.Colors[INTis_Flipped] == "wild")
                 {
                     this.e_Hand.Add(c);
+                    log += $"{c.cardPB[INTis_Flipped]}, ";
                 }
             }
 
-            console.Log("method; (PlayerClass.EligableCards) [find e_Hand]; Top deck ({TopOfDrawPile.Colors[INTis_Flipped]} {TopOfDrawPile.Numbers[INTis_Flipped]})");
+            console.Log($"method; (PlayerClass.EligableCards) [find e_Hand]; eHand; ({log}), Top deck ({TopOfDrawPile.Colors[INTis_Flipped]} {TopOfDrawPile.Numbers[INTis_Flipped]})");
         }
 
         //Make it so that if the person clicks on one of their cards it does something
@@ -98,6 +104,7 @@ namespace uno
         //Do the math to find where to place the images
         public void FindCardPosition(int x, int y, int order)
         {
+            string log = "";
             //re assemble the list
             int[] Positions = { x, y };
             //MATH = half the amount of cards times the width + the half times the buffer so that it is easy to change both
@@ -132,7 +139,7 @@ namespace uno
                     Points += c.Points[1];
                 }
             }
-            console.Log($"method; (PlayerClass.UpdatePoints)");
+            console.Log($"method; (PlayerClass.UpdatePoints) [{Points}]");
         }
     }
 }

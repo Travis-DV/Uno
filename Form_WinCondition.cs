@@ -15,6 +15,7 @@ namespace uno
         public WinConditonForm()
         {
             InitializeComponent();
+            console.Log("method; (WinConditonForm.WinConditonForm)");
         }
     }
 }

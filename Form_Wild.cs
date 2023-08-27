@@ -15,6 +15,7 @@ namespace uno
         public wildFormClass()
         {
             InitializeComponent();
+            console.Log("method; (wildFormClass.wildFormClass)");
         }
 
         private void redBT_Click(object sender, EventArgs e)
@@ -22,6 +23,7 @@ namespace uno
             // Set the DialogResult property to OK and the Tag property to "Red".
             this.DialogResult = DialogResult.OK;
             this.Tag = "red";
+            console.Log("method; (wildFormClass.redBT_Click) [this.Tag = red]");
             this.Close();
         }
 
@@ -30,6 +32,7 @@ namespace uno
             // Set the DialogResult property to OK and the Tag property to "Blue".
             this.DialogResult = DialogResult.OK;
             this.Tag = "blue";
+            console.Log("method; (wildFormClass.blueBT_Click) [this.Tag = blue]");
             this.Close();
         }
 
@@ -38,6 +41,7 @@ namespace uno
             // Set the DialogResult property to OK and the Tag property to "Green".
             this.DialogResult = DialogResult.OK;
             this.Tag = "green";
+            console.Log("method; (wildFormClass.greenBT_Click) [this.Tag = green]");
             this.Close();
         }
 
@@ -46,6 +50,7 @@ namespace uno
             // Set the DialogResult property to OK and the Tag property to "Yellow".
             this.DialogResult = DialogResult.OK;
             this.Tag = "yellow";
+            console.Log("method; (wildFormClass.yellowBT_Click) [this.Tag = yellow]");
             this.Close();
         }
     }

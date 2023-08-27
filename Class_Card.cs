@@ -18,7 +18,6 @@ namespace uno
 
         public CardClass(string Colors, string Numbers, int points)
         {
-            console.Log("method; (CardClass.CardClass) [Card INIT]");
             //Set the normal Colors Numberss points suze and sizemodes
             this.Colors[0] = Colors;
             this.Numbers[0] = Numbers;
@@ -26,7 +25,11 @@ namespace uno
             this.cardPB[0].Size = new System.Drawing.Size(50, 100);
             this.cardPB[0].Image = Image.FromFile(Application.StartupPath + "\\" + $"small\\{this.Colors[0]}_{this.Numbers[0]}.png");
             this.cardPB[0].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            
+            console.Log($@"method; (CardClass.CardClass) [Card INIT],
+    NormalColor; ({Colors[0]}),
+    NormalNumber; ({Numbers[0]}),
+    NormalPoints; ({Points[0]}),
+    Image; ({Application.StartupPath}\\small\\{this.Colors[0]}_{this.Numbers[0]}.png)");
         }
 
         //set the up the flip stuff
@@ -39,6 +42,11 @@ namespace uno
             this.cardPB[1].Size = new System.Drawing.Size(50, 100);
             this.cardPB[1].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cardPB[0].Image = Image.FromFile(Application.StartupPath + "\\" + $"small\\{this.Colors[1]}_{this.Numbers[1]}.png");
+            console.Log($@"method; (CardClass.SetFlip) [Flip Card INIT],
+    FlipColor; ({Colors[1]}),
+    FlipNumber; ({Numbers[1]}),
+    FlipPoints; ({Points[1]}),
+    Image; ({Application.StartupPath}\\small\\{this.Colors[1]}_{this.Numbers[1]}.png)");
         }
 
         //Set thhe locations

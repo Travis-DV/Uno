@@ -29,17 +29,20 @@ namespace uno
             InitializeComponent();
             this.FormClosing += GameForm_FormClosing;
             this.KeyDown += openPauseMenu;
-            MessageBox.Show($"Width: {this.Width}, Height: {this.Height}, Size: {this.Size}");
+            console.Log($"method; (GameForm.GameForm), Width: ({this.Width}), Height; ({this.Height}), Size; ({this.Size})");
             GameLogicClass game = new GameLogicClass(GameRules, this, PlayerAmount, CardAmount);
         }
 
         private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
+            console.Log("method; (GameForm.GameForm_FormClosing)");
             pause.Show();
         }
+
         private void openPauseMenu(object sender, KeyEventArgs e)
         {
+            console.Log("method; (GameForm.openPauseMenu)");
             if (e.KeyCode == Keys.Escape)
             {
                 pause.Show();
@@ -63,6 +66,7 @@ namespace uno
             double multiplier = Math.Max(0, (asciiValueOfRandomCharacter / 255d) - 0.00000000001d);
             int range = (maximumValue - 1) - minimumValue;
             double randomValueInRange = Math.Floor(multiplier * range);
+            console.Log($"method; (RandomNumber.Between), Between; (min: {minimumValue}, max: {maximumValue}), Value; ({(int)(minimumValue + randomValueInRange)})");
             return (int)(minimumValue + randomValueInRange);
         }
     }
@@ -77,6 +81,7 @@ namespace uno
 
             T temp = list[index];
             list.RemoveAt(index);
+            console.Log($"method; (Extensions.pop), Thing Popped; ({temp})");
             return temp;
         }
 
@@ -121,10 +126,10 @@ namespace uno
                 {
                     try
                     {
-                        MessageBox.Show(line.Split('>')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
+                        console.Log($"Lines; ({line.Split('>')[1].Remove(0, 1).Replace("(", "").Replace(")", "")})");
                         DateTime date = DateTime.Parse(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
                         difference = DateTime.Now - date;
-                        MessageBox.Show(((int)difference.TotalDays < daysold).ToString());
+                        console.Log($"Differnece; ({(int)difference.TotalDays < daysold})");
                     }
                     catch
                     {
@@ -132,6 +137,7 @@ namespace uno
                     }
                     if ((int)difference.TotalDays < daysold)
                     {
+                        console.Log($"Line add; {line}");
                         lines.Add(line);
                     }
                 }

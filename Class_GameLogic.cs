@@ -143,12 +143,14 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
         //Logic needed to update the screen
         private void UpdateScreen()
         {
+            string PlayerListCount = "";
             //go through every PlayerClass
             for (int i = 0; i < this.PlayerList.Count; i++)
             {
                 //Check if they have no Hand left, if they have do win screen and condition
                 if (this.PlayerList[i].Hand.Count == 0)
                 {
+                    PlayerListCount += $"Player{i}CardCount; ({this.PlayerList[i].Hand.Count})\n"; 
                     WinConditonForm win_condition = new WinConditonForm();
                     win_condition.Show();
                     this.GameForm.Hide();
@@ -185,10 +187,10 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
             if (this.PlayerList[this.PlayerIndex].AI != null) { this.PlayerList[this.PlayerIndex].AI.Play(this.PlayerList[this.PlayerIndex], this); }
 
             console.Log(
-                $@"method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
+                $@"method; (GameLogicClass.GameLogicClass) [Game INIT], UpdateScreen;
     is_Flipped ({is_Flipped}),
     is_Reverced ({is_Reverced}),
-    PlayerIndex ({PlayerIndex}, card amount {PlayerList[PlayerIndex].Hand.Count}),
+    {PlayerListCount}
     PlusAmount ({PlusAmount})
 Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]})"
             );
@@ -228,14 +230,14 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
             //skip
             if (c_card.Numbers.Contains("skip"))
             {
-                MessageBox.Show("In skip");
+                console.Log("method; (GameLogicClass.CardClickLogic), In skip");
                 this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
             }
 
             //Find the next PlayerClass
             this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
 
-            console.Log($"method; (GameLogicClass.CardClickLogic), Card Index; ({Card_Index}), Top Deck ({this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]}), Player Index ({this.PlayerIndex})");
+            console.Log($"method; (GameLogicClass.CardClickLogic), Card Index; ({Card_Index}), Card Color; ({c_card.cardPB[is_Flipped.ToInt()].Image}), Top Deck ({this.DiscardPile[this.DiscardPile.Count - 1].[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]}), Player Index ({this.PlayerIndex})");
 
             //update the screen
             UpdateScreen();
@@ -291,15 +293,15 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
             console.Log($"method; (GameLogicClass.AddLogic)");
         }
 
-        //CHANGE WITH is_Flipped
         private bool CheckAdd(int index)
         {
-            console.Log($"method; (GameLogicClass.CheckAdd)");
+            
             //Check every CardClass to see if it is an addition CardClass if it is return true if not return false
             foreach (CardClass c in this.PlayerList[index].e_Hand)
             {
-                if (c.Numbers[this.is_Flipped.ToInt()].Contains("+")) { return true; }
+                if (c.Numbers[this.is_Flipped.ToInt()].Contains("+")) { console.Log($"method; (GameLogicClass.CheckAdd) [True]"); return true; }
             }
+            console.Log($"method; (GameLogicClass.CheckAdd) [False]");
             return false;
         }
 
@@ -386,6 +388,7 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
         //Draw the discard pile with the actual images
         public void DisplayDiscardPile()
         {
+            string log = "";
             //for the last 10 images
             for (int i = this.DiscardPile.Count-1; i > this.DiscardPile.Count - 10 && i > -1; i--)
             {
@@ -393,9 +396,10 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
                 this.DiscardPile[i].cardPB[this.is_Flipped.ToInt()].Location = new Point((this.GameForm.Width / 2 + RandomNumber.Between(-10, 10)), (this.GameForm.Height / 2 + RandomNumber.Between(-10, 10)));
                 //Add the actual image
                 this.GameForm.Controls.Add(this.DiscardPile[i].cardPB[this.is_Flipped.ToInt()]);
+                log += $"{i} ";
             }
 
-            console.Log("method; (GameLogicClass.DisplayDiscardPile)");
+            console.Log($"method; (GameLogicClass.DisplayDiscardPile), Discard Pile Count; ({this.DiscardPile.Count}), i list; ({log})");
         }
 
         //Redistribute the discard pile into the Draw pile
@@ -419,7 +423,7 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
             return DrawPile.pop(RandomNumber.Between(0, DrawPile.Count - 1));
         }
 
-        //draw to match logic
+        //ACTUALLY HOW TF DOES draw to match logic
         private void DrawToMatch(CardClass topdeck)
         {
             console.Log("method; (GameLogicClass.DrawToMatch)");
@@ -437,7 +441,6 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
         //find the picture from the list and then return its index
         public int FindPictureInList(List<CardClass> list, PictureBox find)
         {
-            console.Log("method; (GameLogicClass.FindPictureInList)");
             int card_index = -1;
             //search through the whole list
             for (int i = 0; i < list.Count; i++)
@@ -445,6 +448,7 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
                 //if they match then break out of the loop to save time
                 if (list[i].cardPB[this.is_Flipped.ToInt()] == find) { card_index = i; break; }
             }
+            console.Log($"method; (GameLogicClass.FindPictureInList), Card Index; ({card_index})");
             return card_index;
         }
     }
