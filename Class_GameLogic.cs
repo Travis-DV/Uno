@@ -237,7 +237,7 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
             //Find the next PlayerClass
             this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
 
-            console.Log($"method; (GameLogicClass.CardClickLogic), Card Index; ({Card_Index}), Card Color; ({c_card.cardPB[is_Flipped.ToInt()].Image}), Top Deck ({this.DiscardPile[this.DiscardPile.Count - 1].[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]}), Player Index ({this.PlayerIndex})");
+            console.Log($"method; (GameLogicClass.CardClickLogic), Card Index; ({Card_Index}), Card Color; ({c_card.cardPB[is_Flipped.ToInt()].Image}), Top Deck ({this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]}), Player Index ({this.PlayerIndex})");
 
             //update the screen
             UpdateScreen();

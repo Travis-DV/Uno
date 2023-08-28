@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="uno.exe" size="48640">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="uno.exe" size="53760">
       <assemblyIdentity name="uno" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qFd9V5E6exAI18sYx9eLkY8In9lep8IhHatBp/fKTfw=</dsig:DigestValue>
+        <dsig:DigestValue>UTDL3HvL0FrkXBpNXSVSFnyMQqedtj6D3oI2LYs0P30=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

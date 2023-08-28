@@ -97,7 +97,7 @@ namespace uno
         private static string FilePath = $"{System.Windows.Forms.Application.StartupPath}\\logs/logs.txt";
         //"G:\githubstuff\uno\bin\Debug\logs\logs.txt"
 
-        public static void Log(string message)
+        public static void Log(string message) 
         {
             if (!File.Exists(FilePath))
             {
@@ -143,7 +143,7 @@ namespace uno
                 }
             }
             line = string.Join(Environment.NewLine, lines);
-            MessageBox.Show(line);
+            console.Log($"Line final; {line}");
             for (int i = 0; i < lines.Count; i++)
             {
                 using (StreamWriter sw = new StreamWriter(FilePath, false))

@@ -104,7 +104,6 @@ namespace uno
         //Do the math to find where to place the images
         public void FindCardPosition(int x, int y, int order)
         {
-            string log = "";
             //re assemble the list
             int[] Positions = { x, y };
             //MATH = half the amount of cards times the width + the half times the buffer so that it is easy to change both
