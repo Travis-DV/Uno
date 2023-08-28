@@ -103,7 +103,7 @@ namespace uno
     do_2v2 ({this.GameRules["do_2v2"]}, teams ({teams[0]}, {teams[1]}, {teams[2]}, {teams[3]})
     Player Amount ({this.PlayerAmount})
     Card Amount ({this.CardAmount})
-Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count-1]})"
+Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count - 1].cardPB[is_Flipped.ToInt()].Image})"
             );
             //Card draw location; ({consolemsg}), brok idk why dont think it was improtant 
 
@@ -147,10 +147,10 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
             //go through every PlayerClass
             for (int i = 0; i < this.PlayerList.Count; i++)
             {
+                PlayerListCount += $"Player{i}CardCount; ({this.PlayerList[i].Hand.Count})\n";
                 //Check if they have no Hand left, if they have do win screen and condition
                 if (this.PlayerList[i].Hand.Count == 0)
                 {
-                    PlayerListCount += $"Player{i}CardCount; ({this.PlayerList[i].Hand.Count})\n"; 
                     WinConditonForm win_condition = new WinConditonForm();
                     win_condition.Show();
                     this.GameForm.Hide();
@@ -192,9 +192,7 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
     is_Reverced ({is_Reverced}),
     {PlayerListCount}
     PlusAmount ({PlusAmount})
-Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]})"
-            );
-
+Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]})");
         }
 
         //runs everytime the current PlayerClass clicks a CardClass
@@ -390,7 +388,7 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
         {
             string log = "";
             //for the last 10 images
-            for (int i = this.DiscardPile.Count-1; i > this.DiscardPile.Count - 10 && i > -1; i--)
+            for (int i = this.DiscardPile.Count-1; i > this.DiscardPile.Count - 11 && i > -1; i--)
             {
                 //get a location that is +-10 from the center
                 this.DiscardPile[i].cardPB[this.is_Flipped.ToInt()].Location = new Point((this.GameForm.Width / 2 + RandomNumber.Between(-10, 10)), (this.GameForm.Height / 2 + RandomNumber.Between(-10, 10)));
