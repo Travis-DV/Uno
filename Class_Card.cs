@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace uno
 {
@@ -55,6 +56,11 @@ namespace uno
             console.Log($"method; (CardClass.SetPBLocation), x, y; ({location[0]}, {location[1]})");
             this.cardPB[0].Location = new Point(location[0], location[1]);
             this.cardPB[1].Location = new Point(location[0], location[1]);
+        }
+
+        public string ToString(int is_Flipped)
+        {
+            return $"{this.Colors[is_Flipped]} {this.Numbers[is_Flipped]}; {this.Points[is_Flipped]} Points";
         }
     }
 }
