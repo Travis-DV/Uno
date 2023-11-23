@@ -386,8 +386,9 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
         //Draw the discard pile with the actual images
         public void DisplayDiscardPile()
         {
-            string log = "";
+            string log = "Nothing";
             //for the last 10 images
+            /*
             for (int i = this.DiscardPile.Count-1; i > this.DiscardPile.Count - 11 && i > -1; i--)
             {
                 //get a location that is +-10 from the center
@@ -396,8 +397,15 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
                 this.GameForm.Controls.Add(this.DiscardPile[i].cardPB[this.is_Flipped.ToInt()]);
                 log += $"(i; {i}, card; ({this.DiscardPile[i].Colors[is_Flipped.ToInt()]}) ({this.DiscardPile[i].Numbers[this.is_Flipped.ToInt()]})";
             }
-
-            console.Log($"method; (GameLogicClass.DisplayDiscardPile), Discard Pile Count; ({this.DiscardPile.Count}), i list; ({log})");
+            */
+            if (!this.GameForm.Controls.Contains(this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()]))
+            {
+                this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()].Location = new Point((this.GameForm.Width / 2 + RandomNumber.Between(-10, 10)), (this.GameForm.Height / 2 + RandomNumber.Between(-10, 10)));
+                this.GameForm.Controls.Add(this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()]);
+                this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()].BringToFront();
+                log = this.DiscardPile[this.DiscardPile.Count - 1].ToString(is_Flipped.ToInt());
+            }
+            console.Log($"method; (GameLogicClass.DisplayDiscardPile), Discard Pile Count; ({this.DiscardPile.Count}), Added; ({log})");
         }
 
         //Redistribute the discard pile into the Draw pile
