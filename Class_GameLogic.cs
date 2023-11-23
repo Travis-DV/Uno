@@ -394,7 +394,7 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
                 this.DiscardPile[i].cardPB[this.is_Flipped.ToInt()].Location = new Point((this.GameForm.Width / 2 + RandomNumber.Between(-10, 10)), (this.GameForm.Height / 2 + RandomNumber.Between(-10, 10)));
                 //Add the actual image
                 this.GameForm.Controls.Add(this.DiscardPile[i].cardPB[this.is_Flipped.ToInt()]);
-                log += $"{i} ";
+                log += $"(i; {i}, card; ({this.DiscardPile[i].Colors[is_Flipped.ToInt()]}) ({this.DiscardPile[i].Numbers[this.is_Flipped.ToInt()]})";
             }
 
             console.Log($"method; (GameLogicClass.DisplayDiscardPile), Discard Pile Count; ({this.DiscardPile.Count}), i list; ({log})");
