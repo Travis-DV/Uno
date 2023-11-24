@@ -105,7 +105,7 @@ namespace uno
             }
             using (StreamWriter sw = new StreamWriter(FilePath, true)) 
             { 
-                sw.WriteLine($"{message} |> ({DateTime.Now})");
+                sw.WriteLine($"({DateTime.Now}) |> {message}");
             }
         }
 
@@ -126,8 +126,8 @@ namespace uno
                 {
                     try
                     {
-                        console.Log($"Lines; ({line.Split('>')[1].Remove(0, 1).Replace("(", "").Replace(")", "")})");
-                        DateTime date = DateTime.Parse(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
+                        console.Log($"Lines; ({line.Split(' ')[0].Replace("(", "").Replace(")", "")})");
+                        DateTime date = DateTime.Parse(line.Split(' ')[0].Replace("(", "").Replace(")", ""));
                         difference = DateTime.Now - date;
                         console.Log($"Differnece; ({(int)difference.TotalDays < daysold})");
                     }
