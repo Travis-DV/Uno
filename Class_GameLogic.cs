@@ -153,7 +153,6 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
                 {
                     WinConditonForm win_condition = new WinConditonForm();
                     win_condition.Show();
-                    this.GameForm.Hide();
                 }
 
                 this.PlayerList[i].DeactivateClick(this);
@@ -387,17 +386,7 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
         public void DisplayDiscardPile()
         {
             string log = "Nothing";
-            //for the last 10 images
-            /*
-            for (int i = this.DiscardPile.Count-1; i > this.DiscardPile.Count - 11 && i > -1; i--)
-            {
-                //get a location that is +-10 from the center
-                this.DiscardPile[i].cardPB[this.is_Flipped.ToInt()].Location = new Point((this.GameForm.Width / 2 + RandomNumber.Between(-10, 10)), (this.GameForm.Height / 2 + RandomNumber.Between(-10, 10)));
-                //Add the actual image
-                this.GameForm.Controls.Add(this.DiscardPile[i].cardPB[this.is_Flipped.ToInt()]);
-                log += $"(i; {i}, card; ({this.DiscardPile[i].Colors[is_Flipped.ToInt()]}) ({this.DiscardPile[i].Numbers[this.is_Flipped.ToInt()]})";
-            }
-            */
+            //
             if (!this.GameForm.Controls.Contains(this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()]))
             {
                 this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()].Location = new Point((this.GameForm.Width / 2 + RandomNumber.Between(-10, 10)), (this.GameForm.Height / 2 + RandomNumber.Between(-10, 10)));

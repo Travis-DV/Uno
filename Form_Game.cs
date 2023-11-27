@@ -117,39 +117,23 @@ namespace uno
                 return;
             }
             List<string> lines = new List<string>();
-            string line;
+            lines = System.IO.File.ReadAllLines(FilePath).ToList();
             TimeSpan difference;
-            using (StreamReader reader = new StreamReader(FilePath))
+            int i = 0;
+            while (true)
             {
-
-                while ((line = reader.ReadLine()) != null)
+                difference = DateTime.Now - DateTime.Parse(lines[i].Split(' ')[0].Replace("(", "").Replace(")", ""));
+                if ((int)difference.TotalDays > daysold)
                 {
-                    try
-                    {
-                        console.Log($"Lines; ({line.Split(' ')[0].Replace("(", "").Replace(")", "")})");
-                        DateTime date = DateTime.Parse(line.Split(' ')[0].Replace("(", "").Replace(")", ""));
-                        difference = DateTime.Now - date;
-                        console.Log($"Differnece; ({(int)difference.TotalDays < daysold})");
-                    }
-                    catch
-                    {
-                        continue;
-                    }
-                    if ((int)difference.TotalDays < daysold)
-                    {
-                        console.Log($"Line add; {line}");
-                        lines.Add(line);
-                    }
+                    lines.Remove(lines[i]);
+                    i--;
                 }
-            }
-            line = string.Join(Environment.NewLine, lines);
-            console.Log($"Line final; {line}");
-            for (int i = 0; i < lines.Count; i++)
-            {
-                using (StreamWriter sw = new StreamWriter(FilePath, false))
+                else
                 {
-                    sw.WriteLine(line);
+                    System.IO.File.WriteAllLines(FilePath, lines.ToArray());
+                    break;
                 }
+                i++;
             }
         }
     }
