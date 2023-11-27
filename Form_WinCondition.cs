@@ -16,10 +16,10 @@ namespace uno
         {
             InitializeComponent();
             console.Log("method; (WinConditonForm.WinConditonForm) ---------------------------------------------------");
-            Form mainForm = Application.OpenForms[0];
+            //Form mainForm = Application.OpenForms[0];
 
-            // Close the main form.
-            mainForm.Close();
+            //// Close the main form.
+            //mainForm.Close();
         }
     }
 }

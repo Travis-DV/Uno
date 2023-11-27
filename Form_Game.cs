@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Shapes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.ComponentModel.Design;
 
 namespace uno
 {
@@ -116,14 +117,12 @@ namespace uno
                 File.Create(FilePath);
                 return;
             }
-            List<string> lines = new List<string>();
-            lines = System.IO.File.ReadAllLines(FilePath).ToList();
-            TimeSpan difference;
+            List<string> lines = System.IO.File.ReadAllLines(FilePath).ToList();
+            if (!lines.Any()) { return; }
             int i = 0;
             while (true)
             {
-                difference = DateTime.Now - DateTime.Parse(lines[i].Split(' ')[0].Replace("(", "").Replace(")", ""));
-                if ((int)difference.TotalDays > daysold)
+                if ((int)(DateTime.Now - DateTime.Parse(lines[i].Split(' ')[0].Replace("(", "").Replace(")", ""))).TotalDays > daysold)
                 {
                     lines.Remove(lines[i]);
                     i--;

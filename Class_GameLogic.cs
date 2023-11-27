@@ -153,6 +153,7 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
                 {
                     WinConditonForm win_condition = new WinConditonForm();
                     win_condition.Show();
+                    return;
                 }
 
                 this.PlayerList[i].DeactivateClick(this);
@@ -446,5 +447,6 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
             console.Log($"method; (GameLogicClass.FindPictureInList), Card Index; ({card_index})");
             return card_index;
         }
+       
     }
 }
