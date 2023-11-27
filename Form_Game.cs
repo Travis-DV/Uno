@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Shapes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.ComponentModel.Design;
 
 namespace uno
 {
@@ -105,7 +106,7 @@ namespace uno
             }
             using (StreamWriter sw = new StreamWriter(FilePath, true)) 
             { 
-                sw.WriteLine($"{message} |> ({DateTime.Now})");
+                sw.WriteLine($"({DateTime.Now}) |> {message}");
             }
         }
 
@@ -116,40 +117,22 @@ namespace uno
                 File.Create(FilePath);
                 return;
             }
-            List<string> lines = new List<string>();
-            string line;
-            TimeSpan difference;
-            using (StreamReader reader = new StreamReader(FilePath))
+            List<string> lines = System.IO.File.ReadAllLines(FilePath).ToList();
+            if (!lines.Any()) { return; }
+            int i = 0;
+            while (true)
             {
-
-                while ((line = reader.ReadLine()) != null)
+                if ((int)(DateTime.Now - DateTime.Parse(lines[i].Split(' ')[0].Replace("(", "").Replace(")", ""))).TotalDays > daysold)
                 {
-                    try
-                    {
-                        console.Log($"Lines; ({line.Split('>')[1].Remove(0, 1).Replace("(", "").Replace(")", "")})");
-                        DateTime date = DateTime.Parse(line.Split(',')[1].Remove(0, 1).Replace("(", "").Replace(")", ""));
-                        difference = DateTime.Now - date;
-                        console.Log($"Differnece; ({(int)difference.TotalDays < daysold})");
-                    }
-                    catch
-                    {
-                        continue;
-                    }
-                    if ((int)difference.TotalDays < daysold)
-                    {
-                        console.Log($"Line add; {line}");
-                        lines.Add(line);
-                    }
+                    lines.Remove(lines[i]);
+                    i--;
                 }
-            }
-            line = string.Join(Environment.NewLine, lines);
-            console.Log($"Line final; {line}");
-            for (int i = 0; i < lines.Count; i++)
-            {
-                using (StreamWriter sw = new StreamWriter(FilePath, false))
+                else
                 {
-                    sw.WriteLine(line);
+                    System.IO.File.WriteAllLines(FilePath, lines.ToArray());
+                    break;
                 }
+                i++;
             }
         }
     }
