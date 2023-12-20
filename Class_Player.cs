@@ -34,26 +34,42 @@ namespace uno
             string log = "";
             foreach (CardClass c in Hand)
             {
-                Game.GameForm.Controls.Remove(c.cardPB[Game.is_Flipped.ToInt()]);
-                if (Player.Team == 1 || Game.is_Flipped)
+                //RENOVE LOGIK TO BE MADE
+                //Game.GameForm.Controls.Remove(c.cardPB[Game.is_Flipped.ToInt()]);
+                if (Player.Team == 1)
                 {
-                    Game.GameForm.Controls.Add(c.cardPB[Game.is_Flipped.ToInt()]);
-                    log = "Player.Team == 1 || Game.is_Flipped";
+                    Game.GameForm.Controls.Remove(c.cardPB[Game.is_Flipped.ToInt()]);
+                    log += "Player.Team == 1; Remove Same, ";
                 }
-                else if (Player.Team != 1 && !Game.is_Flipped && Game.GameRules["do_Flip"])
+                else if (Player.Team != 1 && Game.GameRules["do_Flip"])
                 {
-                    Game.GameForm.Controls.Add(c.cardPB[1]);
-                    log = $"Player.Team ({Player.Team}) != 1 && !Game.is_Flipped && Game.GameRules[\"do_Flip\"]; Draw Flip ";
+                    Game.GameForm.Controls.Remove(c.cardPB[(!Game.is_Flipped).ToInt()]);
+                    log += $"Player.Team ({Player.Team}) != 1 && Game.GameRules[\"do_Flip\"]; Remove Opposite, ";
                 }
                 else if (Player.Team != 1 && !Game.GameRules["do_Flip"])
                 {
-                    PictureBox tempPB = new PictureBox();
-                    tempPB.Location = c.cardPB[Game.is_Flipped.ToInt()].Location;
-                    tempPB.Image = Image.FromFile(Application.StartupPath + "\\small\\" + "card_back_alt.png");
-                    tempPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                    tempPB.Size = new System.Drawing.Size(50, 100);
-                    Game.GameForm.Controls.Add(tempPB);
-                    log = $"Player.Team  ({Player.Team}) != 1 && !Game.GameRules[\"do_Flip\"]; Draw blank back";
+                    Game.GameForm.Controls.Remove(c.cardPB[2]);
+                    log += $"Player.Team ({Player.Team}) != 1 && !Game.GameRules[\"do_Flip\"]; Remove Back, ";
+                }
+            }
+            foreach (CardClass c in Hand)
+            {
+                //RENOVE LOGIK TO BE MADE
+                //Game.GameForm.Controls.Remove(c.cardPB[Game.is_Flipped.ToInt()]);
+                if (Player.Team == 1)
+                {
+                    Game.GameForm.Controls.Add(c.cardPB[Game.is_Flipped.ToInt()]);
+                    log += "Player.Team == 1; Draw Same";
+                }
+                else if (Player.Team != 1 && Game.GameRules["do_Flip"])
+                {
+                    Game.GameForm.Controls.Add(c.cardPB[(!Game.is_Flipped).ToInt()]);
+                    log += $"Player.Team ({Player.Team}) != 1 && Game.GameRules[\"do_Flip\"]; Draw Opposite";
+                }
+                else if (Player.Team != 1 && !Game.GameRules["do_Flip"])
+                {
+                    Game.GameForm.Controls.Add(c.cardPB[2]);
+                    log += $"Player.Team ({Player.Team}) != 1 &&! Game.GameRules[\"do_Flip\"]; Draw Back";
                 }
             }
             console.Log($"method; (PlayerClass.DrawCards) [{log}]");
@@ -75,7 +91,7 @@ namespace uno
                 }
             }
 
-            console.Log($"method; (PlayerClass.EligableCards) [find e_Hand]; eHand; ({log}), Top deck ({TopOfDrawPile.Colors[INTis_Flipped]} {TopOfDrawPile.Numbers[INTis_Flipped]})");
+            console.Log($"method; (PlayerClass.EligableCards) [find e_Hand], eHand; ({log}), Top deck ({TopOfDrawPile.ToString(INTis_Flipped)}");
         }
 
         //Make it so that if the person clicks on one of their cards it does something

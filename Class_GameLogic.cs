@@ -46,24 +46,25 @@ namespace uno
             this.GameForm = GameForm;
 
             //set the teams
-            int[] teams = { 1, 1, 3, 4 };
+            int[] teams = { 1, 2, 3, 4 };
             if (this.GameRules["do_2v2"]) { teams = new int[] { 1, 2, 1, 2 }; }
 
             #region starting locations
             string consolemsg;
+            //x y (0 if horizontal) (1 if vertical) 
             if (this.PlayerAmount == 2)
             {
-                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - 105, 0 }, new int[] { GameForm.Width / 2, 5, 0 } };
+                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height*0.15)), 0 }, new int[] { GameForm.Width / 2, 5, 0 } };
                 consolemsg = $"{this.StartingPositions[0]}, {this.StartingPositions[1]}";
             }
             else if (this.PlayerAmount == 3)
             {
-                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - 105, 0 }, new int[] { 5, GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, 5, 0 } };
+                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.15)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 } };
                 consolemsg = $"{this.StartingPositions[0]}, {this.StartingPositions[1]}, {this.StartingPositions[2]}";
             }
             else if (this.PlayerAmount == 4)
             {
-                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - 105, 0 }, new int[] { 5, GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, 5, 0 }, new int[] { GameForm.Width - 105, GameForm.Height / 2, 1 } };
+                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.15)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 }, new int[] { GameForm.Width - ((int)(GameForm.Width * 0.15)), GameForm.Height / 2, 1 } };
                 consolemsg = $"{this.StartingPositions[0]}, {this.StartingPositions[1]}, {this.StartingPositions[2]}, {this.StartingPositions[3]}";
             }
             #endregion
@@ -100,10 +101,10 @@ namespace uno
     do_DrawtoMatch ({this.GameRules["do_DrawtoMatch"]}),
     do_Flip ({this.GameRules["do_Flip"]}),
     do_ChianAdds ({this.GameRules["do_ChainAdds"]}),
-    do_2v2 ({this.GameRules["do_2v2"]}, teams ({teams[0]}, {teams[1]}, {teams[2]}, {teams[3]})
+    do_2v2 ({this.GameRules["do_2v2"]}, teams ({teams[0]}, {teams[1]}, {teams[2]}, {teams[3]}))
     Player Amount ({this.PlayerAmount})
     Card Amount ({this.CardAmount})
-Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count - 1].cardPB[is_Flipped.ToInt()].Image})"
+Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Card; ({DiscardPile[DiscardPile.Count - 1].ToString(this.is_Flipped.ToInt())})"
             );
             //Card draw location; ({consolemsg}), brok idk why dont think it was improtant 
 
@@ -147,7 +148,7 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
             //go through every PlayerClass
             for (int i = 0; i < this.PlayerList.Count; i++)
             {
-                PlayerListCount += $"Player{i}CardCount; ({this.PlayerList[i].Hand.Count})\n";
+                PlayerListCount += $"\nPlayer{i} CardCount; ({this.PlayerList[i].Hand.Count})";
                 //Check if they have no Hand left, if they have do win screen and condition
                 if (this.PlayerList[i].Hand.Count == 0)
                 {
@@ -189,10 +190,9 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
             console.Log(
                 $@"method; (GameLogicClass.GameLogicClass) [Game INIT], UpdateScreen;
     is_Flipped ({is_Flipped}),
-    is_Reverced ({is_Reverced}),
-    {PlayerListCount}
+    is_Reverced ({is_Reverced}),{PlayerListCount}
     PlusAmount ({PlusAmount})
-Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.DiscardPile.Count - 1].Colors[this.is_Flipped.ToInt()]}, {this.DiscardPile[this.DiscardPile.Count - 1].Numbers[this.is_Flipped.ToInt()]})");
+    Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.DiscardPile.Count - 1].ToString(this.is_Flipped.ToInt())})");
         }
 
         //runs everytime the current PlayerClass clicks a CardClass
@@ -223,10 +223,30 @@ Discard Pile Count; ({DiscardPile.Count}), Top Card; ({this.DiscardPile[this.Dis
             //Remove this click event from the picture box in the CardClass so that you can't click a non existent CardClass
             this.DiscardPile[this.DiscardPile.Count - 1].cardPB[this.is_Flipped.ToInt()].Click -= cardPB_Click;
             //remove the picture off of the screen
-            this.GameForm.Controls.Remove(c_card.cardPB[this.is_Flipped.ToInt()]);
+            //this.GameForm.Controls.Remove(c_card.cardPB[this.is_Flipped.ToInt()]);
+            if (PlayerList[this.PlayerIndex].Team == 1)
+            {
+                this.GameForm.Controls.Remove(c_card.cardPB[this.is_Flipped.ToInt()]);
+                //log += "Player.Team == 1; Remove Same, ";
+            }
+            else if (PlayerList[this.PlayerIndex].Team != 1 && this.GameRules["do_Flip"])
+            {
+                this.GameForm.Controls.Remove(c_card.cardPB[(!this.is_Flipped).ToInt()]);
+                //log += $"Player.Team ({Player.Team}) != 1 && Game.GameRules[\"do_Flip\"]; Remove Opposite, ";
+            }
+            else if (PlayerList[this.PlayerIndex].Team != 1 && !this.GameRules["do_Flip"])
+            {
+                this.GameForm.Controls.Remove(c_card.cardPB[2]);
+                //log += $"Player.Team ({Player.Team}) != 1 && !Game.GameRules[\"do_Flip\"]; Remove Back, ";
+            }
 
             //skip
             if (c_card.Numbers.Contains("skip"))
+            {
+                console.Log("method; (GameLogicClass.CardClickLogic), In skip");
+                this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);
+            }
+            if (c_card.Numbers.Contains("reverse") && this.PlayerAmount == 2)
             {
                 console.Log("method; (GameLogicClass.CardClickLogic), In skip");
                 this.PlayerIndex = NextPlayer(this.PlayerIndex, this.PlayerList.Count);

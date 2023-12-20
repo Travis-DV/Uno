@@ -15,7 +15,7 @@ namespace uno
         public string[] Colors = { "", "" };
         public string[] Numbers = { "", ""};
         public int[] Points = { -1, -1 };
-        public PictureBox[] cardPB = { new PictureBox(), new PictureBox() };
+        public PictureBox[] cardPB = { new PictureBox(), new PictureBox(), new PictureBox() };
 
         public CardClass(string Colors, string Numbers, int points)
         {
@@ -26,6 +26,11 @@ namespace uno
             this.cardPB[0].Size = new System.Drawing.Size(50, 100);
             this.cardPB[0].Image = Image.FromFile(Application.StartupPath + "\\" + $"small\\{this.Colors[0]}_{this.Numbers[0]}.png");
             this.cardPB[0].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+
+            this.cardPB[2].Size = new System.Drawing.Size(50, 100);
+            this.cardPB[2].Image = Image.FromFile(Application.StartupPath + "\\small\\" + "card_back_alt.png");
+            this.cardPB[2].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+
             console.Log($@"method; (CardClass.CardClass) [Card INIT],
     NormalColor; ({Colors[0]}),
     NormalNumber; ({Numbers[0]}),
@@ -42,7 +47,7 @@ namespace uno
             this.Points[1] = points;
             this.cardPB[1].Size = new System.Drawing.Size(50, 100);
             this.cardPB[1].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cardPB[0].Image = Image.FromFile(Application.StartupPath + "\\" + $"small\\{this.Colors[1]}_{this.Numbers[1]}.png");
+            this.cardPB[1].Image = Image.FromFile(Application.StartupPath + "\\" + $"small\\{this.Colors[1]}_{this.Numbers[1]}.png");
             console.Log($@"method; (CardClass.SetFlip) [Flip Card INIT],
     FlipColor; ({Colors[1]}),
     FlipNumber; ({Numbers[1]}),
@@ -56,6 +61,7 @@ namespace uno
             console.Log($"method; (CardClass.SetPBLocation), x, y; ({location[0]}, {location[1]})");
             this.cardPB[0].Location = new Point(location[0], location[1]);
             this.cardPB[1].Location = new Point(location[0], location[1]);
+            this.cardPB[2].Location = new Point(location[0], location[1]);
         }
 
         public string ToString(int is_Flipped)
