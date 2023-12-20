@@ -9513,3 +9513,2023 @@ Player1 CardCount; (7)
     Discard Pile Count; (3), Top Card; (green wild; 40 Points)
 (12/20/2023 1:04:05 PM) |> method; (GameForm.GameForm_FormClosing)
 (12/20/2023 1:04:06 PM) |> method; (Form_PauseMenu.closeBT_Click) [closes here??] ---------------------------------------------------
+(12/20/2023 1:12:35 PM) |> ----------------------------------------------
+(12/20/2023 1:12:35 PM) |> Method; (SetupFormClass.SetupFormClass) [Start Up]
+(12/20/2023 1:12:38 PM) |> method; (SetupFormClass.twoPlayersBT_Click) [2v2; false, PlayerAmount = 2]
+(12/20/2023 1:12:39 PM) |> method; (SetupFormClass.doneBT_Click)
+(12/20/2023 1:12:39 PM) |> method; (Form_PauseMenu.Form_PauseMenu)
+(12/20/2023 1:12:39 PM) |> method; (GameForm.GameForm), Width: (2194), Height; (1205), Size; ({Width=2194, Height=1205})
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.PlayerClass) [Player init], is AI (False), Team; (1)
+(12/20/2023 1:12:39 PM) |> method; (AIClass.AIClass()) [AI INIT]
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.PlayerClass) [Player init], is AI (True), Team; (2)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.MakeDrawPile)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_0.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_1.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_3.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_4.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_5.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_6.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_7.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_8.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_9.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_+2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_reverse.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_skip.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_0.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_1.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_3.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_4.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_5.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_6.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_7.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_8.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_9.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_+2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_reverse.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_skip.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_0.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_1.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_3.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_4.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_5.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_6.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_7.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_8.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_9.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_+2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_reverse.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_skip.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_0.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_1.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_3.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_4.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_5.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_6.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_7.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_8.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_9.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_+2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_reverse.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_skip.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_1.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_3.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_4.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_5.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_6.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_7.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_8.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_9.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_+2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_reverse.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_skip.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_1.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_3.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_4.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_5.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_6.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_7.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_8.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_9.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_+2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_reverse.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_skip.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_1.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_3.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_4.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_5.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_6.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_7.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_8.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_9.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_+2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_reverse.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_skip.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_1.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_3.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_4.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_5.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_6.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_7.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_8.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_9.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_+2.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_reverse.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_skip.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.Deal)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 107), Value; (67)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 106), Value; (101)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 105), Value; (0)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 104), Value; (89)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 103), Value; (82)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 102), Value; (91)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 101), Value; (16)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.Deal)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 100), Value; (84)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 99), Value; (83)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 98), Value; (9)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 97), Value; (1)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 96), Value; (75)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 95), Value; (28)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 94), Value; (88)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 93), Value; (65)
+(12/20/2023 1:12:39 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.DisplayDrawPile) [drew stuff]
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
+    do_DrawtoMatch (False),
+    do_Flip (False),
+    do_ChianAdds (False),
+    do_2v2 (False, teams (1, 2, 3, 4))
+    Player Amount (2)
+    Card Amount (7)
+Player Index; (0), Discard Pile Count; (1), Top Card; (yellow 8; 8 Points)
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (907, 1025)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (962, 1025)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1017, 1025)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1072, 1025)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1127, 1025)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1182, 1025)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1237, 1025)
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1237, 1237)
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.UpdatePoints) [79]
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.DrawCards) [Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw Same]
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (yellow 8; 8 Points
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (907, 5)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (962, 5)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1017, 5)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1072, 5)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1127, 5)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1182, 5)
+(12/20/2023 1:12:39 PM) |> method; (CardClass.SetPBLocation), x, y; (1237, 5)
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1237, 1237)
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.UpdatePoints) [94]
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.DrawCards) [Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw Back]
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (yellow 8; 8 Points
+(12/20/2023 1:12:39 PM) |> method; (PlayerClass.ActivateClick)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (-4)
+(12/20/2023 1:12:39 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (7)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.DisplayDiscardPile), Discard Pile Count; (1), Added; (yellow 8; 8 Points)
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.DisplayDrawPile) [nothing to do]
+(12/20/2023 1:12:39 PM) |> method; (GameLogicClass.GameLogicClass) [Game INIT], UpdateScreen;
+    is_Flipped (False),
+    is_Reverced (False),
+Player0 CardCount; (7)
+Player1 CardCount; (7)
+    PlusAmount (0)
+    Discard Pile Count; (1), Top Card; (yellow 8; 8 Points)
+(12/20/2023 1:13:02 PM) |> ----------------------------------------------
+(12/20/2023 1:13:02 PM) |> Method; (SetupFormClass.SetupFormClass) [Start Up]
+(12/20/2023 1:13:03 PM) |> method; (SetupFormClass.twoPlayersBT_Click) [2v2; false, PlayerAmount = 2]
+(12/20/2023 1:13:04 PM) |> method; (SetupFormClass.doneBT_Click)
+(12/20/2023 1:13:04 PM) |> method; (Form_PauseMenu.Form_PauseMenu)
+(12/20/2023 1:13:04 PM) |> method; (GameForm.GameForm), Width: (2194), Height; (1205), Size; ({Width=2194, Height=1205})
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.PlayerClass) [Player init], is AI (False), Team; (1)
+(12/20/2023 1:13:04 PM) |> method; (AIClass.AIClass()) [AI INIT]
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.PlayerClass) [Player init], is AI (True), Team; (2)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.MakeDrawPile)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_0.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_1.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_3.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_4.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_5.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_6.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_7.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_8.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_9.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_+2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_reverse.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_skip.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_0.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_1.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_3.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_4.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_5.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_6.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_7.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_8.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_9.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_+2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_reverse.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_skip.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_0.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_1.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_3.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_4.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_5.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_6.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_7.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_8.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_9.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_+2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_reverse.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_skip.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_0.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_1.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_3.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_4.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_5.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_6.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_7.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_8.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_9.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_+2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_reverse.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_skip.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_1.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_3.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_4.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_5.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_6.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_7.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_8.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_9.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_+2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_reverse.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_skip.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_1.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_3.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_4.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_5.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_6.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_7.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_8.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_9.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_+2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_reverse.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_skip.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_1.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_3.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_4.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_5.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_6.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_7.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_8.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_9.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_+2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_reverse.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_skip.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_1.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_3.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_4.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_5.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_6.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_7.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_8.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_9.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_+2.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_reverse.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_skip.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.Deal)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 107), Value; (53)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 106), Value; (82)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 105), Value; (38)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 104), Value; (50)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 103), Value; (31)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 102), Value; (24)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 101), Value; (31)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.Deal)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 100), Value; (83)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 99), Value; (65)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 98), Value; (87)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 97), Value; (76)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 96), Value; (5)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 95), Value; (23)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 94), Value; (58)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 93), Value; (35)
+(12/20/2023 1:13:04 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.DisplayDrawPile) [drew stuff]
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
+    do_DrawtoMatch (False),
+    do_Flip (False),
+    do_ChianAdds (False),
+    do_2v2 (False, teams (1, 2, 3, 4))
+    Player Amount (2)
+    Card Amount (7)
+Player Index; (0), Discard Pile Count; (1), Top Card; (blue 2; 2 Points)
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (907, 1085)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (962, 1085)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1017, 1085)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1072, 1085)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1127, 1085)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1182, 1085)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1237, 1085)
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1237, 1237)
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.UpdatePoints) [82]
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.DrawCards) [Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw Same]
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (blue 2; 2 Points
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (907, 5)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (962, 5)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1017, 5)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1072, 5)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1127, 5)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1182, 5)
+(12/20/2023 1:13:04 PM) |> method; (CardClass.SetPBLocation), x, y; (1237, 5)
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1237, 1237)
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.UpdatePoints) [57]
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.DrawCards) [Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw Back]
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (blue 2; 2 Points
+(12/20/2023 1:13:04 PM) |> method; (PlayerClass.ActivateClick)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (-1)
+(12/20/2023 1:13:04 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (4)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.DisplayDiscardPile), Discard Pile Count; (1), Added; (blue 2; 2 Points)
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.DisplayDrawPile) [nothing to do]
+(12/20/2023 1:13:04 PM) |> method; (GameLogicClass.GameLogicClass) [Game INIT], UpdateScreen;
+    is_Flipped (False),
+    is_Reverced (False),
+Player0 CardCount; (7)
+Player1 CardCount; (7)
+    PlusAmount (0)
+    Discard Pile Count; (1), Top Card; (blue 2; 2 Points)
+(12/20/2023 1:13:07 PM) |> method; (GameForm.GameForm_FormClosing)
+(12/20/2023 1:13:08 PM) |> method; (Form_PauseMenu.closeBT_Click) [closes here??] ---------------------------------------------------
+(12/20/2023 1:13:19 PM) |> ----------------------------------------------
+(12/20/2023 1:13:19 PM) |> Method; (SetupFormClass.SetupFormClass) [Start Up]
+(12/20/2023 1:13:20 PM) |> method; (SetupFormClass.twoPlayersBT_Click) [2v2; false, PlayerAmount = 2]
+(12/20/2023 1:13:21 PM) |> method; (SetupFormClass.doneBT_Click)
+(12/20/2023 1:13:21 PM) |> method; (Form_PauseMenu.Form_PauseMenu)
+(12/20/2023 1:13:21 PM) |> method; (GameForm.GameForm), Width: (2194), Height; (1205), Size; ({Width=2194, Height=1205})
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.PlayerClass) [Player init], is AI (False), Team; (1)
+(12/20/2023 1:13:21 PM) |> method; (AIClass.AIClass()) [AI INIT]
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.PlayerClass) [Player init], is AI (True), Team; (2)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.MakeDrawPile)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_0.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_1.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_3.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_4.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_5.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_6.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_7.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_8.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_9.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_+2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_reverse.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_skip.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_0.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_1.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_3.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_4.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_5.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_6.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_7.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_8.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_9.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_+2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_reverse.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_skip.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_0.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_1.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_3.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_4.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_5.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_6.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_7.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_8.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_9.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_+2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_reverse.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_skip.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (0),
+    NormalPoints; (0),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_0.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_1.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_3.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_4.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_5.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_6.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_7.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_8.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_9.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_+2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_reverse.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_skip.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_1.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_3.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_4.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_5.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_6.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_7.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_8.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_9.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_+2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_reverse.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (r),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\red_skip.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_1.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_3.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_4.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_5.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_6.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_7.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_8.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_9.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_+2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_reverse.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (y),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\yellow_skip.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_1.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_3.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_4.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_5.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_6.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_7.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_8.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_9.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_+2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_reverse.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (g),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\green_skip.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (1),
+    NormalPoints; (1),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_1.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (2),
+    NormalPoints; (2),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (3),
+    NormalPoints; (3),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_3.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (4),
+    NormalPoints; (4),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_4.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (5),
+    NormalPoints; (5),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_5.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (6),
+    NormalPoints; (6),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_6.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (7),
+    NormalPoints; (7),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_7.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (8),
+    NormalPoints; (8),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_8.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (9),
+    NormalPoints; (9),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_9.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (+),
+    NormalPoints; (10),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_+2.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (r),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_reverse.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (b),
+    NormalNumber; (s),
+    NormalPoints; (20),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\blue_skip.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (+),
+    NormalPoints; (50),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_+4_wild.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.CardClass) [Card INIT],
+    NormalColor; (w),
+    NormalNumber; (w),
+    NormalPoints; (40),
+    Image; (G:\githubstuff\uno\bin\Debug\\small\\wild_wild.png)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.Deal)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 107), Value; (47)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 106), Value; (104)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 105), Value; (19)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 104), Value; (25)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 103), Value; (64)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 102), Value; (78)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 101), Value; (62)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.Deal)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 100), Value; (42)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 99), Value; (86)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 98), Value; (38)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 97), Value; (95)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 96), Value; (33)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 95), Value; (53)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 94), Value; (68)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 93), Value; (14)
+(12/20/2023 1:13:21 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.DisplayDrawPile) [drew stuff]
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.GameLogicClass) [Game INIT], Gamerules;
+    do_DrawtoMatch (False),
+    do_Flip (False),
+    do_ChianAdds (False),
+    do_2v2 (False, teams (1, 2, 3, 4))
+    Player Amount (2)
+    Card Amount (7)
+Player Index; (0), Discard Pile Count; (1), Top Card; (yellow 1; 1 Points)
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (907, 1055)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (962, 1055)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1017, 1055)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1072, 1055)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1127, 1055)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1182, 1055)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1237, 1055)
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1237, 1237)
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.UpdatePoints) [67]
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.DrawCards) [Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw Same]
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (yellow 1; 1 Points
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (907, 5)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (962, 5)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1017, 5)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1072, 5)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1127, 5)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1182, 5)
+(12/20/2023 1:13:21 PM) |> method; (CardClass.SetPBLocation), x, y; (1237, 5)
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1237, 1237)
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.UpdatePoints) [71]
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.DrawCards) [Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw Back]
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (yellow 1; 1 Points
+(12/20/2023 1:13:21 PM) |> method; (PlayerClass.ActivateClick)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (3)
+(12/20/2023 1:13:21 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (-10)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.DisplayDiscardPile), Discard Pile Count; (1), Added; (yellow 1; 1 Points)
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.DisplayDrawPile) [nothing to do]
+(12/20/2023 1:13:21 PM) |> method; (GameLogicClass.GameLogicClass) [Game INIT], UpdateScreen;
+    is_Flipped (False),
+    is_Reverced (False),
+Player0 CardCount; (7)
+Player1 CardCount; (7)
+    PlusAmount (0)
+    Discard Pile Count; (1), Top Card; (yellow 1; 1 Points)
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.FindPictureInList), Card Index; (6)
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.cardPB_Click), Card Index (6)
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.CardPlay), c_card; (yellow) (2), error
+(12/20/2023 1:13:23 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.NextPlayer), current; (0), max (2), next player +1
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.AddLogic)
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.NextPlayer), current; (0), max (2), next player +1
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.CardClickLogic), Card Index; (6), Card Color; (System.Drawing.Bitmap), Top Deck (System.Windows.Forms.PictureBox, SizeMode: StretchImage, 2), Player Index (1)
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (932, 1055)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (987, 1055)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (1042, 1055)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (1097, 1055)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (1152, 1055)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (1207, 1055)
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1207, 1207)
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.UpdatePoints) [132]
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.DrawCards) [Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw Same]
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (yellow 2; 2 Points
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (907, 5)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (962, 5)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (1017, 5)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (1072, 5)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (1127, 5)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (1182, 5)
+(12/20/2023 1:13:23 PM) |> method; (CardClass.SetPBLocation), x, y; (1237, 5)
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1237, 1237)
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.UpdatePoints) [142]
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.DrawCards) [Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw Back]
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (yellow 2; 2 Points
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.ActivateClick)
+(12/20/2023 1:13:23 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (7)
+(12/20/2023 1:13:23 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (-7)
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.DisplayDiscardPile), Discard Pile Count; (2), Added; (yellow 2; 2 Points)
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.DisplayDrawPile) [nothing to do]
+(12/20/2023 1:13:23 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (yellow 2; 2 Points
+(12/20/2023 1:13:23 PM) |> method; (RandomNumber.Between), Between; (min: 0, max: 1), Value; (0)
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.FindPictureInList), Card Index; (3)
+(12/20/2023 1:13:23 PM) |> method; (AIClass.Play()) [AI Play], Current player team; (2), Player e_Hand amount; (2), Card index; (0), Card (e_Hand); (System.Drawing.Bitmap), game.is_Flipped; (False); CardIndex (Hand); 3
+(12/20/2023 1:13:23 PM) |> method; (GameLogicClass.FindPictureInList), Card Index; (3)
+(12/20/2023 1:13:23 PM) |> method; (wildFormClass.wildFormClass)
+(12/20/2023 1:13:28 PM) |> method; (wildFormClass.blueBT_Click) [this.Tag = blue]
+(12/20/2023 1:13:28 PM) |> method; (GameLogicClass.CardPlay), c_card; (blue) (wild), wild, blue
+(12/20/2023 1:13:28 PM) |> method; (Extensions.pop), Thing Popped; (uno.CardClass)
+(12/20/2023 1:13:28 PM) |> method; (GameLogicClass.NextPlayer), current; (1), max (2), next player 0
+(12/20/2023 1:13:28 PM) |> method; (GameLogicClass.AddLogic)
+(12/20/2023 1:13:28 PM) |> method; (GameLogicClass.NextPlayer), current; (1), max (2), next player 0
+(12/20/2023 1:13:28 PM) |> method; (GameLogicClass.CardClickLogic), Card Index; (3), Card Color; (System.Drawing.Bitmap), Top Deck (System.Windows.Forms.PictureBox, SizeMode: StretchImage, wild), Player Index (0)
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (932, 1055)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (987, 1055)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (1042, 1055)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (1097, 1055)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (1152, 1055)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (1207, 1055)
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1207, 1207)
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.UpdatePoints) [197]
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.DrawCards) [Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Remove Same, Player.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw SamePlayer.Team == 1; Draw Same]
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (blue wild; 40 Points
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.DeactivateClick)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (932, 5)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (987, 5)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (1042, 5)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (1097, 5)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (1152, 5)
+(12/20/2023 1:13:28 PM) |> method; (CardClass.SetPBLocation), x, y; (1207, 5)
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.FindCardPosition), Positions x,y (1207, 1207)
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.UpdatePoints) [173]
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.DrawCards) [Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 && !Game.GameRules["do_Flip"]; Remove Back, Player.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw BackPlayer.Team (2) != 1 &&! Game.GameRules["do_Flip"]; Draw Back]
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.EligableCards) [find e_Hand], eHand; (System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, System.Windows.Forms.PictureBox, SizeMode: StretchImage, ), Top deck (blue wild; 40 Points
+(12/20/2023 1:13:28 PM) |> method; (PlayerClass.ActivateClick)
+(12/20/2023 1:13:28 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (0)
+(12/20/2023 1:13:28 PM) |> method; (RandomNumber.Between), Between; (min: -10, max: 10), Value; (-9)
+(12/20/2023 1:13:28 PM) |> method; (GameLogicClass.DisplayDiscardPile), Discard Pile Count; (3), Added; (blue wild; 40 Points)
+(12/20/2023 1:13:28 PM) |> method; (GameLogicClass.DisplayDrawPile) [nothing to do]
+(12/20/2023 1:13:28 PM) |> method; (GameLogicClass.GameLogicClass) [Game INIT], UpdateScreen;
+    is_Flipped (False),
+    is_Reverced (False),
+Player0 CardCount; (6)
+Player1 CardCount; (6)
+    PlusAmount (0)
+    Discard Pile Count; (3), Top Card; (blue wild; 40 Points)
+(12/20/2023 1:13:28 PM) |> method; (GameLogicClass.GameLogicClass) [Game INIT], UpdateScreen;
+    is_Flipped (False),
+    is_Reverced (False),
+Player0 CardCount; (6)
+Player1 CardCount; (7)
+    PlusAmount (0)
+    Discard Pile Count; (3), Top Card; (blue wild; 40 Points)
+(12/20/2023 1:13:28 PM) |> method; (GameForm.GameForm_FormClosing)
+(12/20/2023 1:13:29 PM) |> method; (Form_PauseMenu.closeBT_Click) [closes here??] ---------------------------------------------------

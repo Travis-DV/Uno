@@ -54,17 +54,17 @@ namespace uno
             //x y (0 if horizontal) (1 if vertical) 
             if (this.PlayerAmount == 2)
             {
-                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height*0.15)), 0 }, new int[] { GameForm.Width / 2, 5, 0 } };
+                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height*0.125)), 0 }, new int[] { GameForm.Width / 2, 5, 0 } };
                 consolemsg = $"{this.StartingPositions[0]}, {this.StartingPositions[1]}";
             }
             else if (this.PlayerAmount == 3)
             {
-                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.15)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 } };
+                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.125)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 } };
                 consolemsg = $"{this.StartingPositions[0]}, {this.StartingPositions[1]}, {this.StartingPositions[2]}";
             }
             else if (this.PlayerAmount == 4)
             {
-                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.15)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 }, new int[] { GameForm.Width - ((int)(GameForm.Width * 0.15)), GameForm.Height / 2, 1 } };
+                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.125)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 }, new int[] { GameForm.Width - ((int)(GameForm.Width * 0.15)), GameForm.Height / 2, 1 } };
                 consolemsg = $"{this.StartingPositions[0]}, {this.StartingPositions[1]}, {this.StartingPositions[2]}, {this.StartingPositions[3]}";
             }
             #endregion
