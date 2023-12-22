@@ -54,17 +54,17 @@ namespace uno
             //x y (0 if horizontal) (1 if vertical) 
             if (this.PlayerAmount == 2)
             {
-                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height*0.125)), 0 }, new int[] { GameForm.Width / 2, 5, 0 } };
+                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height*0.15)), 0 }, new int[] { GameForm.Width / 2, 5, 0 } };
                 consolemsg = $"{this.StartingPositions[0]}, {this.StartingPositions[1]}";
             }
             else if (this.PlayerAmount == 3)
             {
-                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.125)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 } };
+                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.15)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 } };
                 consolemsg = $"{this.StartingPositions[0]}, {this.StartingPositions[1]}, {this.StartingPositions[2]}";
             }
             else if (this.PlayerAmount == 4)
             {
-                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.125)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 }, new int[] { GameForm.Width - ((int)(GameForm.Width * 0.15)), GameForm.Height / 2, 1 } };
+                this.StartingPositions = new List<int[]>() { new int[] { GameForm.Width / 2, GameForm.Height - ((int)(GameForm.Height * 0.15)), 0 }, new int[] { ((int)(GameForm.Width * 0.05)), GameForm.Height / 2, 1 }, new int[] { GameForm.Width / 2, ((int)(GameForm.Height * 0.05)), 0 }, new int[] { GameForm.Width - ((int)(GameForm.Width * 0.15)), GameForm.Height / 2, 1 } };
                 consolemsg = $"{this.StartingPositions[0]}, {this.StartingPositions[1]}, {this.StartingPositions[2]}, {this.StartingPositions[3]}";
             }
             #endregion
@@ -212,7 +212,8 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
             if (!this.PlayerList[this.PlayerIndex].e_Hand.Contains(c_card)) { return; }
 
             //Do the logic to see if the CardClass was "special" in any way and needs logic for it
-            if (!this.is_Flipped) { CardPlay(c_card); }
+            bool isAi = this.PlayerList[this.PlayerIndex].AI != null ? true : false;
+            if (!this.is_Flipped) { CardPlay(c_card, isAi); }
 
             //Add this CardClass to the dicard pile and remove it from the PlayerList hand
             this.DiscardPile.Add(this.PlayerList[this.PlayerIndex].Hand.pop(Card_Index));
@@ -262,12 +263,12 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
         }
 
         //CHANGE WITH is_Flipped
-        private void CardPlay(CardClass c_card)
+        private void CardPlay(CardClass c_card, bool isAi)
         {
             string log = "error";
 
             //If it is a wild CardClass then get what Colors the user wants and then place do normal remove stuff on it as if it was that Colors
-            if (c_card.Numbers[this.is_Flipped.ToInt()].Contains("wild"))
+            if (c_card.Numbers[this.is_Flipped.ToInt()].Contains("wild") && !isAi)
             {
                 //MAKE WILD FORM WORK WITH FLIP
                 wildFormClass wildform = new wildFormClass();
@@ -276,6 +277,14 @@ Player Index; ({PlayerIndex}), Discard Pile Count; ({DiscardPile.Count}), Top Ca
                     c_card.Colors[this.is_Flipped.ToInt()] = wildform.Tag as string;
                 }
                 log = $"wild, {wildform.Tag as string}";
+            }
+            if (c_card.Numbers[this.is_Flipped.ToInt()].Contains("wild") && isAi)
+            {
+                //MAKE WILD FORM WORK WITH FLIP
+                string[] possible = { "red", "blue", "green", "yellow" };
+                int rand = RandomNumber.Between(0, possible.Length - 1);
+                c_card.Colors[this.is_Flipped.ToInt()] = possible[rand];
+                log = $"wild, {possible[rand]}";
             }
             //If the CardClass is an addition CardClass then add to the plus amount for add logic
             if (c_card.Numbers[this.is_Flipped.ToInt()].Contains("+"))
